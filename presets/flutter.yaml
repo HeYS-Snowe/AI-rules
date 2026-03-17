@@ -1,0 +1,166 @@
+# Flutter 项目预设配置
+
+# 项目信息
+project:
+  type: "mobile"
+  subcategory: "hybrid"
+
+# 技术栈
+tech:
+  frontend:
+    framework: "flutter"
+    language: "dart"
+    state: "riverpod"
+    router: "go-router"
+
+  mobile:
+    platforms: ["android", "ios", "web"]
+    local_storage: "drift"
+    secure_storage: "flutter_secure_storage"
+    push_notification: "firebase-messaging"
+
+# 依赖版本
+versions:
+  flutter: "3.5+"
+  dart: "3.0+"
+  riverpod: "3.x"
+  go_router: "17.x"
+  drift: "2.x"
+  dio: "5.x"
+  freezed: "2.x"
+
+# 目录结构
+structure:
+  lib:
+    main: "main.dart"
+    app: "app.dart"
+    core:
+      - "constants"
+      - "theme"
+      - "router"
+      - "errors"
+      - "utils"
+    data:
+      - "models"
+      - "repositories"
+      - "datasources/local"
+      - "datasources/remote"
+    domain:
+      - "entities"
+      - "repositories"
+      - "usecases"
+    presentation:
+      - "pages"
+      - "widgets"
+      - "providers"
+    shared:
+      - "services"
+      - "extensions"
+  assets:
+    - "images"
+    - "fonts"
+    - "animations"
+  scripts:
+    - "build_apk.ps1"
+    - "rename_apk.ps1"
+
+# 状态管理规范
+state_management:
+  solution: "riverpod"
+  style: "code-generation"
+  patterns:
+    - "@riverpod annotation"
+    - "Notifier / AsyncNotifier"
+    - "Provider pattern"
+
+# 路由规范
+routing:
+  solution: "go-router"
+  features:
+    - "Declarative routing"
+    - "Deep linking"
+    - "Route guards"
+
+# 数据建模
+data_modeling:
+  solution: "freezed"
+  features:
+    - "Immutable models"
+    - "Union types"
+    - "JSON serialization"
+
+# 网络请求
+networking:
+  solution: "dio"
+  features:
+    - "Interceptors"
+    - "Request/Response logging"
+    - "Error handling"
+
+# 本地存储
+storage:
+  database: "drift"
+  secure: "flutter_secure_storage"
+  preferences: "shared_preferences"
+
+# 代码规范
+code_style:
+  naming:
+    classes: "PascalCase"
+    variables: "camelCase"
+    constants: "camelCase"
+    files: "snake_case"
+    private: "_prefix"
+
+  structure:
+    max_file_lines: 500
+    max_function_lines: 50
+    max_parameters: 5
+
+# 测试规范
+testing:
+  unit: "flutter_test"
+  mock: "mockito"
+  coverage_target: 80
+
+# 构建规范
+build:
+  commands:
+    debug: "flutter build apk --debug"
+    release: "flutter build apk --release"
+    appbundle: "flutter build appbundle --release"
+
+  artifact:
+    format: "{project}_{status}_{version}_{date}_{seq}.apk"
+    status_types:
+      release: "正式版"
+      beta: "测试版"
+      alpha: "内测版"
+      dev: "开发版"
+      debug: "调试版"
+
+  post_build:
+    rename: true
+    backup: true
+    call_version_manager: true
+
+# 环境变量
+environment:
+  required:
+    - "API_BASE_URL"
+  optional:
+    - "GRADLE_USER_HOME"
+
+# 禁止事项
+forbidden:
+  - "硬编码 API 密钥"
+  - "直接使用 setState (使用 Riverpod)"
+  - "在 build 方法中执行异步操作"
+  - "使用 GlobalKey 除非必要"
+
+# 必须遵守
+required:
+  - "所有模型使用 freezed"
+  - "所有 Provider 使用 @riverpod 注解"
+  - "敏感数据使用 flutter_secure_storage"
+  - "API 错误统一处理"

@@ -1,0 +1,148 @@
+# Python FastAPI 项目预设配置
+
+# 项目信息
+project:
+  type: "web-backend"
+  subcategory: "api"
+
+# 技术栈
+tech:
+  backend:
+    language: "python"
+    framework: "fastapi"
+    database: "postgresql"
+    orm: "sqlalchemy"
+    auth: "jwt"
+
+# 依赖版本
+versions:
+  python: "3.11+"
+  fastapi: "0.109+"
+  sqlalchemy: "2.x"
+  pydantic: "2.x"
+  alembic: "1.x"
+  uvicorn: "0.27+"
+
+# 目录结构
+structure:
+  app:
+    main: "main.py"
+    api:
+      - "deps.py"
+      - "v1/endpoints"
+    core:
+      - "config.py"
+      - "security.py"
+      - "exceptions.py"
+    models: []
+    schemas: []
+    services: []
+    repositories: []
+    db:
+      - "session.py"
+      - "base.py"
+    utils: []
+    middleware: []
+  alembic:
+    - "versions"
+    - "env.py"
+  tests:
+    - "unit"
+    - "integration"
+    - "conftest.py"
+
+# API 规范
+api:
+  version: "v1"
+  prefix: "/api/v1"
+  docs: "/docs"
+  redoc: "/redoc"
+
+  response_format:
+    success:
+      code: 200
+      message: "success"
+      data: {}
+    error:
+      code: 400
+      message: "Error description"
+      errors: []
+
+# 数据库规范
+database:
+  orm: "sqlalchemy"
+  migration: "alembic"
+  connection_pool: true
+  async: true
+
+# 认证规范
+authentication:
+  method: "jwt"
+  algorithm: "HS256"
+  access_token_expire: 30  # minutes
+  refresh_token_expire: 7  # days
+
+# 代码规范
+code_style:
+  naming:
+    classes: "PascalCase"
+    functions: "snake_case"
+    variables: "snake_case"
+    constants: "UPPER_SNAKE_CASE"
+    files: "snake_case"
+
+  structure:
+    max_file_lines: 300
+    max_function_lines: 30
+    max_parameters: 5
+
+  type_hints: true
+  docstrings: "google"
+
+# Pydantic 规范
+schemas:
+  style: "pydantic v2"
+  features:
+    - "BaseModel"
+    - "Field validation"
+    - "ConfigDict"
+    - "model_validator"
+
+# 测试规范
+testing:
+  unit: "pytest"
+  http: "httpx"
+  mock: "unittest.mock"
+  coverage_target: 80
+  async: "pytest-asyncio"
+
+# 构建规范
+build:
+  commands:
+    install: "pip install -r requirements.txt"
+    dev: "uvicorn app.main:app --reload"
+    prod: "uvicorn app.main:app --host 0.0.0.0"
+
+# 环境变量
+environment:
+  required:
+    - "DATABASE_URL"
+    - "SECRET_KEY"
+  optional:
+    - "ACCESS_TOKEN_EXPIRE_MINUTES"
+    - "ALLOWED_ORIGINS"
+
+# 禁止事项
+forbidden:
+  - "硬编码敏感信息"
+  - "同步数据库操作 (使用 async)"
+  - "直接返回 ORM 模型 (使用 Schema)"
+  - "SQL 字符串拼接"
+
+# 必须遵守
+required:
+  - "所有 API 有类型注解"
+  - "使用 Pydantic 验证输入"
+  - "使用依赖注入"
+  - "统一错误处理"
+  - "数据库迁移使用 Alembic"

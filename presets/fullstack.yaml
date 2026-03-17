@@ -1,0 +1,176 @@
+# 全栈项目预设配置 (Monorepo)
+
+# 项目信息
+project:
+  type: "fullstack"
+  fullstack:
+    mode: "monorepo"
+    frontend: "apps/web"
+    backend: "apps/api"
+
+# 技术栈
+tech:
+  frontend:
+    framework: "react"
+    language: "typescript"
+    state: "zustand"
+    router: "react-router"
+    ui: "tailwind"
+    build: "vite"
+
+  backend:
+    language: "python"
+    framework: "fastapi"
+    database: "postgresql"
+    orm: "sqlalchemy"
+    auth: "jwt"
+
+# 依赖版本
+versions:
+  frontend:
+    react: "18.x"
+    typescript: "5.x"
+    zustand: "4.x"
+    vite: "5.x"
+  backend:
+    python: "3.11+"
+    fastapi: "0.109+"
+    sqlalchemy: "2.x"
+
+# 目录结构
+structure:
+  apps:
+    web:                        # 前端应用
+      src:
+        - "components"
+        - "pages"
+        - "hooks"
+        - "store"
+        - "api"
+        - "utils"
+    api:                        # 后端 API
+      app:
+        - "api"
+        - "core"
+        - "models"
+        - "schemas"
+        - "services"
+    mobile:                     # 移动端 (可选)
+      lib:
+        - "core"
+        - "data"
+        - "presentation"
+    admin:                      # 管理后台 (可选)
+
+  packages:                     # 共享包
+    types:                      # 共享类型
+      src: "index.ts"
+    utils:                      # 共享工具
+      src: "index.ts"
+    ui:                         # 共享 UI 组件
+      src: "index.ts"
+    api-client:                 # API 客户端
+      src: "index.ts"
+
+  tooling:                      # 工具配置
+    - "eslint"
+    - "typescript"
+    - "prettier"
+
+  docs:                         # 文档
+    - "api.md"
+    - "deployment.md"
+
+# Monorepo 工具
+monorepo:
+  tool: "pnpm workspace"
+  commands:
+    install: "pnpm install"
+    dev: "pnpm dev"
+    build: "pnpm build"
+    test: "pnpm test"
+    lint: "pnpm lint"
+
+# 共享规范
+shared:
+  types:
+    location: "packages/types"
+    generate: "typescript"
+
+  api_client:
+    location: "packages/api-client"
+    generate: "openapi-typescript"
+
+# 前端规范
+frontend:
+  port: 3000
+  api_proxy: "http://localhost:8000"
+
+# 后端规范
+backend:
+  port: 8000
+  cors:
+    origins: ["http://localhost:3000"]
+
+# 代码规范
+code_style:
+  frontend:
+    naming:
+      components: "PascalCase"
+      hooks: "use + PascalCase"
+      files: "camelCase"
+  backend:
+    naming:
+      classes: "PascalCase"
+      functions: "snake_case"
+      files: "snake_case"
+
+# 测试规范
+testing:
+  frontend:
+    unit: "vitest"
+    e2e: "playwright"
+  backend:
+    unit: "pytest"
+    integration: "httpx"
+  coverage_target: 80
+
+# 构建规范
+build:
+  frontend:
+    output: "apps/web/dist"
+  backend:
+    output: "apps/api"
+
+# 环境变量
+environment:
+  frontend:
+    required:
+      - "VITE_API_URL"
+  backend:
+    required:
+      - "DATABASE_URL"
+      - "SECRET_KEY"
+
+# CI/CD
+cicd:
+  platform: "github-actions"
+  stages:
+    - "lint"
+    - "test"
+    - "build"
+    - "deploy"
+
+# 禁止事项
+forbidden:
+  - "前端硬编码 API URL"
+  - "后端硬编码 CORS origins"
+  - "重复的类型定义"
+  - "循环依赖"
+
+# 必须遵守
+required:
+  - "共享类型放在 packages/types"
+  - "API 变更同步更新类型"
+  - "使用共享的 API 客户端"
+  - "环境变量统一管理"

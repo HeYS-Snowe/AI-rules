@@ -1,0 +1,219 @@
+# 定制需求配置文件 (Custom Requirements)
+# 用于生成项目特定的规则
+
+# ============================================================
+# 基础信息
+# ============================================================
+project:
+  name: ""                      # 必填：项目名称
+  description: ""               # 可选：项目简介
+  version: "0.0.1"              # 初始版本号
+
+# ============================================================
+# 项目类型 (必选其一)
+# ============================================================
+type:
+  # 主类型 (必选)
+  category: ""                  # web-frontend | web-backend | mobile | desktop | fullstack | cli | library | microservice
+
+  # 子类型 (可选)
+  subcategory: ""               # spa | pwa | hybrid | native
+
+  # 如果是全栈项目
+  fullstack:
+    mode: ""                    # monorepo | separate-repos
+    frontend: ""                # 前端位置
+    backend: ""                 # 后端位置
+
+# ============================================================
+# 技术栈配置
+# ============================================================
+tech:
+  # 前端配置 (如适用)
+  frontend:
+    framework: ""               # react | vue | angular | svelte | flutter | react-native | electron
+    language: ""                # typescript | javascript | dart
+    state: ""                   # redux | mobx | zustand | riverpod | bloc | provider | pinia
+    router: ""                  # react-router | vue-router | go-router | auto_route
+    ui: ""                      # ant-design | element-plus | material-ui | tailwind | chakra
+    build: ""                   # vite | webpack | rollup | esbuild
+
+  # 后端配置 (如适用)
+  backend:
+    language: ""                # typescript | javascript | python | go | java | rust
+    framework: ""               # express | nestjs | fastapi | django | flask | gin | spring
+    database: ""                # postgresql | mysql | mongodb | sqlite | redis
+    orm: ""                     # prisma | typeorm | sqlalchemy | drizzle | drift
+    auth: ""                    # jwt | session | oauth | firebase-auth
+
+  # 移动端配置 (如适用)
+  mobile:
+    platforms: []               # [android, ios, web, desktop]
+    local_storage: ""           # shared_preferences | hive | drift | sqflite
+    secure_storage: ""          # flutter_secure_storage | keychain | keystore
+    push_notification: ""       # firebase-messaging | onesignal
+
+# ============================================================
+# 特殊需求
+# ============================================================
+requirements:
+  # 功能需求
+  features:
+    - ""                        # 例如: "需要离线支持"
+    - ""                        # 例如: "需要推送通知"
+    - ""                        # 例如: "需要国际化"
+
+  # 非功能需求
+  non_functional:
+    performance: ""             # 例如: "首屏加载 < 3s"
+    security: []                # 例如: ["数据加密", "HTTPS only"]
+    accessibility: false        # 是否需要无障碍支持
+    offline: false              # 是否需要离线支持
+
+  # 国际化配置
+  i18n:
+    enabled: false
+    default_locale: "zh-CN"
+    supported_locales: []       # ["en-US", "ja-JP"]
+
+# ============================================================
+# 约束条件
+# ============================================================
+constraints:
+  # 兼容性要求
+  compatibility:
+    - ""                        # 例如: "必须兼容 Android 8.0+"
+    - ""                        # 例如: "支持 Chrome 90+"
+    - ""                        # 例如: "iOS 13+"
+
+  # 限制条件
+  limits:
+    bundle_size: ""             # 例如: "不超过 20MB"
+    memory: ""                  # 例如: "运行时内存 < 200MB"
+    startup_time: ""            # 例如: "启动时间 < 2s"
+
+  # 依赖限制
+  dependencies:
+    allowed_licenses: []        # ["MIT", "Apache-2.0", "BSD"]
+    forbidden_packages: []      # 黑名单
+    max_dependencies: 50        # 最大依赖数量
+
+# ============================================================
+# 第三方服务
+# ============================================================
+services:
+  auth: ""                      # firebase-auth | auth0 | cognito | custom
+  analytics: ""                 # firebase-analytics | mixpanel | amplitude
+  monitoring: ""                # sentry | bugsnag | crashlytics
+  push: ""                      # firebase-messaging | onesignal
+  storage: ""                   # firebase-storage | s3 | oss
+  cdn: ""                       # cloudflare | aws-cloudfront
+  cicd: ""                      # github-actions | gitlab-ci | jenkins
+  payment: ""                   # stripe | alipay | wechat-pay
+
+# ============================================================
+# 开发偏好
+# ============================================================
+preferences:
+  # 代码风格
+  style:
+    indent: 2                   # 2 | 4
+    quotes: "single"            # single | double
+    semicolons: false           # true | false
+    trailing_comma: "es5"       # none | es5 | all
+
+  # 测试配置
+  testing:
+    unit_framework: ""          # jest | vitest | pytest | flutter_test
+    e2e_framework: ""           # playwright | cypress | appium
+    coverage_target: 80         # 目标覆盖率 (%)
+
+  # 文档配置
+  documentation:
+    language: "zh-CN"           # 文档语言
+    api_docs: true              # 是否自动生成 API 文档
+    readme: true                # 是否生成 README
+
+# ============================================================
+# 项目特定规则 (覆盖默认规则)
+# ============================================================
+overrides:
+  # 自定义目录结构
+  structure: {}
+    # 示例:
+    # src:
+    #   components: "ui"
+    #   pages: "views"
+
+  # 自定义命名约定
+  naming: {}
+    # 示例:
+    # components: "PascalCase"
+    # files: "kebab-case"
+
+  # 禁止事项
+  forbidden:
+    - []                        # 例如: "禁止使用 any 类型"
+    - []                        # 例如: "禁止 console.log"
+
+  # 必须遵守
+  required:
+    - []                        # 例如: "所有 API 必须有错误处理"
+    - []                        # 例如: "所有组件必须有 PropTypes"
+
+# ============================================================
+# 构建配置
+# ============================================================
+build:
+  # 构建产物命名
+  artifact:
+    name_format: "{project}_{status}_{version}_{date}_{seq}"
+    # 可用变量: project, status, version, date, seq
+
+  # 状态类型映射
+  status_map:
+    release: "正式版"
+    beta: "测试版"
+    alpha: "内测版"
+    dev: "开发版"
+
+  # 构建后处理
+  post_build:
+    rename: true                # 是否重命名
+    backup: true                # 是否备份
+    log: true                   # 是否生成日志
+
+# ============================================================
+# 环境配置
+# ============================================================
+environments:
+  development:
+    api_url: ""
+    debug: true
+
+  staging:
+    api_url: ""
+    debug: false
+
+  production:
+    api_url: ""
+    debug: false
+
+# ============================================================
+# 规则引用 (引用其他规则文件)
+# ============================================================
+includes:
+  # 引用预设
+  presets:
+    - ""                        # 例如: "flutter"
+
+  # 引用外部规则文件
+  files:
+    - ""                        # 例如: "./custom-security-rules.md"
+
+  # 引用核心规则 (默认全部包含)
+  core:
+    - "principles"              # 核心原则
+    - "security"                # 安全规范
+    - "code-style"              # 代码风格
+    - "workflow"                # 开发流程
