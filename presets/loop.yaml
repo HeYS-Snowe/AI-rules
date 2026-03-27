@@ -1,0 +1,215 @@
+# Loop 项目预设配置
+
+# 项目信息
+project:
+  name: "Loop"
+  description: "周期计划管理应用 - 个人自用的周期任务追踪工具"
+  version: "1.0.0"
+  type: "mobile"
+  subcategory: "personal"
+
+  features:
+    - "周期计划管理（周/月视图）"
+    - "进度追踪（部分完成记录）"
+    - "每日打卡激励"
+    - "周期总结报告"
+    - "任务分类管理"
+
+  constraints:
+    - "纯本地应用，无后端"
+    - "无需网络连接"
+    - "个人自用，无需认证"
+
+# 技术栈
+tech:
+  frontend:
+    framework: "flutter"
+    language: "dart"
+    state: "riverpod"
+    router: "go-router"
+    ui: "material-design-3"
+
+  mobile:
+    platforms: ["android"]
+    min_android_api: 23
+    local_storage: "drift"
+    notification: "flutter-local-notifications"
+
+# 依赖版本
+versions:
+  flutter: "3.22+"
+  dart: "3.4+"
+  riverpod: "^2.4.0"
+  go_router: "^13.0.0"
+  drift: "^2.14.0"
+  sqlite3_flutter_libs: "^0.5.0"
+  shared_preferences: "^2.2.0"
+  flutter_local_notifications: "^16.0.0"
+  fl_chart: "^0.66.0"
+  table_calendar: "^3.0.0"
+  flutter_animate: "^4.3.0"
+  uuid: "^4.2.0"
+  intl: "^0.18.0"
+  logger: "^2.0.0"
+
+# 目录结构
+structure:
+  lib:
+    main: "main.dart"
+    app: "app.dart"
+    core:
+      - "constants"
+      - "theme"
+      - "router"
+      - "utils"
+    data:
+      - "database/tables"
+      - "models"
+      - "repositories"
+    domain:
+      - "entities"
+      - "services"
+    presentation:
+      - "providers"
+      - "pages/home"
+      - "pages/tasks"
+      - "pages/check_in"
+      - "pages/summary"
+      - "pages/settings"
+      - "widgets/common"
+    shared:
+      - "extensions"
+
+# 状态管理
+state_management:
+  solution: "riverpod"
+  patterns:
+    - "Provider"
+    - "StateNotifier"
+    - "FutureProvider"
+    - "StreamProvider"
+  rules:
+    - "禁止使用 setState"
+    - "使用 AsyncValue 处理异步状态"
+    - "使用 select 精确订阅"
+
+# 路由
+routing:
+  solution: "go-router"
+  routes:
+    - path: "/home"
+      name: "home"
+    - path: "/tasks"
+      name: "tasks"
+    - path: "/tasks/:taskId"
+      name: "task-detail"
+    - path: "/check-in"
+      name: "check-in"
+    - path: "/summary"
+      name: "summary"
+    - path: "/settings"
+      name: "settings"
+
+# 数据库
+database:
+  solution: "drift"
+  tables:
+    - name: "cycles"
+      description: "周期数据"
+    - name: "tasks"
+      description: "任务数据"
+    - name: "progress_records"
+      description: "进度记录"
+    - name: "check_in_records"
+      description: "打卡记录"
+    - name: "categories"
+      description: "分类数据"
+    - name: "cycle_summaries"
+      description: "周期总结"
+
+# 代码规范
+code_style:
+  naming:
+    classes: "PascalCase"
+    variables: "camelCase"
+    constants: "camelCase"
+    files: "snake_case"
+    private: "_prefix"
+    providers: "xxxProvider"
+    repositories: "xxxRepository"
+    services: "xxxService"
+    pages: "XxxPage"
+    widgets: "XxxWidget"
+
+  structure:
+    max_file_lines: 500
+    max_function_lines: 50
+    prefer_const: true
+    explicit_types: true
+
+# UI 设计
+ui:
+  theme: "material-design-3"
+  primary_color: "#2196F3"
+  success_color: "#4CAF50"
+  warning_color: "#FF9800"
+  error_color: "#F44336"
+
+  components:
+    button_radius: 8
+    card_radius: 12
+    progress_height: 8
+    input_radius: 8
+
+# 构建规范
+build:
+  commands:
+    debug: "flutter build apk --debug"
+    release: "flutter build apk --release"
+    codegen: "flutter pub run build_runner build --delete-conflicting-outputs"
+
+  artifact:
+    format: "Loop_{status}_{version}_{date}_{seq}.apk"
+    status_types:
+      release: "正式版"
+      beta: "测试版"
+      alpha: "内测版"
+      dev: "开发版"
+      debug: "调试版"
+
+# 测试规范
+testing:
+  unit: "flutter_test"
+  coverage_target: 70
+
+# 禁止事项
+forbidden:
+  - "使用 setState (必须使用 Riverpod)"
+  - "在 build 方法中执行异步操作"
+  - "硬编码字符串"
+  - "直接操作数据库 (必须通过 Repository)"
+  - "忽略空安全警告"
+  - "使用 var 声明变量"
+
+# 必须遵守
+required:
+  - "所有状态使用 Riverpod 管理"
+  - "所有数据库操作通过 Repository"
+  - "使用 AsyncValue 处理异步错误"
+  - "const 构造函数优先"
+  - "明确类型声明"
+
+# 业务规则
+business_rules:
+  - id: "BR-001"
+    description: "任务目标量必须为正整数"
+  - id: "BR-002"
+    description: "每日完成量不能超过剩余量"
+  - id: "BR-003"
+    description: "连续打卡中断后归零"
+  - id: "BR-004"
+    description: "周期结束自动生成总结"
+  - id: "BR-005"
+    description: "重复任务自动创建"
+  - id: "BR-006"
+    description: "每天只能打卡一次"

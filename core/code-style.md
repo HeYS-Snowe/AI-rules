@@ -119,6 +119,45 @@ void processData() {
 }
 ```
 
+### 2.5 禁止使用 Emoji
+
+```yaml
+适用范围:
+  代码文件: 禁止在代码中添加 emoji
+  注释: 禁止在注释中使用 emoji
+  提交信息: 禁止在 git commit message 中使用 emoji
+  文档: 业务文档和代码文档中禁止使用 emoji
+
+例外情况:
+  用户界面字符串: 允许 (如按钮文本、提示信息等由产品需求决定)
+  配置文件: 允许 (如 emoji 映射配置)
+  测试数据: 允许 (如测试包含 emoji 的输入场景)
+```
+
+```dart
+// ❌ 错误：注释中使用 emoji
+// TODO: 修复这个问题 🐛
+// ✅ 正确：添加用户验证功能 ✅
+
+// ✅ 正确：纯文本注释
+// TODO: 修复这个问题
+// 已完成：添加用户验证功能
+
+// ❌ 错误：代码中包含 emoji
+const String successMessage = '操作成功 🎉';
+
+// ✅ 正确：用户界面字符串可根据产品需求决定
+const String successMessage = '操作成功';  // 由产品决定是否包含 emoji
+```
+
+```python
+# ❌ 错误：git commit message 中使用 emoji
+git commit -m "✨ 新增用户登录功能"
+
+# ✅ 正确：纯文本 commit message
+git commit -m "feat: 新增用户登录功能"
+```
+
 ---
 
 ## 三、注释规范
@@ -460,6 +499,7 @@ void createUser(CreateUserParams params) { }
 - [ ] 空行合理
 - [ ] 行长度符合限制
 - [ ] 大括号风格统一
+- [ ] 无 emoji (代码、注释、提交信息)
 
 ### 命名检查
 

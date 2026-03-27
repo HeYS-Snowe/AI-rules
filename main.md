@@ -275,6 +275,10 @@ AI 将：
 
 - [MindCare AI 规则](./examples/mindcare-ai-rules.md) - 完整示例
 
+### 通用模块
+
+- [Flutter 国内网络环境配置](./flutter-china-mirrors.md) - 国内镜像全局初始化 + 项目级配置规范
+
 ---
 
 ## 变更记录

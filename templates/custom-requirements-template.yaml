@@ -1,0 +1,122 @@
+# 定制需求模板 (Custom Requirements Template)
+# 用于生成项目特定的规则
+
+# ============================================================
+# 基础信息
+# ============================================================
+项目信息:
+  项目名称: ""                    # 必填：项目名称
+  项目描述: ""                    # 可选：项目简介
+  版本: "0.0.1"                   # 初始版本号
+
+# ============================================================
+# 项目类型 (必选其一)
+# ============================================================
+项目类型:
+  # 选择一个:
+  类型: ""                        # web-frontend | web-backend | mobile | desktop | fullstack | cli | library | microservice
+
+  # 如果是全栈项目:
+  全栈模式: ""                    # monorepo | separate-repos
+
+# ============================================================
+# 技术栈配置
+# ============================================================
+技术栈:
+  # 前端 (如适用)
+  前端:
+    框架: ""                      # react | vue | angular | svelte | flutter | react-native | electron
+    语言: ""                      # typescript | javascript | dart
+    状态管理: ""                  # redux | mobx | zustand | riverpod | bloc | provider | pinia
+    路由: ""                      # react-router | vue-router | go-router | auto_route
+    UI框架: ""                    # ant-design | element-plus | material-ui | tailwind | chakra
+
+  # 后端 (如适用)
+  后端:
+    语言: ""                      # typescript | javascript | python | go | java | rust
+    框架: ""                      # express | nestjs | fastapi | django | flask | gin | spring
+    数据库: ""                    # postgresql | mysql | mongodb | sqlite | redis
+    ORM: ""                       # prisma | typeorm | sqlalchemy | drizzle | drift
+    认证: ""                      # jwt | session | oauth | firebase-auth
+
+  # 移动端特定
+  移动端:
+    平台: []                      # [android, ios, web, desktop]
+    本地存储: ""                  # shared_preferences | hive | drift | sqflite
+    安全存储: ""                  # flutter_secure_storage | keychain | keystore
+
+# ============================================================
+# 特殊需求
+# ============================================================
+特殊需求:
+  # 功能需求
+  功能:
+    - ""                          # 例如: "需要离线支持"
+    - ""                          # 例如: "需要推送通知"
+
+  # 非功能需求
+  非功能:
+    性能要求: ""                  # 例如: "首屏加载 < 3s"
+    安全要求: []                  # 例如: ["数据加密", "HTTPS only"]
+    可访问性: false               # 是否需要无障碍支持
+
+  # 国际化
+  国际化:
+    启用: false
+    默认语言: "zh-CN"
+    支持语言: []                  # ["en-US", "ja-JP"]
+
+# ============================================================
+# 约束条件
+# ============================================================
+约束条件:
+  兼容性:
+    - ""                          # 例如: "必须兼容 Android 8.0+"
+    - ""                          # 例如: "支持 Chrome 90+"
+
+  限制:
+    包体积限制: ""                # 例如: "不超过 20MB"
+    内存限制: ""                  # 例如: "运行时内存 < 200MB"
+
+  依赖限制:
+    允许的许可证: []              # ["MIT", "Apache-2.0", "BSD"]
+    禁止的包: []                  # 黑名单
+
+# ============================================================
+# 第三方服务
+# ============================================================
+第三方服务:
+  认证服务: ""                    # firebase-auth | auth0 | cognito | custom
+  数据分析: ""                    # firebase-analytics | mixpanel | amplitude
+  错误监控: ""                    # sentry | bugsnag | crashlytics
+  推送服务: ""                    # firebase-messaging | onesignal
+  存储服务: ""                    # firebase-storage | s3 | oss
+  CDN服务: ""                     # cloudflare | aws-cloudfront
+  CI/CD: ""                       # github-actions | gitlab-ci | jenkins
+
+# ============================================================
+# 开发偏好
+# ============================================================
+开发偏好:
+  代码风格:
+    缩进: 2                       # 2 | 4
+    引号: "single"                # single | double
+    分号: false                   # true | false
+
+  测试:
+    单元测试框架: ""              # jest | vitest | pytest | flutter_test
+    E2E测试框架: ""               # playwright | cypress | appium
+    目标覆盖率: 80                # 百分比
+
+  文档:
+    语言: "zh-CN"                 # 文档语言
+    自动生成API文档: true         # 是否使用 Swagger/OpenAPI
+
+# ============================================================
+# 项目特定规则 (覆盖默认规则)
+# ============================================================
+自定义规则:
+  目录结构: {}                    # 自定义目录结构
+  命名约定: {}                    # 自定义命名约定
+  禁止事项: []                    # 禁止使用的模式/库
+  必须遵守: []                    # 必须遵守的规则
