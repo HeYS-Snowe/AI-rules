@@ -9,7 +9,7 @@
 请遵循 AI 编码规则体系进行开发：
 
 ```
-规则位置: D:\Desktop\Claude临时对话\AI-rules\main.md
+规则位置: D:\Code\.Rules\main.md
 ```
 
 ---
@@ -65,7 +65,7 @@
 
 ### 代码风格
 
-- 遵循 `core/code-style.md` 规范
+- 遵循 `common/core/code-style.md` 规范
 - 使用项目已有代码风格
 
 ### 提交规范

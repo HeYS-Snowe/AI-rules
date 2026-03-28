@@ -294,7 +294,7 @@
 
 ## 三、项目结构层 (Project Structure)
 
-> 详细的目录结构规范，参见 `project-structure-guide.md`
+> 详细的目录结构规范，参见 `common/structures/project-structure-guide.md`
 
 ### 3.1 通用原则
 
@@ -316,7 +316,7 @@
 | CLI 工具 | 命令 + 工具 + 模板结构 |
 | 库/SDK | 核心 + 模块 + 文档结构 |
 
-**详细结构请参考**: `D:\Code\.Rules\project-structure-guide.md`
+**详细结构请参考**: `D:\Code\.Rules\common\structures\project-structure-guide.md`
 
 ---
 

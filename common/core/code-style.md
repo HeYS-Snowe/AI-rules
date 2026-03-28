@@ -127,6 +127,14 @@ void processData() {
   注释: 禁止在注释中使用 emoji
   提交信息: 禁止在 git commit message 中使用 emoji
   文档: 业务文档和代码文档中禁止使用 emoji
+  规则文件: 规则体系文档 (.Rules/) 中禁止使用 emoji
+
+替代方案:
+  提交信息: 使用约定式前缀 (feat: / fix: / refactor: 等)
+  状态标记: 使用纯文本标记 ([DONE] / [TODO] / [WIP] / [IMPORTANT])
+  列表标记: 使用标准 Markdown 列表 (- / * / 1.)
+  分类标记: 使用标签/关键词代替 (IMPORTANT / NOTE / WARNING)
+  表情含义: 用文字描述替代 (用"已完成"代替 ✅，用"注意"代替 ⚠️)
 
 例外情况:
   用户界面字符串: 允许 (如按钮文本、提示信息等由产品需求决定)
@@ -141,13 +149,13 @@ void processData() {
 
 // ✅ 正确：纯文本注释
 // TODO: 修复这个问题
-// 已完成：添加用户验证功能
+// [DONE] 添加用户验证功能
 
 // ❌ 错误：代码中包含 emoji
 const String successMessage = '操作成功 🎉';
 
-// ✅ 正确：用户界面字符串可根据产品需求决定
-const String successMessage = '操作成功';  // 由产品决定是否包含 emoji
+// ✅ 正确：用纯文本替代
+const String successMessage = '操作成功';
 ```
 
 ```python

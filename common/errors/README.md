@@ -1,24 +1,35 @@
-# 🔧 错误知识库系统
+# 错误知识库系统
 
 > 记录编程中遇到的错误和解决方案，避免重复踩坑
 
 ---
 
-## 📁 目录结构
+## 目录结构
+
+### 通用错误 (common/errors/)
 
 ```
-errors/
+common/errors/
 ├── README.md              # 本文档
-├── ERRORS_INDEX.md        # 索引文件，快速查找
-└── entries/               # 错误记录条目
-    ├── ts-import-cycle.md
-    ├── vite-env-variables.md
-    └── ...
+├── ERRORS_INDEX.md        # 通用错误索引
+└── entries/               # 通用错误记录条目
+```
+
+### 技术栈错误 (stacks/{tech}/errors/)
+
+各技术栈的错误条目存放在对应目录下：
+
+```
+stacks/
+├── flutter/errors/entries/    # Flutter 相关错误
+├── react/errors/entries/      # React/TypeScript 相关错误
+├── fastapi/errors/entries/    # FastAPI 相关错误
+└── python-ml/errors/entries/  # Python-ML 相关错误
 ```
 
 ---
 
-## 📋 字段定义
+## 字段定义
 
 ### 必填字段
 
@@ -47,7 +58,7 @@ errors/
 
 ---
 
-## 📝 记录模板
+## 记录模板
 
 每个错误保存为单独的 Markdown 文件，命名规则：`{简短标识}.md`
 
@@ -92,7 +103,7 @@ references:
 
 ---
 
-## 🔄 存储策略
+## 存储策略
 
 ### 无感存储（默认）
 
@@ -130,7 +141,7 @@ AI 会搜索知识库并返回相关记录。
 
 ---
 
-## 📚 索引文件说明
+## 索引文件说明
 
 `ERRORS_INDEX.md` 用于快速查找，按以下方式组织：
 
@@ -167,7 +178,7 @@ AI 会搜索知识库并返回相关记录。
 
 ---
 
-## 💡 最佳实践
+## 最佳实践
 
 1. **及时记录** - 解决后立即记录，别拖延
 2. **标签规范** - 使用一致的标签命名（小写、连字符分隔）

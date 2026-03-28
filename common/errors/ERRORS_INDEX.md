@@ -1,6 +1,8 @@
-# 📚 错误索引
+# 错误索引
 
 > 快速查找已记录的错误
+
+> **注意**: 技术栈专用错误条目已迁移至 `stacks/{技术栈}/errors/entries/`，本索引仅记录通用错误。
 
 ---
 
@@ -12,7 +14,7 @@
 
 ### 运行时错误 (runtime)
 
-- [TypeScript 循环依赖](entries/ts-circular-dependency.md) - 循环导入导致运行时初始化错误
+> 暂无记录
 
 ### 逻辑错误 (logic)
 
@@ -34,45 +36,21 @@
 
 ## 按技术栈
 
-### TypeScript
-
-- [TypeScript 循环依赖](entries/ts-circular-dependency.md)
-
-### React
-
-> 暂无记录
-
-### Vite
-
-- [TypeScript 循环依赖](entries/ts-circular-dependency.md)
-
-### Node.js
-
-> 暂无记录
+> 技术栈专用错误已迁移至各自目录，请查看：
+> - React/TypeScript: `stacks/react/errors/entries/`
+> - Flutter: `stacks/flutter/errors/entries/`
+> - FastAPI: `stacks/fastapi/errors/entries/`
+> - Python-ML: `stacks/python-ml/errors/entries/`
 
 ---
 
 ## 按标签
 
-### #typescript
-
-- [TypeScript 循环依赖](entries/ts-circular-dependency.md)
-
-### #import
-
-- [TypeScript 循环依赖](entries/ts-circular-dependency.md)
-
-### #circular-dependency
-
-- [TypeScript 循环依赖](entries/ts-circular-dependency.md)
-
-### #vite
-
-- [TypeScript 循环依赖](entries/ts-circular-dependency.md)
+> 暂无通用标签记录
 
 ---
 
 ## 统计
 
-- 总记录数：1
-- 最近更新：2026-03-17
+- 总记录数：0（通用）
+- 最近更新：2026-03-28

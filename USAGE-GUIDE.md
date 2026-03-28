@@ -16,7 +16,7 @@
 ## 规则引用
 
 请遵循 AI 编码规则体系进行开发：
-- 规则位置: D:\Desktop\Claude临时对话\AI-rules\main.md
+- 规则位置: D:\Code\.Rules\main.md
 
 ## 项目信息
 
@@ -35,7 +35,7 @@
 ```
 请按照以下规则体系进行开发：
 
-@D:\Desktop\Claude临时对话\AI-rules\main.md
+@D:\Code\.Rules\main.md
 
 项目信息：
 - 项目名称: MyProject
@@ -46,7 +46,7 @@
 
 **步骤 1**：复制模板
 ```bash
-cp "D:\Desktop\Claude临时对话\AI-rules\templates\custom-requirements.yaml" "./my-project-requirements.yaml"
+cp "D:\Code\.Rules\common\templates\custom-requirements.yaml" "./my-project-requirements.yaml"
 ```
 
 **步骤 2**：填写配置
@@ -63,7 +63,7 @@ tech:
 
 **步骤 3**：生成规则
 ```
-基于 AI-rules 规则体系 (D:\Desktop\Claude临时对话\AI-rules\main.md)
+基于 AI-rules 规则体系 (D:\Code\.Rules\main.md)
 和以下配置，生成项目定制规则：
 
 [粘贴 my-project-requirements.yaml 内容]
@@ -74,7 +74,7 @@ tech:
 ### 方式 4：使用预设快速开始
 
 ```
-请基于 AI-rules 规则体系和 presets/flutter.yaml 预设，
+请基于 AI-rules 规则体系和 stacks/flutter/presets/flutter.yaml 预设，
 为我的 Flutter 项目生成定制规则，保存为 CLAUDE.md
 ```
 
@@ -96,7 +96,7 @@ tech:
 
 ## 规则引用
 
-遵循 AI 编码规则体系: D:\Desktop\Claude临时对话\AI-rules\main.md
+遵循 AI 编码规则体系: D:\Code\.Rules\main.md
 
 ## 项目配置
 
@@ -123,7 +123,7 @@ D:\Trae-Tools\rules\personal_rules.md
 ## 引用外部规则体系
 
 请同时遵循 AI 编码规则体系:
-- D:\Desktop\Claude临时对话\AI-rules\main.md
+- D:\Code\.Rules\main.md
 
 ## 项目特定规则
 
@@ -172,10 +172,10 @@ tech:
 # Flutter 项目规则
 
 ## 规则体系
-@D:\Desktop\Claude临时对话\AI-rules\main.md
+@D:\Code\.Rules\main.md
 
 ## 预设配置
-使用 presets/flutter.yaml
+使用 stacks/flutter/presets/flutter.yaml
 
 ## 项目信息
 - 项目名称: MyApp
@@ -193,10 +193,10 @@ tech:
 # React 项目规则
 
 ## 规则体系
-@D:\Desktop\Claude临时对话\AI-rules\main.md
+@D:\Code\.Rules\main.md
 
 ## 预设配置
-使用 presets/react.yaml
+使用 stacks/react/presets/react.yaml
 
 ## 项目信息
 - 项目名称: MyWebApp
@@ -214,10 +214,10 @@ tech:
 # 全栈项目规则
 
 ## 规则体系
-@D:\Desktop\Claude临时对话\AI-rules\main.md
+@D:\Code\.Rules\main.md
 
 ## 预设配置
-使用 presets/fullstack.yaml
+使用 stacks/fullstack/presets/fullstack.yaml
 
 ## 项目信息
 - 项目名称: MyFullstackApp
@@ -240,11 +240,11 @@ tech:
 │                                                         │
 │  项目定制规则 (CLAUDE.md / project_rules.md)            │
 │       ↓                                                 │
-│  预设配置 (presets/*.yaml)                              │
+│  预设配置 (stacks/{tech}/presets/*.yaml)                │
 │       ↓                                                 │
-│  项目结构规则 (structures/)                             │
+│  项目结构规则 (common/structures/)                       │
 │       ↓                                                 │
-│  核心规则 (core/)                                       │
+│  核心规则 (common/core/)                                │
 │       ↓                                                 │
 │  默认行为                                               │
 │                                                         │
@@ -283,7 +283,7 @@ tech:
 ```
 用户: 我要创建一个 Flutter 项目，请帮我生成规则。
 
-AI: 请基于 AI-rules 规则体系和 presets/flutter.yaml 预设，
+AI: 请基于 AI-rules 规则体系和 stacks/flutter/presets/flutter.yaml 预设，
     为你的项目生成定制规则。请提供：
     - 项目名称
     - 特殊需求（如有）
