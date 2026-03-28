@@ -28,19 +28,19 @@
 ```
 
 ```dart
-// ❌ 错误：SQL 注入风险
+// [X] 错误：SQL 注入风险
 final query = "SELECT * FROM users WHERE id = '$userId'";
 
-// ✅ 正确：参数化查询
+// [OK] 正确：参数化查询
 final query = "SELECT * FROM users WHERE id = ?";
 final result = await db.query(query, [userId]);
 ```
 
 ```python
-# ❌ 错误：SQL 注入风险
+# [X] 错误：SQL 注入风险
 query = f"SELECT * FROM users WHERE id = '{user_id}'"
 
-# ✅ 正确：参数化查询
+# [OK] 正确：参数化查询
 query = "SELECT * FROM users WHERE id = ?"
 cursor.execute(query, (user_id,))
 ```
@@ -60,7 +60,7 @@ cursor.execute(query, (user_id,))
 - 使用 bcrypt/argon2 哈希存储
 
 ```dart
-// ✅ 正确：密码哈希
+// [OK] 正确：密码哈希
 import 'package:bcrypt/bcrypt.dart';
 
 String hashPassword(String password) {
@@ -87,10 +87,10 @@ bool verifyPassword(String password, String hash) {
 - 健康信息
 
 ```dart
-// ❌ 错误：硬编码密钥
+// [X] 错误：硬编码密钥
 const apiKey = 'sk-1234567890abcdef';
 
-// ✅ 正确：从安全存储读取
+// [OK] 正确：从安全存储读取
 final apiKey = await secureStorage.read(key: 'api_key');
 ```
 
@@ -119,7 +119,7 @@ final apiKey = await secureStorage.read(key: 'api_key');
 ```
 
 ```dart
-// ✅ 正确：服务端权限验证
+// [OK] 正确：服务端权限验证
 @router.get('/admin/users')
 Future<List<User>> getUsers(User user) async {
   if (!user.hasRole('admin')) {
@@ -153,7 +153,7 @@ Future<List<User>> getUsers(User user) async {
 ```
 
 ```dart
-// ✅ 正确：输出编码
+// [OK] 正确：输出编码
 String sanitizeHtml(String input) {
   return htmlEscape.convert(input);
 }
@@ -218,7 +218,7 @@ JWT 配置:
 ```
 
 ```dart
-// ✅ 正确：JWT 验证
+// [OK] 正确：JWT 验证
 Future<User> verifyToken(String token) async {
   try {
     final payload = jwt.verify(token, secretKey);
@@ -253,7 +253,7 @@ Future<User> verifyToken(String token) async {
 ### 4.1 本地存储安全
 
 ```dart
-// ✅ 正确：使用安全存储
+// [OK] 正确：使用安全存储
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 final storage = FlutterSecureStorage();
@@ -271,7 +271,7 @@ await storage.delete(key: 'auth_token');
 ### 4.2 网络安全
 
 ```dart
-// ✅ 正确：配置 SSL Pinning
+// [OK] 正确：配置 SSL Pinning
 final dio = Dio();
 (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (client) {
   client.badCertificateCallback = (cert, host, port) => false;
@@ -305,7 +305,7 @@ API_KEY=real-api-key
 ```
 
 ```python
-# ✅ 正确：从环境变量读取
+# [OK] 正确：从环境变量读取
 import os
 from pydantic_settings import BaseSettings
 

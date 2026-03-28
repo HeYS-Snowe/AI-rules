@@ -31,12 +31,12 @@
 ### 1.3 有意义的命名
 
 ```dart
-// ❌ 错误：无意义命名
+// [X] 错误：无意义命名
 var d; // 消逝的时间
 var list; // 什么列表？
 var flag; // 什么标志？
 
-// ✅ 正确：有意义的命名
+// [OK] 正确：有意义的命名
 var elapsedTimeInDays;
 var activeUsers;
 var isPaymentProcessed;
@@ -45,7 +45,7 @@ var isPaymentProcessed;
 ### 1.4 布尔值命名
 
 ```dart
-// ✅ 正确：布尔值命名前缀
+// [OK] 正确：布尔值命名前缀
 bool isValid;
 bool hasPermission;
 bool canEdit;
@@ -85,7 +85,7 @@ bool containsElement;
 ### 2.3 空行规范
 
 ```dart
-// ✅ 正确：空行使用
+// [OK] 正确：空行使用
 import 'package:flutter/material.dart';  // import 块后空一行
 
 class UserService {                       // 类定义前空一行
@@ -106,14 +106,14 @@ class UserService {                       // 类定义前空一行
 ### 2.4 大括号风格
 
 ```dart
-// ✅ K&R 风格 (推荐)
+// [OK] K&R 风格 (推荐)
 if (condition) {
   doSomething();
 } else {
   doOther();
 }
 
-// ✅ 函数定义
+// [OK] 函数定义
 void processData() {
   // ...
 }
@@ -134,7 +134,7 @@ void processData() {
   状态标记: 使用纯文本标记 ([DONE] / [TODO] / [WIP] / [IMPORTANT])
   列表标记: 使用标准 Markdown 列表 (- / * / 1.)
   分类标记: 使用标签/关键词代替 (IMPORTANT / NOTE / WARNING)
-  表情含义: 用文字描述替代 (用"已完成"代替 ✅，用"注意"代替 ⚠️)
+  表情含义: 用文字描述替代 (用"已完成"代替 [OK]，用"注意"代替 [WARNING])
 
 例外情况:
   用户界面字符串: 允许 (如按钮文本、提示信息等由产品需求决定)
@@ -143,26 +143,26 @@ void processData() {
 ```
 
 ```dart
-// ❌ 错误：注释中使用 emoji
-// TODO: 修复这个问题 🐛
-// ✅ 正确：添加用户验证功能 ✅
+// [X] 错误：注释中使用 emoji 表情
+// TODO: 修复这个问题 (此处原本用了 bug emoji)
+// (此处原本用了 check emoji) 正确：添加用户验证功能 (此处又用了 check emoji)
 
-// ✅ 正确：纯文本注释
+// [OK] 正确：纯文本注释
 // TODO: 修复这个问题
 // [DONE] 添加用户验证功能
 
-// ❌ 错误：代码中包含 emoji
-const String successMessage = '操作成功 🎉';
+// [X] 错误：代码中硬编码 emoji 表情
+const String successMessage = '操作成功 (此处原本用了庆祝 emoji)';
 
-// ✅ 正确：用纯文本替代
+// [OK] 正确：用纯文本替代
 const String successMessage = '操作成功';
 ```
 
 ```python
-# ❌ 错误：git commit message 中使用 emoji
-git commit -m "✨ 新增用户登录功能"
+# [X] 错误：git commit message 中使用 emoji 前缀
+git commit -m "(sparkles) 新增用户登录功能"
 
-# ✅ 正确：纯文本 commit message
+# [OK] 正确：纯文本约定式 commit message
 git commit -m "feat: 新增用户登录功能"
 ```
 
@@ -203,18 +203,18 @@ class UserService {
 ### 3.2 行内注释
 
 ```dart
-// ✅ 正确：解释为什么
+// [OK] 正确：解释为什么
 // 使用指数退避策略避免服务器过载
 await Future.delayed(Duration(seconds: pow(2, retryCount)));
 
-// ✅ 正确：解释复杂逻辑
+// [OK] 正确：解释复杂逻辑
 // 计算加权平均值，权重随时间衰减
 final weightedSum = values.asMap().entries.fold(0.0, (sum, entry) {
   final weight = 1 / (entry.key + 1);
   return sum + entry.value * weight;
 });
 
-// ❌ 错误：描述做了什么（代码已经说明了）
+// [X] 错误：描述做了什么（代码已经说明了）
 // 设置用户名
 userName = 'John';
 ```
@@ -336,26 +336,26 @@ class Example {
 ### 5.1 Dart/Flutter
 
 ```dart
-// ✅ 使用 final/const
+// [OK] 使用 final/const
 final user = User(name: 'John');
 const defaultTimeout = Duration(seconds: 30);
 
-// ✅ 使用级联操作
+// [OK] 使用级联操作
 final user = User()
   ..name = 'John'
   ..age = 30
   ..email = 'john@example.com';
 
-// ✅ 使用空安全
+// [OK] 使用空安全
 String? nullableName;
 String nonNullName = nullableName ?? 'Unknown';
 
-// ✅ 使用扩展方法
+// [OK] 使用扩展方法
 extension StringExtensions on String {
   bool get isValidEmail => contains('@') && contains('.');
 }
 
-// ✅ 使用命名参数
+// [OK] 使用命名参数
 void createUser({
   required String name,
   required String email,
@@ -366,7 +366,7 @@ void createUser({
 ### 5.2 TypeScript
 
 ```typescript
-// ✅ 使用类型注解
+// [OK] 使用类型注解
 interface User {
   id: string;
   name: string;
@@ -377,13 +377,13 @@ function getUser(id: string): Promise<User> {
   // ...
 }
 
-// ✅ 使用可选链
+// [OK] 使用可选链
 const email = user?.profile?.email;
 
-// ✅ 使用空值合并
+// [OK] 使用空值合并
 const name = user?.name ?? 'Unknown';
 
-// ✅ 使用 const 断言
+// [OK] 使用 const 断言
 const config = {
   apiUrl: '/api',
   timeout: 5000,
@@ -393,7 +393,7 @@ const config = {
 ### 5.3 Python
 
 ```python
-# ✅ 使用类型注解
+# [OK] 使用类型注解
 from typing import Optional, List
 
 def get_user(user_id: str) -> Optional[User]:
@@ -402,7 +402,7 @@ def get_user(user_id: str) -> Optional[User]:
 def get_users() -> List[User]:
     ...
 
-# ✅ 使用 dataclass
+# [OK] 使用 dataclass
 from dataclasses import dataclass
 
 @dataclass
@@ -411,11 +411,11 @@ class User:
     name: str
     email: str
 
-# ✅ 使用上下文管理器
+# [OK] 使用上下文管理器
 with open('file.txt', 'r') as f:
     content = f.read()
 
-# ✅ 使用列表推导
+# [OK] 使用列表推导
 active_users = [u for u in users if u.is_active]
 ```
 
@@ -426,11 +426,11 @@ active_users = [u for u in users if u.is_active]
 ### 6.1 避免魔法数字
 
 ```dart
-// ❌ 错误：魔法数字
+// [X] 错误：魔法数字
 if (status == 200) { }
 await Future.delayed(Duration(milliseconds: 5000));
 
-// ✅ 正确：使用常量
+// [OK] 正确：使用常量
 const HttpStatus successStatus = HttpStatus.ok;
 const Duration apiTimeout = Duration(seconds: 5);
 
@@ -441,7 +441,7 @@ await Future.delayed(apiTimeout);
 ### 6.2 早返回
 
 ```dart
-// ❌ 错误：深层嵌套
+// [X] 错误：深层嵌套
 void process(User? user) {
   if (user != null) {
     if (user.isActive) {
@@ -452,7 +452,7 @@ void process(User? user) {
   }
 }
 
-// ✅ 正确：早返回
+// [OK] 正确：早返回
 void process(User? user) {
   if (user == null) return;
   if (!user.isActive) return;
@@ -465,7 +465,7 @@ void process(User? user) {
 ### 6.3 函数参数对象化
 
 ```dart
-// ❌ 错误：参数过多
+// [X] 错误：参数过多
 void createUser(
   String name,
   String email,
@@ -475,7 +475,7 @@ void createUser(
   String role,
 ) { }
 
-// ✅ 正确：使用配置对象
+// [OK] 正确：使用配置对象
 class CreateUserParams {
   final String name;
   final String email;
@@ -507,7 +507,7 @@ void createUser(CreateUserParams params) { }
 - [ ] 空行合理
 - [ ] 行长度符合限制
 - [ ] 大括号风格统一
-- [ ] 无 emoji (代码、注释、提交信息)
+- [ ] 无 emoji 表情 (代码、注释、提交信息)
 
 ### 命名检查
 

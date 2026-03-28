@@ -211,7 +211,7 @@ Python:
 ### 3.2 Flutter 状态管理 (Riverpod)
 
 ```dart
-// ✅ 正确：使用 @riverpod 注解
+// [OK] 正确：使用 @riverpod 注解
 part 'user_provider.g.dart';
 
 @riverpod
@@ -228,7 +228,7 @@ class UserNotifier extends _$UserNotifier {
   }
 }
 
-// ✅ 使用时
+// [OK] 使用时
 class UserProfilePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -245,7 +245,7 @@ class UserProfilePage extends ConsumerWidget {
 ### 3.3 数据模型 (freezed)
 
 ```dart
-// ✅ 正确：使用 freezed
+// [OK] 正确：使用 freezed
 @freezed
 class EmotionRecord with _$EmotionRecord {
   const factory EmotionRecord({
@@ -265,7 +265,7 @@ class EmotionRecord with _$EmotionRecord {
 ### 3.4 Python FastAPI 规范
 
 ```python
-# ✅ 正确：使用依赖注入和类型注解
+# [OK] 正确：使用依赖注入和类型注解
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -331,14 +331,14 @@ async def create_emotion_checkin(
 
 | 方法 | 端点 | 描述 | 认证 |
 |------|------|------|------|
-| POST | /auth/login | 用户登录 | ❌ |
-| POST | /auth/register | 用户注册 | ❌ |
-| POST | /auth/refresh | 刷新 Token | ✅ |
-| GET | /users/me | 获取当前用户 | ✅ |
-| PUT | /users/me | 更新用户信息 | ✅ |
-| POST | /emotions/checkin | 情绪打卡 | ✅ |
-| GET | /emotions/history | 打卡历史 | ✅ |
-| GET | /alerts | 预警列表 | ✅ (Counselor) |
+| POST | /auth/login | 用户登录 | [X] |
+| POST | /auth/register | 用户注册 | [X] |
+| POST | /auth/refresh | 刷新 Token | [OK] |
+| GET | /users/me | 获取当前用户 | [OK] |
+| PUT | /users/me | 更新用户信息 | [OK] |
+| POST | /emotions/checkin | 情绪打卡 | [OK] |
+| GET | /emotions/history | 打卡历史 | [OK] |
+| GET | /alerts | 预警列表 | [OK] (Counselor) |
 
 ---
 

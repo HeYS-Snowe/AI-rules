@@ -18,7 +18,7 @@
 - 避免上帝类 (God Class)
 
 ```dart
-// ❌ 错误：一个类处理多种职责
+// [X] 错误：一个类处理多种职责
 class UserManager {
   void createUser() { }
   void sendEmail() { }
@@ -26,7 +26,7 @@ class UserManager {
   void exportToExcel() { }
 }
 
-// ✅ 正确：职责分离
+// [OK] 正确：职责分离
 class UserRepository {
   void createUser() { }
 }
@@ -53,7 +53,7 @@ class ReportGenerator {
 - 避免直接修改已有代码
 
 ```dart
-// ✅ 正确：通过扩展添加新功能
+// [OK] 正确：通过扩展添加新功能
 abstract class PaymentProcessor {
   void process(double amount);
 }
@@ -95,14 +95,14 @@ class WechatProcessor implements PaymentProcessor {
 - 使用多个专用接口替代一个通用接口
 
 ```dart
-// ❌ 错误：臃肿接口
+// [X] 错误：臃肿接口
 interface Worker {
   void work();
   void eat();
   void sleep();
 }
 
-// ✅ 正确：接口隔离
+// [OK] 正确：接口隔离
 interface Workable {
   void work();
 }
@@ -144,7 +144,7 @@ class Robot implements Workable {
 - 保持单一事实来源 (Single Source of Truth)
 
 ```dart
-// ❌ 错误：重复的验证逻辑
+// [X] 错误：重复的验证逻辑
 void validateEmail(String email) {
   if (!email.contains('@')) throw Exception('Invalid email');
 }
@@ -159,7 +159,7 @@ void updateUser(String email) {
   // ...
 }
 
-// ✅ 正确：提取公共逻辑
+// [OK] 正确：提取公共逻辑
 class Validator {
   static void validateEmail(String email) {
     if (!email.contains('@')) throw Exception('Invalid email');
@@ -184,7 +184,7 @@ void createUser(String email) {
 - 代码应该易于理解
 
 ```dart
-// ❌ 错误：过度设计
+// [X] 错误：过度设计
 abstract class AbstractValidatorFactoryBuilder {
   Validator create(ValidationContext context);
 }
@@ -195,7 +195,7 @@ class EmailValidatorFactory extends AbstractValidatorFactoryBuilder {
   }
 }
 
-// ✅ 正确：保持简单
+// [OK] 正确：保持简单
 class Validator {
   static bool isValidEmail(String email) {
     return email.contains('@') && email.contains('.');
@@ -241,7 +241,7 @@ class Validator {
 - 使用断言检查不变量
 
 ```dart
-// ✅ 正确：防御性编程
+// [OK] 正确：防御性编程
 Future<User> getUser(String userId) async {
   if (userId.isEmpty) {
     throw ArgumentError('userId cannot be empty');
