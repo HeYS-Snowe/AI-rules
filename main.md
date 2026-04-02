@@ -121,10 +121,10 @@ D:\Code\.prompt/                       # 提示词与解决方案存储库
 
 | 文件                          | 内容                      | 强制性 |
 | --------------------------- | ----------------------- | --- |
-| `common/core/principles.md` | SOLID、DRY、KISS、YAGNI 原则 | 强制  |
+| `common/core/principles.md` | SOLID、DRY、KISS、YAGNI 原则 + AI 协作原则 | 强制  |
 | `common/core/security.md`   | OWASP Top 10 安全规范       | 强制  |
-| `common/core/code-style.md` | 命名、注释、格式规范              | 推荐  |
-| `common/core/workflow.md`   | 开发全流程规范                 | 推荐  |
+| `common/core/code-style.md` | 沟通规范 + 命名、注释、格式规范       | 推荐  |
+| `common/core/workflow.md`   | 开发全流程规范 + AI 行为约束        | 推荐  |
 
 ### 1.2 项目结构层 (Structure Rules)
 
@@ -314,10 +314,10 @@ AI 将：
 
 #### 核心规则
 
-- [核心原则](./common/core/principles.md) - SOLID、DRY、KISS、YAGNI
+- [核心原则](./common/core/principles.md) - SOLID、DRY、KISS、YAGNI + AI 协作原则
 - [安全规范](./common/core/security.md) - OWASP Top 10
-- [代码风格](./common/core/code-style.md) - 命名、注释、格式
-- [开发流程](./common/core/workflow.md) - 全流程规范
+- [代码风格](./common/core/code-style.md) - 沟通规范 + 命名、注释、格式
+- [开发流程](./common/core/workflow.md) - 全流程规范 + AI 行为约束
 
 #### 项目结构
 
@@ -375,6 +375,7 @@ AI 将：
 
 | 版本     | 日期         | 变更内容                                                    |
 | ------ | ---------- | ------------------------------------------------------- |
+| v3.1.0 | 2026-04-02 | 引入 AI 协作原则（14 条提示词秘籍），改进模板引用方式 |
 | v3.0.0 | 2026-03-28 | **BREAKING CHANGE** 重组为 common/ + stacks/ 双库架构，所有文件路径变更 |
 | v2.2.0 | 2026-03-28 | 新增提示词知识库层，关联 D:\Code\.prompt 仓库                         |
 | v2.1.1 | 2026-03-17 | 错误知识库改为无感存储，降低记录门槛                                      |
