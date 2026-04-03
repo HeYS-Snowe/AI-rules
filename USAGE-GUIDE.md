@@ -45,11 +45,13 @@
 ### 方式 3：生成项目定制规则
 
 **步骤 1**：复制模板
+
 ```bash
 cp "D:\Code\.Rules\common\templates\custom-requirements.yaml" "./my-project-requirements.yaml"
 ```
 
 **步骤 2**：填写配置
+
 ```yaml
 project:
   name: "MyProject"
@@ -62,6 +64,7 @@ tech:
 ```
 
 **步骤 3**：生成规则
+
 ```
 基于 AI-rules 规则体系 (D:\Code\.Rules\main.md)
 和以下配置，生成项目定制规则：
@@ -91,6 +94,7 @@ tech:
 ```
 
 内容示例：
+
 ```markdown
 # 项目规则 - MyProject
 
@@ -117,6 +121,7 @@ D:\Trae-Tools\rules\personal_rules.md
 ```
 
 添加引用：
+
 ```markdown
 # 个人规则
 
@@ -133,6 +138,7 @@ D:\Trae-Tools\rules\personal_rules.md
 ### 方式 3：生成项目定制规则
 
 **步骤 1**：准备定制需求
+
 ```yaml
 # 保存为 .trae/custom-requirements.yaml
 project:
@@ -145,6 +151,7 @@ tech:
 ```
 
 **步骤 2**：请求生成
+
 ```
 基于 AI-rules 规则体系和 .trae/custom-requirements.yaml，
 生成项目定制规则并保存到 .trae/rules/project_rules.md
@@ -154,12 +161,12 @@ tech:
 
 ## 三、规则文件位置对照
 
-| 工具 | 规则文件位置 | 作用域 |
-|------|-------------|--------|
-| Claude Code | `项目根目录/CLAUDE.md` | 当前项目 |
-| Claude Code | `~/.claude/CLAUDE.md` | 全局 |
-| Trae | `项目目录/.trae/rules/project_rules.md` | 当前项目 |
-| Trae | `D:\Trae-Tools\rules\personal_rules.md` | 全局 |
+| 工具          | 规则文件位置                                  | 作用域  |
+| ----------- | --------------------------------------- | ---- |
+| Claude Code | `项目根目录/CLAUDE.md`                       | 当前项目 |
+| Claude Code | `~/.claude/CLAUDE.md`                   | 全局   |
+| Trae        | `项目目录/.trae/rules/project_rules.md`     | 当前项目 |
+| Trae        | `D:\Trae-Tools\rules\personal_rules.md` | 全局   |
 
 ---
 
@@ -168,6 +175,7 @@ tech:
 ### Flutter 项目
 
 **CLAUDE.md** (Claude Code):
+
 ```markdown
 # Flutter 项目规则
 
@@ -189,6 +197,7 @@ tech:
 ### React 项目
 
 **CLAUDE.md**:
+
 ```markdown
 # React 项目规则
 
@@ -210,6 +219,7 @@ tech:
 ### 全栈项目
 
 **CLAUDE.md**:
+
 ```markdown
 # 全栈项目规则
 
@@ -258,17 +268,20 @@ tech:
 ## 六、常用指令
 
 ### 生成定制规则
+
 ```
 基于 [AI-rules] 规则体系和 [预设文件/配置] 生成项目定制规则
 ```
 
 ### 使用规则开发
+
 ```
 请按照项目规则 (CLAUDE.md / .trae/rules/project_rules.md) 实现：
 [功能描述]
 ```
 
 ### 检查代码规范
+
 ```
 请检查以下代码是否符合项目规则：
 [代码片段]
