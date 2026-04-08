@@ -132,6 +132,7 @@ build:
 
   artifact:
     format: "{project}_{status}_{version}_{date}_{seq}.apk"
+    output_dir: "builds/"            # 项目根目录下，不受 flutter clean 影响（如 D:\Code\Project\Loop\builds\）
     status_types:
       release: "正式版"
       beta: "测试版"
@@ -141,7 +142,7 @@ build:
 
   post_build:
     rename: true
-    backup: true
+    move_to_output_dir: true         # 重命名后移动到 output_dir
     call_version_manager: true
 
 # 环境变量

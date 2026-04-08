@@ -96,22 +96,23 @@ class WechatProcessor implements PaymentProcessor {
 
 ```dart
 // [X] 错误：臃肿接口
-interface Worker {
+abstract class Worker {
   void work();
   void eat();
   void sleep();
 }
 
 // [OK] 正确：接口隔离
-interface Workable {
+abstract class Workable {
   void work();
 }
 
-interface Eatable {
+abstract class Eatable {
   void eat();
 }
 
 class Robot implements Workable {
+  @override
   void work() { }
   // Robot 不需要 eat
 }
@@ -307,41 +308,7 @@ Future<User> getUser(String userId) async {
 | 函数参数 | ≤ 5 个 | 超过则使用对象 |
 | 圈复杂度 | ≤ 10 | 超过则简化逻辑 |
 
-### 5.2 命名规范
-
-| 类型 | 命名风格 | 示例 |
-|------|----------|------|
-| 类/类型 | PascalCase | `UserService` |
-| 函数/方法 | camelCase | `getUserById` |
-| 变量 | camelCase | `userName` |
-| 常量 | UPPER_SNAKE_CASE | `MAX_RETRY_COUNT` |
-| 私有成员 | _前缀 | `_privateMethod` |
-| 文件名 | 语言约定 | Dart: snake_case, TS: camelCase |
-
-### 5.3 注释规范
-
-```dart
-/// 用户服务类
-///
-/// 提供用户相关的业务逻辑处理，包括注册、登录、信息更新等。
-///
-/// 示例:
-/// ```dart
-/// final userService = UserService(repository);
-/// final user = await userService.getUser('123');
-/// ```
-class UserService {
-  /// 获取用户信息
-  ///
-  /// [userId] 用户唯一标识
-  /// 返回用户信息，如果用户不存在则返回 null
-  ///
-  /// 抛出 [ArgumentError] 如果 userId 为空
-  Future<User?> getUser(String userId) async {
-    // 实现...
-  }
-}
-```
+> 命名规范和注释规范的详细说明见 [code-style.md](code-style.md)
 
 ---
 

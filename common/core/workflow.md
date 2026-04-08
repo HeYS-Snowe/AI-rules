@@ -681,7 +681,7 @@ test('getUser returns user when user exists', () async {
 
 ## 九、错误记录流程
 
-> 引用: `errors/README.md`
+> 完整记录规范见 `common/errors/README.md`
 
 ### 9.1 主动记录触发条件
 
@@ -705,66 +705,12 @@ AI 在以下情况**主动记录**错误，无需用户指令：
 ```yaml
 步骤:
   1. 在 errors/entries/ 下创建新的 .md 文件
-  2. 按模板填写内容 (见 errors/README.md)
+  2. 按模板填写内容 (见 common/errors/README.md)
   3. 更新 errors/ERRORS_INDEX.md 索引
   4. 简短告知用户: "已记录到错误知识库"
 ```
 
-### 9.3 错误记录模板
-
-```markdown
----
-title: 错误名称
-type: compile | runtime | logic | config | dependency | other
-tech_stack: 技术栈
-tags: [tag1, tag2, tag3]
-severity: critical | high | medium | low
-first_seen: YYYY-MM-DD
-last_seen: YYYY-MM-DD
-occurrences: 1
-references:
-  - https://...
----
-
-## 错误描述
-{报错信息、截图、现象等}
-
-## 复现步骤
-1. 步骤一
-2. 步骤二
-
-## 解决方案
-{具体解决步骤}
-
-## 原因分析
-{为什么会出现这个错误}
-
-## 预防措施
-{下次怎么避免}
-```
-
-### 9.4 错误更新流程
-
-当再次遇到相同错误时：
-
-```yaml
-操作:
-  1. 找到对应的 .md 文件
-  2. 更新 last_seen 日期
-  3. occurrences + 1
-  4. 如有新发现，补充内容
-```
-
-### 9.5 错误分类
-
-| 类型 | 说明 | 示例 |
-|------|------|------|
-| compile | 编译错误 | 类型不匹配、语法错误 |
-| runtime | 运行时错误 | 空指针、循环依赖 |
-| logic | 逻辑错误 | 条件判断错误、计算错误 |
-| config | 配置错误 | 环境变量、配置文件 |
-| dependency | 依赖错误 | 版本冲突、包缺失 |
-| other | 其他 | 环境问题、工具问题 |
+> 错误记录模板、字段定义、分类体系和更新流程详见 `common/errors/README.md`
 
 ---
 

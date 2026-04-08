@@ -159,18 +159,104 @@ tech:
 
 ---
 
-## 三、规则文件位置对照
+## 三、Cursor IDE 使用方式
+
+### 方式 1：项目规则文件（推荐）
+
+在项目根目录创建 `.cursor/rules/` 目录，添加规则文件：
+
+```
+{项目目录}/.cursor/rules/project-rules.mdc
+```
+
+内容示例：
+
+```markdown
+---
+description: 项目编码规则
+globs:
+alwaysApply: true
+---
+
+# 项目规则 - MyProject
+
+## 规则引用
+
+遵循 AI 编码规则体系: D:\Code\.Rules\main.md
+
+## 项目配置
+
+项目名称: MyProject
+技术栈: Flutter + Riverpod
+
+## 定制规则
+
+[AI 生成的定制规则内容]
+```
+
+### 方式 2：全局规则
+
+将通用规则放到全局位置：
+
+```
+~/.cursor/rules/ai-coding-rules.mdc
+```
+
+添加引用：
+
+```markdown
+---
+description: AI 编码规则体系
+globs:
+alwaysApply: true
+---
+
+# 全局规则
+
+## 引用外部规则体系
+
+请同时遵循 AI 编码规则体系:
+- D:\Code\.Rules\main.md
+```
+
+### 方式 3：生成项目定制规则
+
+**步骤 1**：准备定制需求
+
+```yaml
+# 保存为 .cursor/custom-requirements.yaml
+project:
+  name: "MyProject"
+  type: "mobile"
+
+tech:
+  frontend:
+    framework: "flutter"
+```
+
+**步骤 2**：请求生成
+
+```
+基于 AI-rules 规则体系和 .cursor/custom-requirements.yaml，
+生成项目定制规则并保存到 .cursor/rules/project-rules.mdc
+```
+
+---
+
+## 四、规则文件位置对照
 
 | 工具          | 规则文件位置                                  | 作用域  |
 | ----------- | --------------------------------------- | ---- |
 | Claude Code | `项目根目录/CLAUDE.md`                       | 当前项目 |
 | Claude Code | `~/.claude/CLAUDE.md`                   | 全局   |
+| Cursor      | `项目目录/.cursor/rules/*.mdc`              | 当前项目 |
+| Cursor      | `~/.cursor/rules/*.mdc`                 | 全局   |
 | Trae        | `项目目录/.trae/rules/project_rules.md`     | 当前项目 |
 | Trae        | `D:\Trae-Tools\rules\personal_rules.md` | 全局   |
 
 ---
 
-## 四、快速开始模板
+## 五、快速开始模板
 
 ### Flutter 项目
 
@@ -241,7 +327,7 @@ tech:
 
 ---
 
-## 五、规则优先级
+## 六、规则优先级
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -265,7 +351,7 @@ tech:
 
 ---
 
-## 六、常用指令
+## 七、常用指令
 
 ### 生成定制规则
 
@@ -276,7 +362,7 @@ tech:
 ### 使用规则开发
 
 ```
-请按照项目规则 (CLAUDE.md / .trae/rules/project_rules.md) 实现：
+请按照项目规则 (CLAUDE.md / .cursor/rules/ / .trae/rules/) 实现：
 [功能描述]
 ```
 
@@ -289,7 +375,7 @@ tech:
 
 ---
 
-## 七、示例对话
+## 八、示例对话
 
 ### 示例 1：新项目初始化
 
@@ -321,12 +407,12 @@ AI: [根据规则实现功能]
 
 ---
 
-## 八、注意事项
+## 九、注意事项
 
 1. **规则文件编码**: 使用 UTF-8 编码
 2. **路径引用**: 使用绝对路径或相对于项目根目录的路径
 3. **规则更新**: 修改定制需求后重新生成规则
-4. **版本管理**: 将 CLAUDE.md 提交到 Git 仓库
+4. **版本管理**: 将规则文件（CLAUDE.md / .cursor/rules/ / .trae/rules/）提交到 Git 仓库
 
 ---
 
