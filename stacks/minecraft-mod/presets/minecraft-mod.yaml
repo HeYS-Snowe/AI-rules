@@ -1,0 +1,304 @@
+# Minecraft Mod 开发项目预设配置
+
+# 项目信息
+project:
+  type: "minecraft-mod"
+  subcategory: "game-extension"
+
+# 技术栈
+tech:
+  language: "java"
+  build_tool: "gradle"
+  loaders:
+    - "fabric"
+    - "forge"
+    - "neoforge"
+
+# 依赖版本（按加载器分类）
+versions:
+  java: "21"                       # Minecraft 1.20.5+ 要求 JDK 21
+  minecraft: "1.21.x"
+  fabric:
+    loader: "0.15+"
+    api: "0.100+"
+    loom: "1.7+"
+  forge:
+    mdk: "1.21.x"
+    forge_version: "52.x"
+  neoforge:
+    version: "21.x"
+
+# 项目目录结构（全局层）
+project_structure:
+  # 每个具体 mod 的目录结构
+  mod_root:
+    doc:
+      - "dependencies.md"          # 依赖信息（JDK、加载器、MC 版本）
+      - "requirements.md"          # 开发需求文档
+    build:
+      current: []                  # 当前编译版本
+      archive: []                  # 历史版本存档
+    # 加载器 + MC 版本组合
+    loader_version:
+      src:
+        main:
+          java: "{package_path}"   # com.example.modid
+          resources:
+            - "META-INF"
+            - "assets/{modid}"
+            - "data/{modid}"
+            - "{modid}.mixins.json"
+        test:
+          java: "{package_path}"
+      gradle:
+        - "wrapper"
+      files:
+        - "build.gradle"
+        - "settings.gradle"
+        - "gradle.properties"
+        - "gradlew"
+        - "gradlew.bat"
+
+# 源码目录结构（加载器特定）
+loader_structures:
+  fabric:
+    entrypoint: "implements ModInitializer"
+    main_class: "src/main/java/{package}/{ModId}Mod.java"
+    resources:
+      - "fabric.mod.json"          # Mod 元数据（必需）
+      - "{modid}.mixins.json"      # Mixin 配置
+      - "assets/{modid}/"          # 资源（纹理、模型、lang）
+      - "data/{modid}/"            # 数据（合成配方、战利品表、标签）
+    build_file: "build.gradle"
+    gradle_plugin: "fabric-loom"
+    key_files:
+      - "src/main/resources/fabric.mod.json"
+      - "gradle.properties"
+
+  forge:
+    entrypoint: "@Mod(\"modid\") annotation on main class"
+    main_class: "src/main/java/{package}/{ModId}Mod.java"
+    resources:
+      - "META-INF/mods.toml"       # Mod 元数据（必需）
+      - "pack.mcmeta"
+      - "assets/{modid}/"
+      - "data/{modid}/"
+    build_file: "build.gradle"
+    key_files:
+      - "src/main/resources/META-INF/mods.toml"
+      - "build.gradle"
+
+  neoforge:
+    entrypoint: "@Mod(\"modid\") annotation on main class"
+    main_class: "src/main/java/{package}/{ModId}Mod.java"
+    resources:
+      - "META-INF/neoforge.mods.toml"  # Mod 元数据（必需）
+      - "pack.mcmeta"
+      - "assets/{modid}/"
+      - "data/{modid}/"
+    build_file: "build.gradle"
+    key_files:
+      - "src/main/resources/META-INF/neoforge.mods.toml"
+      - "build.gradle"
+
+# 资源文件结构
+resources:
+  assets:
+    lang:
+      - "en_us.json"               # 英文语言文件
+      - "zh_cn.json"               # 中文语言文件
+    models:
+      item: []                     # 物品模型 JSON
+      block: []                    # 方块模型 JSON
+    textures:
+      item: []                     # 物品纹理 PNG
+      block: []                    # 方块纹理 PNG
+      entity: []                   # 实体纹理
+      gui: []                      # GUI 纹理
+    sounds: []                     # 音效文件
+
+  data:
+    recipes: []                    # 合成配方 JSON
+    loot_tables:
+      blocks: []                   # 方块战利品表
+      entities: []                 # 实体战利品表
+    tags:
+      items: []                    # 物品标签
+      blocks: []                   # 方块标签
+    advancements: []               # 进度/成就
+    predicates: []                 # 战利品条件谓词
+
+# 代码规范
+code_style:
+  naming:
+    classes: "PascalCase"          # MyCoolItem, DiamondSwordItem
+    methods: "camelCase"           # onUse, appendTooltip
+    variables: "camelCase"         # maxDamage, enchantability
+    constants: "UPPER_SNAKE_CASE"  # MAX_STACK_SIZE, DEFAULT_COLOR
+    packages: "lowercase"          # com.example.modid.item
+    mod_id: "lowercase_snake"      # my_cool_mod（仅小写字母、下划线、数字）
+    resource_files: "snake_case"   # my_item.json, my_block.json
+
+  structure:
+    max_file_lines: 500
+    max_method_lines: 50
+    package_depth: "com.{author}.{modid}.{module}"
+
+  java_conventions:
+    - "每个注册对象（物品、方块等）使用单独的注册类"
+    - "使用 static final 常量存储 Registry 对象"
+    - "事件处理使用独立类，不堆在主类中"
+    - "Mixin 类放在独立的 mixins 包中"
+
+# 构建规范
+build:
+  commands:
+    fabric:
+      setup: "gradlew genSources"
+      build: "gradlew build"
+      run_client: "gradlew runClient"
+      run_server: "gradlew runServer"
+    forge:
+      setup: "gradlew genEclipseRuns / genIntellijRuns / genVSCodeRuns"
+      build: "gradlew build"
+      run_client: "gradlew runClient"
+      run_server: "gradlew runServer"
+    neoforge:
+      setup: "gradlew genEclipseRuns / genIntellijRuns / genVSCodeRuns"
+      build: "gradlew build"
+      run_client: "gradlew runClient"
+      run_server: "gradlew runServer"
+
+  artifact:
+    # 普通命名（无前置 mod / 前置 mod 本身使用此格式）
+    format: "{mod}-{version}-{loader}-{mc_version}-{date}-{seq}.jar"
+    # 有前置 mod 的命名
+    format_with_dep: "{mod}-{version}+{dep_mod}-{dep_version}-{loader}-{mc_version}-{date}-{seq}.jar"
+
+    version:
+      # 版本号每次构建都更新
+      format: "{MAJOR}.{MINOR}.{PATCH}[.fix{N}]"
+      major: "不兼容的大版本更新（如重构、新 MC 版本适配）"
+      minor: "功能/质量更新（新增物品、方块、机制）"
+      patch: "Bug 修复"
+      fix: "紧急修复，同 patch 版本内的修复次数（仅紧急修复时有此段）"
+      examples:
+        - "1.0.0"        # 首次发布
+        - "1.1.0"        # 功能更新
+        - "1.1.1"        # Bug 修复
+        - "1.1.1.fix1"   # 紧急修复第 1 次
+        - "1.1.1.fix2"   # 紧急修复第 2 次（同版本内第 2 次紧急修复）
+
+    fields:
+      loader: "fabric | forge | neoforge"
+      mc_version: "如 1.21.4"
+      date: "YYMMDD（6 位日期）"
+      seq: "当日构建序号，从 01 开始"
+      dep_version: "前置 mod 的精确版本号"
+
+    output_dir: "../../build/current/"    # 相对于 loader/mc_version 目录
+    archive_dir: "../../build/archive/"
+
+    examples:
+      # 前置 mod（普通命名）
+      - "KillLineAnimation-1.0.0-fabric-1.21.4-260421-01.jar"
+      - "KillLineAnimation-1.0.1.fix1-fabric-1.21.4-260422-02.jar"
+      # 有前置 mod 的 mod
+      - "Kill_line-1.0.0+KillLineAnimation-1.0.0-fabric-1.21.4-260421-01.jar"
+      # 多个前置 mod（链式 +）
+      - "SomeMod-1.0.0+ModA-1.0.0+ModB-2.0.0-neoforge-1.21.4-260501-01.jar"
+
+  post_build:
+    rename: true
+    move_to_output: true
+    archive_old: true              # 将旧版本移入 archive/
+
+# 环境要求
+environment:
+  required:
+    - "JDK 21 (Minecraft 1.20.5+) 或 JDK 17 (Minecraft 1.18 - 1.20.4)"
+    - "Gradle Wrapper（项目自带，NEVER 全局安装 Gradle）"
+  recommended:
+    - "IntelliJ IDEA（官方推荐的 MC mod 开发 IDE）"
+    - "Minecraft 模组开发插件（Minecraft Development plugin）"
+  optional:
+    - "Blockbench（模型/纹理制作）"
+
+# 注册模式参考
+registration_patterns:
+  fabric:
+    description: "使用 Registry.register() 静态方法"
+    example: |
+      public static final Item MY_ITEM = Registry.register(
+          Registries.ITEM,
+          Identifier.of("modid", "my_item"),
+          new Item(new Item.Settings())
+      );
+  forge:
+    description: "使用 DeferredRegister<T>"
+    example: |
+      public static final DeferredRegister<Item> ITEMS =
+          DeferredRegister.create(Registries.ITEM, MODID);
+      public static final RegistryObject<Item> MY_ITEM =
+          ITEMS.register("my_item", () -> new Item(new Item.Properties()));
+  neoforge:
+    description: "使用 DeferredRegister<T>（与 Forge 类似）"
+    example: |
+      public static final DeferredRegister<Item> ITEMS =
+          DeferredRegister.create(Registries.ITEM, MODID);
+      public static final DeferredHolder<Item, Item> MY_ITEM =
+          ITEMS.register("my_item", () -> new Item(new Item.Properties()));
+
+# 加载器差异对比
+loader_comparison:
+  entry_point:
+    fabric: "实现 ModInitializer 接口，fabric.mod.json 声明"
+    forge: "@Mod 注解标记主类，mods.toml 声明"
+    neoforge: "@Mod 注解标记主类，neoforge.mods.toml 声明"
+  registry:
+    fabric: "Vanilla Registry.register()"
+    forge: "DeferredRegister + RegistryObject"
+    neoforge: "DeferredRegister + DeferredHolder"
+  events:
+    fabric: "自定义 Callback 接口 / Fabric API Events"
+    forge: "@SubscribeEvent 注解 + EventBus"
+    neoforge: "@SubscribeEvent 注解 + EventBus"
+  mixin:
+    fabric: "原生支持，常用"
+    forge: "支持，但在社区中较少使用"
+    neoforge: "支持，Access Transformer 替代部分 Mixin"
+  api_available:
+    fabric: "Fabric API（独立 mod）"
+    forge: "Forge API（内置）"
+    neoforge: "NeoForge API（内置，拆分自 Forge）"
+  config:
+    fabric: "Cloth Config / YACL（第三方）"
+    forge: "Forge Config Spec（内置）"
+    neoforge: "NeoForge Config Spec（内置）"
+  update_json:
+    fabric: "fabric.mod.json 中的 contact.sources"
+    forge: "mods.toml 中的 updateJSONURL"
+    neoforge: "neoforge.mods.toml 中的 updateJSONURL"
+
+# 禁止事项
+forbidden:
+  - "NEVER 在 mod 中使用 Minecraft 源码中的内部类（以无包名或 mojang 命名的类）-- 使用官方映射（Mojmap）"
+  - "NEVER 混用不同加载器的 API（Fabric API 代码不能用于 Forge/NeoForge）"
+  - "NEVER 直接修改 Minecraft 源码 -- 使用 Mixin 或 Access Transformer"
+  - "NEVER 使用 sun.misc.Unsafe 或反射绕过访问限制"
+  - "NEVER 在主线程执行耗时操作（网络请求、文件 IO）"
+  - "NEVER 硬编码 Minecraft 版本号 -- 使用 gradle.properties 中的变量"
+  - "NEVER 将 mod_id 设为与已有 mod 冲突的名称"
+  - "NEVER 在 release 构建中保留 debug 日志输出"
+  - "NEVER 全局安装 Gradle -- 始终使用项目自带的 gradlew"
+
+# 必须遵守
+required:
+  - "mod_id 只能包含小写字母、数字和下划线，长度 2-64"
+  - "所有可翻译文本必须放在 lang 文件中，NEVER 硬编码"
+  - "每个加载器+MC版本组合必须有独立的 build.gradle 配置"
+  - "Mixin 类必须有无参构造函数（或使用 @Mixin(targets=...)）"
+  - "资源文件路径必须与 mod_id 一致"
+  - "build 产物必须按命名规范重命名后存入 build/current/（{mod}-{ver}[+{dep}-{dep_ver}]-{loader}-{mc_ver}-{YYMMDD}-{seq}.jar）"
+  - "doc/dependencies.md 中必须记录当前使用的 JDK 版本、加载器版本、MC 版本"
+  - "新建 mod 项目前，必须先在 doc/ 中创建依赖信息和需求文档"

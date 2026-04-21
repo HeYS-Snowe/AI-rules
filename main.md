@@ -98,9 +98,13 @@
     │   └── examples/
     │       ├── mindcare-ai-rules.md
     │       └── mindcare-ai-custom-rules.md
-    └── python-ml/
+    ├── python-ml/
+    │   ├── presets/
+    │   │   └── ocean-lstm.yaml
+    │   └── errors/entries/
+    └── minecraft-mod/
         ├── presets/
-        │   └── ocean-lstm.yaml
+        │   └── minecraft-mod.yaml
         └── errors/entries/
 
 关联仓库:
@@ -292,6 +296,7 @@ AI 将：
 | React 应用   | `stacks/react/presets/react.yaml`         | Web 前端 SPA    |
 | FastAPI 后端 | `stacks/fastapi/presets/fastapi.yaml`     | Python 后端 API |
 | 全栈项目       | `stacks/fullstack/presets/fullstack.yaml` | 前后端一体化项目      |
+| Minecraft Mod | `stacks/minecraft-mod/presets/minecraft-mod.yaml` | MC 模组开发 |
 
 ### 常用命令
 
@@ -364,6 +369,10 @@ AI 将：
 #### Python-ML
 
 - [Ocean LSTM 预设](./stacks/python-ml/presets/ocean-lstm.yaml)
+
+#### Minecraft-Mod
+
+- [Minecraft Mod 预设](./stacks/minecraft-mod/presets/minecraft-mod.yaml)
 
 ### 关联仓库
 
