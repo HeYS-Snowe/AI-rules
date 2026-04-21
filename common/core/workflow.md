@@ -437,9 +437,9 @@ test('getUser returns user when user exists', () async {
 
 产物命名:
   # 通用格式（使用 - 分隔符）
-  格式: "{项目名}-{版本号}[-{状态}]-{日期}-{构建序号}.{ext}"
+  格式: "{项目名}-{版本号}-{状态}-{日期}-{构建序号}.{ext}"
   # 有依赖时（如前置库、SDK）
-  格式_含依赖: "{项目名}-{版本号}+{依赖名}-{依赖版本}[-{状态}]-{日期}-{构建序号}.{ext}"
+  格式_含依赖: "{项目名}-{版本号}+{依赖名}-{依赖版本}-{状态}-{日期}-{构建序号}.{ext}"
 
   版本号:
     格式: "{MAJOR}.{MINOR}.{PATCH}[.fix{N}]"
@@ -456,7 +456,7 @@ test('getUser returns user when user exists', () async {
 
   状态:
     完全体:
-      - release: 正式版（默认，可省略状态字段）
+      - release: 正式版
       - fix: 修复版
       - hotfix: 紧急修复
 
@@ -468,14 +468,10 @@ test('getUser returns user when user exists', () async {
       - debug: 调试版
 
   示例:
-    # release（省略状态）
-    - "MindCareAI-1.0.0-20250312-01.apk"
-    # alpha
+    - "MindCareAI-1.0.0-release-20250312-01.apk"
     - "MindCareAI-1.1.0-alpha-20250315-01.apk"
-    # 紧急修复
-    - "MindCareAI-1.0.1.fix1-20250313-02.apk"
-    # 含依赖
-    - "MyApp-2.0.0+flutter-sdk-3.22+-20250401-01.apk"
+    - "MindCareAI-1.0.1.fix1-hotfix-20250313-02.apk"
+    - "MyApp-2.0.0+flutter-sdk-3.22+-release-20250401-01.apk"
 ```
 
 ### 5.2 构建后处理
