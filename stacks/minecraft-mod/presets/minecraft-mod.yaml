@@ -5,6 +5,40 @@ project:
   type: "minecraft-mod"
   subcategory: "game-extension"
 
+# 项目创建流程
+project_creation:
+  principle: "新 MC 版本项目必须通过 IDE 的 Minecraft Development 插件创建，AI 仅提供配置信息"
+  workflow:
+    - step: 1
+      action: "用户提出创建新版本需求（mod 名称、MC 版本、加载器）"
+      who: "用户"
+    - step: 2
+      action: "AI 提供 IDE 插件所需的所有配置信息"
+      who: "AI"
+    - step: 3
+      action: "用户通过 IDE 插件创建项目，放置到 {mod名称}/{MC版本}/ 目录"
+      who: "用户"
+    - step: 4
+      action: "用户完成创建并通知 AI"
+      who: "用户"
+    - step: 5
+      action: "AI 开始协助代码开发（添加功能、迁移代码等）"
+      who: "AI"
+  config_template:
+    mod_id: "仅小写字母、数字、下划线，2-64 字符"
+    mod_name: "显示名称"
+    package: "Java 包名，如 com.kill_line"
+    mc_version: "目标 Minecraft 版本"
+    loader: "Fabric / Forge / NeoForge"
+    loader_version: "加载器版本"
+    java_version: "17 (1.18-1.20.4) / 21 (1.20.5+)"
+    mappings: "Fabric: Yarn / Forge/NeoForge: Official (Mojmap)"
+    api_version: "Fabric API 或 Forge MDK 版本"
+  forbidden:
+    - "AI NEVER 手动创建新 MC 版本的项目基础结构"
+    - "AI NEVER 生成 build.gradle、settings.gradle、gradle.properties"
+    - "这些文件必须由 IDE 插件正确生成"
+
 # 技术栈
 tech:
   language: "java"
@@ -30,6 +64,14 @@ versions:
 
 # 项目目录结构（全局层）
 project_structure:
+  description: "每个 MC 版本通过 IDE 插件创建独立项目，支持单加载器（默认）和多加载器（Architectury）两种模式"
+  modes:
+    single_loader:
+      description: "默认模式，IDE 插件直接生成的标准结构"
+      when: "一个 MC 版本仅使用一个加载器"
+    multi_loader:
+      description: "Architectury 多模块架构，common + fabric/forge/neoforge"
+      when: "同一 MC 版本需要支持多个加载器"
   # 每个具体 mod 的目录结构
   mod_root:
     doc:
@@ -282,6 +324,7 @@ loader_comparison:
 
 # 禁止事项
 forbidden:
+  - "NEVER 由 AI 手动创建新 MC 版本的项目基础结构（build.gradle、settings.gradle、gradle.properties 等），必须通过 IDE 插件创建"
   - "NEVER 在 mod 中使用 Minecraft 源码中的内部类（以无包名或 mojang 命名的类）-- 使用官方映射（Mojmap）"
   - "NEVER 混用不同加载器的 API（Fabric API 代码不能用于 Forge/NeoForge）"
   - "NEVER 直接修改 Minecraft 源码 -- 使用 Mixin 或 Access Transformer"
@@ -294,6 +337,7 @@ forbidden:
 
 # 必须遵守
 required:
+  - "新 MC 版本项目必须通过 IDE 的 Minecraft Development 插件创建，AI 仅提供配置信息"
   - "mod_id 只能包含小写字母、数字和下划线，长度 2-64"
   - "所有可翻译文本必须放在 lang 文件中，NEVER 硬编码"
   - "每个加载器+MC版本组合必须有独立的 build.gradle 配置"
