@@ -1,7 +1,7 @@
 # AI 编码规则体系 (AI Coding Rules System)
 
-> **版本**: v3.1.1
-> **更新日期**: 2026-04-21
+> **版本**: v3.2.0
+> **更新日期**: 2026-04-25
 > **核心理念**: 规则即模板，模板即规则
 
 ---
@@ -57,6 +57,11 @@
 ├── main.md                          # 主入口 (本文件)
 ├── README.md                        # 说明文档
 ├── USAGE-GUIDE.md                   # 使用指南
+│
+├── ERROR/                           # 错误存储与纠正系统
+│   ├── README.md                    # 系统文档
+│   ├── INDEX.md                     # 错误索引
+│   └── entries/                     # 错误条目
 │
 ├── common/                          # 通用库 (所有技术栈可用)
 │   ├── core/
@@ -137,16 +142,18 @@ D:\Code\.prompt/                       # 提示词与解决方案存储库
 - 引用 `common/structures/project-structure-guide.md`
 - 根据项目类型选择对应结构模板
 
-### 1.3 错误知识库层 (Error Knowledge Base)
+### 1.3 错误资源库层 (Error Repository)
 
-> 可选，无感存储开发过程中的问题和经验
+> 推荐，AI 自动进化的核心机制
 
-- 通用错误：引用 `common/errors/README.md`
-- 技术栈错误：存放在 `stacks/{tech}/errors/`
-- **无感存储**：AI 静默记录，无需用户确认
-- **低门槛**：不限于严重错误，小坑、微扰也记录
-- 支持按类型、技术栈、标签索引
-- 重复问题自动更新发生次数
+- **位置**：`ERROR/` — 独立的错误存储与纠正系统
+- **全量记录**：任何问题都存储（代码错误、AI 行为纠正、工作流问题等）
+- **检索优先**：出现问题先检索已有记录，参考但不盲从
+- **持续更新**：重复问题更新次数，过时方案标记 deprecated
+- 7 种错误类型：code / config / dependency / environment / ai-behavior / workflow / knowledge
+- 详见 `ERROR/README.md`
+
+> 旧系统 `common/errors/` + `stacks/{tech}/errors/` 保留但冻结，新错误统一存入 `ERROR/`
 
 ### 1.4 定制需求层 (Customization Layer)
 
@@ -329,10 +336,10 @@ AI 将：
 
 - [项目结构指南](./common/structures/project-structure-guide.md) - 各类项目目录结构
 
-#### 错误知识库
+#### 错误资源库
 
-- [错误知识库说明](./common/errors/README.md) - 使用方法、字段定义、记录模板
-- [错误索引](./common/errors/ERRORS_INDEX.md) - 按类型/技术栈/标签查找
+- [错误存储与纠正系统](./ERROR/README.md) - 系统文档、字段定义、存储策略
+- [错误索引](./ERROR/INDEX.md) - 按类型/标签查找
 
 #### 模板
 
@@ -385,6 +392,7 @@ AI 将：
 
 | 版本     | 日期         | 变更内容                                                    |
 | ------ | ---------- | ------------------------------------------------------- |
+| v3.2.0 | 2026-04-25 | 新增错误存储与纠正系统 (ERROR/)，覆盖全量问题，支持检索优先和 AI 行为纠正 |
 | v3.1.1 | 2026-04-21 | 新增信息持久化规则：联网搜索/MCP 工具获取的信息自动存储到 information/ |
 | v3.1.0 | 2026-04-02 | 引入 AI 协作原则（7 条核心行为规范），改进模板引用方式 |
 | v3.0.0 | 2026-03-28 | **BREAKING CHANGE** 重组为 common/ + stacks/ 双库架构，所有文件路径变更 |

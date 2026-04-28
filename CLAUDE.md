@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-本仓库 (`D:\Code\.Rules`) 是一个 **AI 编码规范系统**，v3.1.0，采用 **common/ + stacks/** 双库架构，提供可组合、可定制、全流程覆盖的编码规则。
+本仓库 (`D:\Code\.Rules`) 是一个 **AI 编码规范系统**，v3.2.0，采用 **common/ + stacks/** 双库架构，提供可组合、可定制、全流程覆盖的编码规则。
 
 **核心理念**: 规则即模板，模板即规则
 **核心公式**: `基础规则 + 定制需求 = 项目定制规则`
@@ -24,17 +24,22 @@
 ```
 .Rules/
 ├── main.md                  # 主入口（规则索引 + 使用说明）
+├── ERROR/                   # 错误存储与纠正系统（全量问题记录）
+│   ├── README.md            # 系统文档
+│   ├── INDEX.md             # 错误索引
+│   └── entries/             # 错误条目
 ├── common/                  # 通用库（所有技术栈可用）
 │   ├── core/                # 核心规则：principles / security / code-style / workflow
 │   ├── structures/          # 项目结构模板
 │   ├── templates/           # 定制需求模板、CLAUDE 模板、项目规则模板
-│   └── errors/              # 通用错误知识库（entries/ 存放条目）
+│   └── errors/              # 旧错误知识库（冻结，新错误存入 ERROR/）
 └── stacks/                  # 专用库（按技术栈）
     ├── flutter/             # 预设 + 国内镜像 + 错误条目
     ├── react/               # 预设 + 错误条目
     ├── fastapi/             # 预设 + 错误条目
     ├── fullstack/           # 预设 + 示例
-    └── python-ml/           # 预设 + 错误条目
+    ├── python-ml/           # 预设 + 错误条目
+    └── minecraft-mod/       # 预设 + 错误条目
 ```
 
 ## 规则层级（优先级从高到低）
@@ -45,7 +50,7 @@
 
 - **核心规则层**（必选）：SOLID、DRY、KISS、YAGNI；OWASP Top 10 安全规范
 - **项目结构层**（必选）：根据项目类型选择结构模板
-- **错误知识库层**（可选）：无感存储问题和经验
+- **错误资源库层**（推荐）：全量问题记录与 AI 自我纠正（`ERROR/`）
 - **定制需求层**（可选）：项目特定配置
 - **提示词知识库层**（推荐）：跨会话沉淀（D:\Code\.prompt）
 
@@ -63,12 +68,14 @@
 - 预设名与目录名一致（如 `flutter/` → `flutter.yaml`）
 - 新增技术栈需在 `stacks/` 下创建对应目录，含 `presets/` 和 `errors/entries/`
 
-### 错误知识库 (`common/errors/`, `stacks/{tech}/errors/`)
+### 错误资源库 (`ERROR/`)
 
+- **全量记录**：任何问题都存储，不限代码错误（7 种类型：code/config/dependency/environment/ai-behavior/workflow/knowledge）
+- **检索优先**：出现问题先搜索 `ERROR/entries/`，参考但不盲从
 - **无感存储**：AI 静默记录，无需用户确认
-- 通用错误 → `common/errors/entries/`，技术栈错误 → `stacks/{tech}/errors/entries/`
 - 重复问题更新发生次数，不重复创建条目
-- 记录格式参照 `common/errors/README.md`
+- 记录格式参照 `ERROR/README.md`
+- 旧系统 `common/errors/` + `stacks/{tech}/errors/` 保留但冻结
 
 ### 模板文件 (`common/templates/`)
 
@@ -87,5 +94,5 @@
 <type>(<scope>): <subject>
 
 类型: feat | fix | refactor | docs | chore
-scope: common | flutter | react | fastapi | fullstack | python-ml | templates
+scope: common | flutter | react | fastapi | fullstack | python-ml | minecraft-mod | templates | error
 ```

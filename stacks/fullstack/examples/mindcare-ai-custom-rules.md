@@ -422,11 +422,11 @@ class EmotionResponse(BaseModel):
 ### 构建产物命名
 
 ```
-MindCareAI_{状态}_{版本号}_{日期}_{序号}.apk
+MindCareAI_{状态}_{版本号}_{日期}.apk
 
 示例:
-MindCareAI_release_1.0.0_20250312_01.apk
-MindCareAI_dev_0.0.1_20250312_02.apk
+MindCareAI_release_1.0.0.1_20250312.apk
+MindCareAI_dev_0.0.1.2_20250312.apk
 ```
 
 ### 构建后处理（自动）
