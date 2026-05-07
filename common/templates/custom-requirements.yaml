@@ -173,6 +173,17 @@ build:
     name_format: "{project}_{status}_{version}_{date}_{seq}"
     # 可用变量: project, status, version, date, seq
 
+    version:
+      format: "{MAJOR}.{MINOR}.{PATCH}.{BUILD}"
+      major: "不兼容的 API 变更"
+      minor: "向后兼容的功能新增"
+      patch: "向后兼容的问题修复"
+      build: "构建序号，每次构建递增"
+      examples:
+        - "1.0.0.1"        # 首次发布
+        - "1.1.0.2"        # 功能更新
+        - "1.1.1.3"        # Bug 修复
+
   # 状态类型映射
   status_map:
     release: "正式版"

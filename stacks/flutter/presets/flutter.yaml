@@ -133,6 +133,18 @@ build:
   artifact:
     format: "{project}_{status}_{version}_{date}_{seq}.apk"
     output_dir: "builds/"            # 项目根目录下，不受 flutter clean 影响（如 D:\Code\Project\Loop\builds\）
+
+    version:
+      format: "{MAJOR}.{MINOR}.{PATCH}.{BUILD}"
+      major: "不兼容的 API 变更"
+      minor: "向后兼容的功能新增"
+      patch: "向后兼容的问题修复"
+      build: "构建序号，每次构建递增"
+      examples:
+        - "1.0.0.1"        # 首次发布
+        - "1.1.0.2"        # 功能更新
+        - "1.1.1.3"        # Bug 修复
+
     status_types:
       release: "正式版"
       beta: "测试版"
