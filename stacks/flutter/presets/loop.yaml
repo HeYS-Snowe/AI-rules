@@ -199,7 +199,7 @@ build:
     codegen: "flutter pub run build_runner build --delete-conflicting-outputs"
 
   artifact:
-    format: "Loop_{status}_{version}_{date}_{seq}.apk"
+    format: "Loop_{status}_{version}_{date}.apk"
     output_dir: "builds/"            # 项目根目录下，不受 flutter clean 影响（如 D:\Code\Project\Loop\builds\）
 
     version:

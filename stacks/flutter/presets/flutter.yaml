@@ -131,7 +131,7 @@ build:
     appbundle: "flutter build appbundle --release"
 
   artifact:
-    format: "{project}_{status}_{version}_{date}_{seq}.apk"
+    format: "{project}_{status}_{version}_{date}.apk"
     output_dir: "builds/"            # 项目根目录下，不受 flutter clean 影响（如 D:\Code\Project\Loop\builds\）
 
     version:
