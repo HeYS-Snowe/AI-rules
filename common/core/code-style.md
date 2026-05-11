@@ -566,5 +566,128 @@ void createUser(CreateUserParams params) { }
 
 ---
 
+## 八、降AI率（条件触发）
+
+> 本节规则仅在用户明确要求"需要降AI率"时生效，NEVER 主动应用。
+
+### 8.1 触发条件
+
+```yaml
+触发关键词: "需要降AI率"
+触发方式: 仅限用户在提示词中明确写出触发关键词
+默认状态: 关闭
+
+禁令:
+  - NEVER 在用户未明确要求"降AI率"时应用本节任何规则
+  - NEVER 将降AI率作为默认行为
+  - NEVER 在部分代码上降AI率而另一部分不降（全有或全无）
+```
+
+### 8.2 核心原则
+
+```yaml
+目标: 让代码看起来像人写的，而不是 AI 生成的
+边界: 只改变格式和风格，NEVER 引入逻辑错误
+
+禁止:
+  - NEVER 为了"看起来自然"而写错误的逻辑
+  - NEVER 降低代码的可读性和可维护性
+  - NEVER 引入安全隐患
+  - NEVER 使用反模式或已废弃的写法
+```
+
+### 8.3 具体手法
+
+以下改动仅影响格式和风格，不影响逻辑正确性：
+
+```yaml
+格式层面:
+  - 偶尔不统一空行数量（有的地方多一行，有的地方没有）
+  - 偶尔不统一缩进风格（混用 tab 和空格，但在同一块内保持一致）
+  - 空行分布不完全对称（不需要每个函数之间都恰好一个空行）
+  - 长行不刻意拆分到精确的行宽限制
+
+注释层面:
+  - 减少文档注释的完整度（不必每个参数都注释）
+  - 偶尔省略显而易见的注释，偶尔保留必要的注释
+  - TODO 注释不必严格遵循格式模板
+
+命名层面:
+  - 偶尔使用不那么"教科书"的命名（但不使用无意义命名）
+  - 局部变量可以用稍短的名字（如 ctx, evt, tmp）
+  - 不必每个常量都提取为命名常量
+
+结构层面:
+  - 不必严格遵循类成员排序规则
+  - 辅助函数可以就近放置而非集中到文件末尾
+  - 偶尔用更直接的写法替代过度抽象的结构
+
+禁止的改动:
+  - NEVER 改变代码逻辑或算法
+  - NEVER 使用已废弃的 API 或反模式
+  - NEVER 删除错误处理或边界检查
+  - NEVER 降低类型安全性
+```
+
+### 8.4 对比示例
+
+```typescript
+// --- 默认模式（AI 风格）---
+
+interface UserConfig {
+  readonly id: string;
+  readonly name: string;
+  readonly email: string;
+  readonly role: UserRole;
+}
+
+class UserConfigBuilder {
+  private readonly _config: Partial<UserConfig>;
+
+  constructor() {
+    this._config = {};
+  }
+
+  withId(id: string): UserConfigBuilder {
+    this._config.id = id;
+    return this;
+  }
+
+  withName(name: string): UserConfigBuilder {
+    this._config.name = name;
+    return this;
+  }
+
+  build(): UserConfig {
+    if (!this._config.id || !this._config.name) {
+      throw new Error('Missing required fields');
+    }
+    return this._config as UserConfig;
+  }
+}
+
+// --- 降AI率模式（人写风格）---
+
+interface UserConfig {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+}
+
+// 构建用户配置
+function buildUserConfig(id: string, name: string, email?: string): UserConfig {
+  if (!id || !name) throw new Error('Missing required fields');
+  return {
+    id,
+    name,
+    email: email ?? '',
+    role: UserRole.Member
+  };
+}
+```
+
+---
+
 *代码风格一致性是团队协作的基础*
 *遵循规范，让代码更易读、易维护*

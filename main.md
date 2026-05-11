@@ -1,7 +1,7 @@
 # AI 编码规则体系 (AI Coding Rules System)
 
-> **版本**: v3.2.0
-> **更新日期**: 2026-04-25
+> **版本**: v3.2.1
+> **更新日期**: 2026-05-11
 > **核心理念**: 规则即模板，模板即规则
 
 ---
@@ -132,7 +132,7 @@ D:\Code\.prompt/                       # 提示词与解决方案存储库
 | --------------------------- | ----------------------- | --- |
 | `common/core/principles.md` | SOLID、DRY、KISS、YAGNI 原则 + AI 协作原则 | 强制  |
 | `common/core/security.md`   | OWASP Top 10 安全规范       | 强制  |
-| `common/core/code-style.md` | 沟通规范 + 命名、注释、格式规范       | 推荐  |
+| `common/core/code-style.md` | 沟通规范 + 命名、注释、格式 + 降AI率（条件触发） | 推荐  |
 | `common/core/workflow.md`   | 开发全流程规范 + AI 行为约束        | 推荐  |
 
 ### 1.2 项目结构层 (Structure Rules)
@@ -329,7 +329,7 @@ AI 将：
 
 - [核心原则](./common/core/principles.md) - SOLID、DRY、KISS、YAGNI + AI 协作原则
 - [安全规范](./common/core/security.md) - OWASP Top 10
-- [代码风格](./common/core/code-style.md) - 沟通规范 + 命名、注释、格式
+- [代码风格](./common/core/code-style.md) - 沟通规范 + 命名、注释、格式 + 降AI率（条件触发）
 - [开发流程](./common/core/workflow.md) - 全流程规范 + AI 行为约束
 
 #### 项目结构
@@ -392,6 +392,7 @@ AI 将：
 
 | 版本     | 日期         | 变更内容                                                    |
 | ------ | ---------- | ------------------------------------------------------- |
+| v3.2.1 | 2026-05-11 | 新增"降AI率"规则（code-style.md 第八节），仅用户明确触发时生效 |
 | v3.2.0 | 2026-04-25 | 新增错误存储与纠正系统 (ERROR/)，覆盖全量问题，支持检索优先和 AI 行为纠正 |
 | v3.1.1 | 2026-04-21 | 新增信息持久化规则：联网搜索/MCP 工具获取的信息自动存储到 information/ |
 | v3.1.0 | 2026-04-02 | 引入 AI 协作原则（7 条核心行为规范），改进模板引用方式 |
