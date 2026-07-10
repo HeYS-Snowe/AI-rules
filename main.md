@@ -1,7 +1,7 @@
 # AI 编码规则体系 (AI Coding Rules System)
 
-> **版本**: v3.2.1
-> **更新日期**: 2026-05-11
+> **版本**: v3.2.2
+> **更新日期**: 2026-07-10
 > **核心理念**: 规则即模板，模板即规则
 
 ---
@@ -55,6 +55,7 @@
 ```
 .Rules/
 ├── main.md                          # 主入口 (本文件)
+├── OrganizationAndUser.md           # 组织与开发者信息（包名/署名等身份来源）
 ├── README.md                        # 说明文档
 ├── USAGE-GUIDE.md                   # 使用指南
 │
@@ -256,7 +257,7 @@ AI 将：
 | 架构设计 | `common/core/workflow.md#架构设计`                            | 架构模式、技术选型   |
 | 编码实现 | `common/core/code-style.md` + `common/core/principles.md` | 代码规范、设计原则   |
 | 测试验证 | `common/core/workflow.md#测试规范`                            | 测试策略、覆盖率要求  |
-| 构建打包 | `common/core/workflow.md#构建规范`                            | 构建流程、产物命名   |
+| 构建打包 | `common/core/workflow.md#构建规范`                            | 构建流程、产物命名、版本推荐   |
 | 部署发布 | `common/core/workflow.md#部署规范`                            | 部署检查、回滚方案   |
 | 运维监控 | `common/core/workflow.md#运维规范`                            | 日志规范、告警配置   |
 | 迭代优化 | `common/core/workflow.md#迭代规范`                            | 更新日志、版本管理   |
@@ -323,6 +324,12 @@ AI 将：
 
 ## 七、规则文件索引
 
+### 项目元信息
+
+- [组织与开发者信息](./OrganizationAndUser.md) - 组织/开发者身份、包名前缀、版权署名的唯一事实来源
+- [项目清单](./PROJECTLIST.md) - 全项目导航索引（路径、定位、活跃状态）
+- [项目审计系统](./docs/audit/README.md) - 定期审计机制与待办池
+
 ### 通用库 (common/)
 
 #### 核心规则
@@ -330,7 +337,7 @@ AI 将：
 - [核心原则](./common/core/principles.md) - SOLID、DRY、KISS、YAGNI + AI 协作原则
 - [安全规范](./common/core/security.md) - OWASP Top 10
 - [代码风格](./common/core/code-style.md) - 沟通规范 + 命名、注释、格式 + 降AI率（条件触发）
-- [开发流程](./common/core/workflow.md) - 全流程规范 + AI 行为约束
+- [开发流程](./common/core/workflow.md) - 全流程规范 + AI 行为约束 + 项目问题档案(.issues/) + 编译后版本推荐
 
 #### 项目结构
 
@@ -392,6 +399,7 @@ AI 将：
 
 | 版本     | 日期         | 变更内容                                                    |
 | ------ | ---------- | ------------------------------------------------------- |
+| v3.2.2 | 2026-07-10 | 新增项目级问题档案(.issues/)、编译后版本号推荐、组织身份SSOT(OrganizationAndUser.md)、项目清单(PROJECTLIST.md)、项目审计系统(docs/audit，workflow §9.5) |
 | v3.2.1 | 2026-05-11 | 新增"降AI率"规则（code-style.md 第八节），仅用户明确触发时生效 |
 | v3.2.0 | 2026-04-25 | 新增错误存储与纠正系统 (ERROR/)，覆盖全量问题，支持检索优先和 AI 行为纠正 |
 | v3.1.1 | 2026-04-21 | 新增信息持久化规则：联网搜索/MCP 工具获取的信息自动存储到 information/ |

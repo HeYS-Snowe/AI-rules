@@ -1,4 +1,4 @@
-# CLAUDE.md — AI 编码规则体系项目
+# AGENTS.md — AI 编码规则体系项目
 
 ## 项目概述
 
@@ -31,7 +31,7 @@
 ├── common/                  # 通用库（所有技术栈可用）
 │   ├── core/                # 核心规则：principles / security / code-style / workflow
 │   ├── structures/          # 项目结构模板
-│   ├── templates/           # 定制需求模板、CLAUDE 模板、项目规则模板
+│   ├── templates/           # 定制需求模板、Codex 模板、项目规则模板
 │   └── errors/              # 旧错误知识库（冻结，新错误存入 ERROR/）
 └── stacks/                  # 专用库（按技术栈）
     ├── flutter/             # 预设 + 国内镜像 + 错误条目
@@ -81,12 +81,12 @@
 
 - `custom-requirements.yaml` — 有示例值的模板
 - `custom-requirements-template.yaml` — 空白模板
-- `CLAUDE-template.md` — Claude Code 项目规则模板
+- `Codex-template.md` — Codex 项目规则模板
 - `project-rules-template.md` — 项目定制规则输出模板
 
 ## 关联仓库交互
 
-**提示词库 (`D:\Code\.prompt`)**：每次会话遵循"会话前搜索、会话后沉淀"工作流，详见 `D:\Code\.prompt\CLAUDE.md`。
+**提示词库 (`D:\Code\.prompt`)**：每次会话遵循"会话前搜索、会话后沉淀"工作流，详见 `D:\Code\.prompt\AGENTS.md`。
 
 ## 提交规范
 
