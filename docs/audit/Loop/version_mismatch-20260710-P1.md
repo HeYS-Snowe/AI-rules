@@ -3,9 +3,9 @@ title: CLAUDE.md 版本号与 git 提交矛盾
 project: Loop
 level: P1
 category: docs-sync
-status: open
+status: resolved
 found: 2026-07-10
-resolved:
+resolved: 2026-07-10
 ---
 
 ## 问题描述
@@ -30,4 +30,6 @@ Loop 项目的 `CLAUDE.md` 标注版本与 git 实际提交记录矛盾，无法
 
 ## 解决记录
 
-<!-- 处理后填写 -->
+**2026-07-10 用户确认**：应用版本以 `v1.3.0` 为准（CLAUDE.md 标注正确）。git 提交信息中的 "v0.1.0 版本里程碑" 属早期阶段的提交描述，不构成版本矛盾。本条关闭。
+
+> 可选后续（非必须）：在 CLAUDE.md 标注 v1.3.0 为「应用版本」，与提交信息中的里程碑描述区分，避免未来再次混淆。
