@@ -3,6 +3,7 @@
 > **版本**: v3.2.2
 > **更新日期**: 2026-07-10
 > **核心理念**: 规则即模板，模板即规则
+> **AI 入口**: [`compact-core.md`](./compact-core.md) — 精简核心（始终加载约束 + 按需加载清单），适合放入项目 CLAUDE.md
 
 ---
 
@@ -83,7 +84,7 @@
 │   │   └── entries/
 │   └── ai-coding-rulesystem.md      # 归档 (v1.0.0)
 │
-└── stacks/                          # 专用库 (按技术栈分类)
+├── stacks/                          # 专用库 (按技术栈分类)
     ├── flutter/
     │   ├── presets/
     │   │   ├── flutter.yaml
@@ -112,6 +113,11 @@
         ├── presets/
         │   └── minecraft-mod.yaml
         └── errors/entries/
+
+├── workflow/                       # 项目工作流程样本库（提炼自各项目实战）
+│   ├── README.md                   # 用途 + 提炼原则 + 索引
+│   └── {项目名}/                   # 每项目一目录
+│       └── 工作流程.md
 
 关联仓库:
 D:\Code\.prompt/                       # 提示词与解决方案存储库
@@ -324,6 +330,10 @@ AI 将：
 
 ## 七、规则文件索引
 
+### AI 精简核心
+
+- [精简核心 (Compact Core)](./compact-core.md) - **AI 始终加载的入口**。提取安全红线、代码底线、AI 行为约束为始终生效层；其余规则按触发条件懒加载。放入项目 CLAUDE.md 即可生效。
+
 ### 项目元信息
 
 - [组织与开发者信息](./OrganizationAndUser.md) - 组织/开发者身份、包名前缀、版权署名的唯一事实来源
@@ -388,6 +398,11 @@ AI 将：
 #### Minecraft-Mod
 
 - [Minecraft Mod 预设](./stacks/minecraft-mod/presets/minecraft-mod.yaml)
+
+### 项目工作流程样本 (workflow/)
+
+- [工作流程样本库](./workflow/README.md) - 各项目实战工作手册的提炼存档，与通用模板 `common/core/workflow.md` 互补
+- [Jeenith 工作流程](./workflow/jeenith/工作流程.md) - Flutter 移动 App 实战样本（结构/构建/归档/发布/版本/文档/Git 全流程 + 可复用经验提炼）
 
 ### 关联仓库
 
