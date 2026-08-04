@@ -1,9 +1,10 @@
 # AI 编码规则体系 (AI Coding Rules System)
 
-> **版本**: v3.2.2
-> **更新日期**: 2026-07-10
+> **版本**: v3.4.0
+> **更新日期**: 2026-08-04
 > **核心理念**: 规则即模板，模板即规则
 > **AI 入口**: [`compact-core.md`](./compact-core.md) — 精简核心（始终加载约束 + 按需加载清单），适合放入项目 CLAUDE.md
+> **路径基准**: [`ROOT.md`](./ROOT.md) — 仓库根 + 跨仓库路径 SSOT
 
 ---
 
@@ -78,11 +79,10 @@
 │   │   ├── custom-requirements-template.yaml
 │   │   ├── project-rules-template.md
 │   │   └── CLAUDE-template.md
-│   ├── errors/
-│   │   ├── README.md
-│   │   ├── ERRORS_INDEX.md
-│   │   └── entries/
-│   └── ai-coding-rulesystem.md      # 归档 (v1.0.0)
+│
+├── archive/                          # 归档（NEVER 作为现行规则加载）
+│   ├── ai-coding-rulesystem.md       # 旧版完整文档 v1.0.0
+│   └── errors/                       # 旧错误知识库（冻结）
 │
 ├── stacks/                          # 专用库 (按技术栈分类)
     ├── flutter/
@@ -160,7 +160,7 @@ D:\Code\.prompt/                       # 提示词与解决方案存储库
 - 7 种错误类型：code / config / dependency / environment / ai-behavior / workflow / knowledge
 - 详见 `ERROR/README.md`
 
-> 旧系统 `common/errors/` + `stacks/{tech}/errors/` 保留但冻结，新错误统一存入 `ERROR/`
+> 旧系统 `archive/errors/` + `stacks/{tech}/errors/` 已归档冻结（NEVER 加载），新错误统一存入 `ERROR/`
 
 ### 1.4 定制需求层 (Customization Layer)
 
@@ -365,9 +365,10 @@ AI 将：
 - [项目规则模板](./common/templates/project-rules-template.md) - 输出模板
 - [CLAUDE 模板](./common/templates/CLAUDE-template.md) - Claude Code 规则模板
 
-#### 归档
+#### 归档（NEVER 作为现行规则加载）
 
-- [AI 编码规则体系 v1.0.0](./common/ai-coding-rulesystem.md) - 旧版完整文档
+- [AI 编码规则体系 v1.0.0](./archive/ai-coding-rulesystem.md) - 旧版完整文档
+- [旧错误知识库](./archive/errors/README.md) - 冻结
 
 ### 专用库 (stacks/)
 
@@ -414,6 +415,8 @@ AI 将：
 
 | 版本     | 日期         | 变更内容                                                    |
 | ------ | ---------- | ------------------------------------------------------- |
+| v3.4.0 | 2026-08-04 | 新增 AI 行为约束两条（§一 11 两手准备兜底必达 / 12 PowerShell 一律用 pwsh）；principles 新增 §6.10 两手准备规则；workflow §3.4 工具使用新增 pwsh 源定义；OrganizationAndUser 新增服务器与域名章节（腾讯云 62.234.115.217 + heys-snowe.tj.cn）、口号新增「未雨绸缪，兜底必达」 |
+| v3.3.0 | 2026-08-03 | 新增可复用触发机制（`common/core/trigger-mechanism.md`）；workflow 新增改动文档生成（§12）；项目问题档案改由触发机制驱动（§9.4）；旧文档归档至 `archive/`；入口文档（README/CLAUDE/AGENTS）精简去重 |
 | v3.2.2 | 2026-07-10 | 新增项目级问题档案(.issues/)、编译后版本号推荐、组织身份SSOT(OrganizationAndUser.md)、项目清单(PROJECTLIST.md)、项目审计系统(docs/audit，workflow §9.5) |
 | v3.2.1 | 2026-05-11 | 新增"降AI率"规则（code-style.md 第八节），仅用户明确触发时生效 |
 | v3.2.0 | 2026-04-25 | 新增错误存储与纠正系统 (ERROR/)，覆盖全量问题，支持检索优先和 AI 行为纠正 |

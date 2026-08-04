@@ -1,16 +1,16 @@
-# AI 编码规则体系
+# AI 编码规则体系 (AI Coding Rules System)
 
-> **版本**: v3.1.0
-> **更新日期**: 2026-04-02
+> **版本**: v3.4.0
+> **更新日期**: 2026-08-04
 > **核心理念**: 规则即模板，模板即规则
+> **核心公式**: `基础规则 + 定制需求 = 项目定制规则`
 
 ---
 
 ## 简介
 
-这是一个**可组合、可定制、全流程覆盖**的 AI 编码规范系统。
+这是一个**可组合、可定制、全流程覆盖**的 AI 编码规范系统，采用 **common/ + stacks/** 双库架构：
 
-采用 **common/ + stacks/** 双库架构：
 - **common/** — 通用库，所有技术栈皆可用的规则
 - **stacks/** — 专用库，按技术栈分类的专用规则和配置
 
@@ -18,174 +18,55 @@
 
 | 仓库 | 路径 | 职责 |
 |------|------|------|
-| 编码规则 | `D:\Code\.Rules` | 编码规范、开发流程、项目结构 |
+| 编码规则 | `D:\Code\.Rules`（本仓库） | 编码规范、开发流程、项目结构 |
 | 提示词库 | `D:\Code\.prompt` | 提示词存储、解决方案沉淀、经验复用 |
 
-### 核心公式
+---
 
-```
-基础规则 + 定制需求 = 项目定制规则
-```
+## 入口导航（单事实来源，NEVER 在本文件重复维护）
 
-- **基础规则**: 本规则体系，可直接使用
-- **定制需求**: 项目特定配置 (YAML/Markdown)
-- **定制规则**: AI 生成的项目专属规则
+| 文件 | 用途 |
+|------|------|
+| `main.md` | 完整规则索引 + 使用指南（人类阅读、项目初始化）；含架构图、规则层级、加载模型、变更记录 |
+| `compact-core.md` | AI 精简核心（始终加载约束 + 按需加载清单），嵌入项目 CLAUDE.md / 全局 AGENTS.md |
+| `common/core/trigger-mechanism.md` | 可复用触发机制（自动落盘行为注册表 + 初始化流程） |
+| `ROOT.md` | 路径基准（仓库根 + 跨仓库路径 SSOT） |
+| `USAGE-GUIDE.md` | 各工具接入方式（Claude Code / Trae / Deep Code） |
+| `OrganizationAndUser.md` | 组织与开发者身份 SSOT |
+| `PROJECTLIST.md` | 项目导航索引 |
+| `ERROR/README.md` | 错误存储与纠正系统说明 |
+| `workflow/README.md` | 项目工作流程样本库索引 |
 
 ---
 
 ## 快速开始
 
-### 方式一：直接使用
-
-将规则文件提供给 AI：
+### 直接使用
 
 ```
 请按照 D:\Code\.Rules\main.md 规则体系进行开发。
 ```
 
-### 方式二：使用预设
+### 使用预设
 
 ```
 请按照 AI-Rules 规则体系，使用 stacks/flutter/presets/flutter.yaml 预设，
 生成我的 Flutter 项目定制规则。
 ```
 
-### 方式三：完全定制
+### 完全定制
 
-1. 复制 `common/templates/custom-requirements.yaml`
-2. 填写项目信息
-3. 提供给 AI：
-
-```
-请基于 AI-Rules 规则体系和以下定制需求，生成项目定制规则：
-
-[粘贴配置内容]
-```
-
----
-
-## 目录结构
-
-```
-.Rules/
-├── main.md                          # 主入口文件
-├── README.md                        # 本文件
-├── USAGE-GUIDE.md                   # 使用指南
-│
-├── common/                          # 通用库 (所有技术栈可用)
-│   ├── core/
-│   │   ├── principles.md            # 核心原则 (SOLID, DRY, KISS, YAGNI)
-│   │   ├── security.md              # 安全规范 (OWASP Top 10)
-│   │   ├── code-style.md            # 代码风格规范
-│   │   └── workflow.md              # 开发流程规范
-│   ├── structures/
-│   │   └── project-structure-guide.md
-│   ├── templates/
-│   │   ├── custom-requirements.yaml      # 定制需求模板
-│   │   ├── custom-requirements-template.yaml
-│   │   ├── project-rules-template.md     # 项目规则输出模板
-│   │   └── CLAUDE-template.md            # Claude Code 规则模板
-│   ├── errors/
-│   │   ├── README.md              # 错误知识库说明
-│   │   ├── ERRORS_INDEX.md        # 通用错误索引
-│   │   └── entries/               # 通用错误记录条目
-│   └── ai-coding-rulesystem.md    # 归档 (v1.0.0 旧版文档)
-│
-└── stacks/                          # 专用库 (按技术栈分类)
-    ├── flutter/
-    │   ├── presets/
-    │   │   ├── flutter.yaml           # Flutter 项目预设
-    │   │   └── loop.yaml              # Loop 预设
-    │   ├── flutter-china-mirrors.md   # 国内镜像配置
-    │   └── errors/entries/            # Flutter 错误条目
-    ├── react/
-    │   ├── presets/
-    │   │   └── react.yaml             # React 项目预设
-    │   └── errors/entries/            # React/TypeScript 错误条目
-    ├── fastapi/
-    │   ├── presets/
-    │   │   └── fastapi.yaml           # FastAPI 项目预设
-    │   └── errors/entries/            # FastAPI 错误条目
-    ├── fullstack/
-    │   ├── presets/
-    │   │   └── fullstack.yaml         # 全栈项目预设
-    │   └── examples/
-    │       ├── mindcare-ai-rules.md       # 完整示例
-    │       └── mindcare-ai-custom-rules.md
-    └── python-ml/
-        ├── presets/
-        │   └── ocean-lstm.yaml        # Ocean LSTM 预设
-        └── errors/entries/            # Python-ML 错误条目
-
-关联仓库:
-D:\Code\.prompt/                       # 提示词与解决方案存储库
-```
-
----
-
-## 规则层级
-
-```
-定制规则 > 预设配置 > 项目结构规则 > 核心规则 > 默认行为
-```
-
-当规则冲突时，优先级高的规则生效。
-
----
-
-## 规则层说明
-
-| 层级 | 类型 | 说明 |
-|------|------|------|
-| 核心规则层 | 必选 | SOLID、DRY、KISS、YAGNI 原则；OWASP Top 10 安全规范 |
-| 项目结构层 | 必选 | 根据项目类型选择对应结构模板 |
-| 错误知识库层 | 可选 | 无感存储开发过程中的问题和经验 |
-| 定制需求层 | 可选 | 项目特定的定制配置 |
-| 提示词知识库层 | 推荐 | 跨会话提示词与解决方案沉淀 (D:\Code\.prompt) |
-
-> 各层级详细说明和错误知识库特性详见 [main.md](main.md) 第一章
-
----
-
-## 全流程覆盖
-
-覆盖需求分析、架构设计、编码实现、测试验证、构建打包、部署发布、运维监控、迭代优化共 8 个阶段。
-
-> 各阶段规则引用详见 [main.md](main.md) 第四章
-
----
-
-## 预设选择指南
-
-| 项目类型 | 预设文件 | 适用场景 |
-|----------|----------|----------|
-| Flutter 应用 | `stacks/flutter/presets/flutter.yaml` | 移动端跨平台应用 |
-| React 应用 | `stacks/react/presets/react.yaml` | Web 前端 SPA |
-| FastAPI 后端 | `stacks/fastapi/presets/fastapi.yaml` | Python 后端 API |
-| 全栈项目 | `stacks/fullstack/presets/fullstack.yaml` | 前后端一体化项目 |
-
----
-
-## 更新日志
-
-| 版本 | 日期 | 变更 |
-|------|------|------|
-| v3.1.0 | 2026-04-02 | 引入 AI 协作原则，改进模板引用方式 |
-| v3.0.0 | 2026-03-28 | **BREAKING CHANGE** 重组为 common/ + stacks/ 双库架构，所有文件路径变更 |
-| v2.2.0 | 2026-03-28 | 新增提示词知识库层，关联 D:\Code\.prompt 仓库 |
-| v2.1.1 | 2026-03-17 | 错误知识库改为无感存储，降低记录门槛 |
-| v2.1.0 | 2026-03-17 | 新增错误知识库层 (errors/)，支持主动记录错误 |
-| v2.0.0 | 2026-03-12 | 重构为分层架构，支持全流程覆盖 |
-| v1.0.0 | 2026-03-12 | 初始版本 |
+1. 复制 `common/templates/custom-requirements.yaml` 并填写项目信息
+2. 提供给 AI 生成项目定制规则
 
 ---
 
 ## 贡献指南
 
-1. 核心规则 (`common/core/`) 变更需要谨慎评估
+1. 核心规则 (`common/core/`) 变更需谨慎评估，并同步 `compact-core.md` 与 `main.md`
 2. 新增预设 (`stacks/{tech}/presets/`) 欢迎提交
-3. 示例 (`stacks/fullstack/examples/`) 有助于理解使用方式
-4. 新增技术栈请在 `stacks/` 下创建对应目录
+3. 新增技术栈请在 `stacks/` 下创建对应目录
+4. 完整变更记录见 `main.md`
 
 ---
 
