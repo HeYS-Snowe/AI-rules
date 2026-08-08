@@ -94,7 +94,7 @@
 | 技术设计、架构文档 | `common/core/workflow.md` §2 | 设计层次 + 技术设计文档模板 |
 | 编码实现、提交规范 | `common/core/workflow.md` §3 | 开发流程 + 提交规范 + AI 行为约束 + 代码审查清单 |
 | 写测试、测试策略 | `common/core/workflow.md` §4 | 测试层次 + AAA 模式 + 测试报告模板 |
-| 构建 / 打包 | `common/core/workflow.md` §5 | 构建流程 + 产物命名 + 编译后版本号推荐 |
+| 构建 / 打包 | `common/core/workflow.md` §5 | 构建流程 + 产物命名 + **builds 目录结构（release/packages 分离，§5.1b）** + 编译后版本号推荐 |
 | 部署发布 | `common/core/workflow.md` §6 | 部署检查清单 + 回滚方案 |
 | npm 私有包发布（GitHub Packages） | `common/core/npm-private-publish.md` | 双 Token 策略 + 8 步发布流程 + release.js 模板 + 常见问题 |
 | 运维监控、日志规范 | `common/core/workflow.md` §7 | 日志规范 + 更新日志模板 + 监控告警 |

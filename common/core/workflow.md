@@ -477,6 +477,34 @@ test('getUser returns user when user exists', () async {
     - "MyApp-2.0.0.4+flutter-sdk-3.22+-release-20250401.apk"
 ```
 
+### 5.1b builds 目录结构（release / packages 分离）
+
+> **所有项目统一**。开始发布 GitHub Packages（Maven/NuGet/npm 等包管理器产物）后，构建产物必须按
+> release（人工/渠道分发）与 packages（包管理器分发）分离存放——单一扁平目录无法同时承载两类分发。
+
+```yaml
+builds/ 目录规范:
+  release/:                 # 正式分发产物（人工/渠道：APK、IPA、zip 等）
+    android/:               #   APK/AAB：{项目}-{版本}-{状态}-{日期}.apk
+    ios/:                   #   IPA（如适用）
+    windows/:               #   zip/exe（桌面端）
+    release_notes/:         #   release_notes_v{版本}.md（Release notes 正文）
+    build_history.json      #   构建记录（sha256 / 源路径 / 产物路径）
+    release_history.json    #   发布记录（tag / assets / notesFile / status）
+  packages/:                # 包管理器分发产物（GitHub Packages 等）
+    android/:               #   AAR / Maven 坐标产物
+    windows/:               #   NuGet / 二进制包
+    npm/:                   #   npm 包（如适用）
+    release_notes/:         #   每个包版本的说明 md
+  README.md                 # 目录结构规范说明（本文件摘录）
+
+规则:
+  - 产物（apk/zip/aar/tgz）不入库（.gitignore 忽略产物目录）；入库的只有记录 json、release_notes、README
+  - 历史记录（build_history/release_history）中的路径一律写 release/ 前缀，移动目录后同步更新，避免路径失效
+  - release 与 packages 命名互不冲突：release 走 §5.1 命名，packages 走包管理器坐标（见 common/core/npm-private-publish.md）
+  - 参考实现：Jeenith 项目 builds/（完整落地案例，git mv 保留历史）
+```
+
 ### 5.2 构建后处理
 
 ```yaml
