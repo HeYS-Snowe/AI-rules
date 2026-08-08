@@ -491,17 +491,18 @@ builds/ 目录规范:
     release_notes/:         #   release_notes_v{版本}.md（Release notes 正文）
     build_history.json      #   构建记录（sha256 / 源路径 / 产物路径）
     release_history.json    #   发布记录（tag / assets / notesFile / status）
-  packages/:                # 包管理器分发产物（GitHub Packages 等）
-    android/:               #   AAR / Maven 坐标产物
-    windows/:               #   NuGet / 二进制包
-    npm/:                   #   npm 包（如适用）
+  packages/:                # 包管理器分发产物（GitHub Packages 等）——包是跨端的，按包生态划分而非平台
+    npm/:                   #   .tgz（JS/TS 共享代码，跨端不分平台）
+    maven/:                 #   .aar/.jar + pom（Android 组件坐标）
+    nuget/:                 #   .nupkg（.NET/Windows 组件）
     release_notes/:         #   每个包版本的说明 md
   README.md                 # 目录结构规范说明（本文件摘录）
 
 规则:
-  - 产物（apk/zip/aar/tgz）不入库（.gitignore 忽略产物目录）；入库的只有记录 json、release_notes、README
+  - 产物（apk/zip/tgz/aar/nupkg）不入库（.gitignore 忽略产物目录）；入库的只有记录 json、release_notes、README
   - 历史记录（build_history/release_history）中的路径一律写 release/ 前缀，移动目录后同步更新，避免路径失效
   - release 与 packages 命名互不冲突：release 走 §5.1 命名，packages 走包管理器坐标（见 common/core/npm-private-publish.md）
+  - packages 不按平台划分（tgz 跨端、Android 是 AAR 坐标、Windows 是 nupkg），按包生态分目录
   - 参考实现：Jeenith 项目 builds/（完整落地案例，git mv 保留历史）
 ```
 
