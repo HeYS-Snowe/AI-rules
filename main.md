@@ -265,6 +265,7 @@ AI 将：
 | 测试验证 | `common/core/workflow.md#测试规范`                            | 测试策略、覆盖率要求  |
 | 构建打包 | `common/core/workflow.md#构建规范`                            | 构建流程、产物命名、版本推荐   |
 | 部署发布 | `common/core/workflow.md#部署规范`                            | 部署检查、回滚方案   |
+| 私有包发布 | `common/core/npm-private-publish.md`                        | GitHub Packages 双 Token + 8 步发布流程 |
 | 运维监控 | `common/core/workflow.md#运维规范`                            | 日志规范、告警配置   |
 | 迭代优化 | `common/core/workflow.md#迭代规范`                            | 更新日志、版本管理   |
 | 信息持久化 | `common/core/workflow.md#信息持久化`                          | 联网搜索结果存储、MCP 信息归档 |
@@ -348,6 +349,8 @@ AI 将：
 - [安全规范](./common/core/security.md) - OWASP Top 10
 - [代码风格](./common/core/code-style.md) - 沟通规范 + 命名、注释、格式 + 降AI率（条件触发）
 - [开发流程](./common/core/workflow.md) - 全流程规范 + AI 行为约束 + 项目问题档案(.issues/) + 编译后版本推荐
+- [npm 私有包发布](./common/core/npm-private-publish.md) - GitHub Packages 双 Token 策略 + 8 步发布流程 + release.js 模板 + 常见问题
+- [Skill/Agent 注册中心](./common/core/skill-registry.md) - 三级加载策略（L1 白名单 / L2 项目注册 / L3 按需索引）+ 全量 skill 分类索引
 
 #### 项目结构
 

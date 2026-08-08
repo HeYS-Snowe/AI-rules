@@ -9,9 +9,9 @@
 
 ### code
 
-<!-- 示例: - [entry-name](entries/entry-name.md) — 一句话描述 -->
-
 ### config
+
+- [deepcode-mcp-http-unsupported](entries/deepcode-mcp-http-unsupported.md) — Deep Code MCP 仅支持 stdio，HTTP MCP 需用 mcp-remote 包装
 
 ### dependency
 
@@ -21,10 +21,25 @@
 
 ### workflow
 
+- [deepcode-agentsmd-scope](entries/deepcode-agentsmd-scope.md) — 项目存在 AGENTS.md 时，Deep Code 用户级全局规则不加载
+
 ### knowledge
+
+- [node-symlink-isdirectory-false](entries/node-symlink-isdirectory-false.md) — Node 符号链接条目 isDirectory() 为 false，扫描需检查 isSymbolicLink()
 
 ---
 
 ## 按标签
 
-<!-- 按需添加标签分组，每个标签下列出相关条目 -->
+### deepcode
+
+- [deepcode-mcp-http-unsupported](entries/deepcode-mcp-http-unsupported.md)
+- [deepcode-agentsmd-scope](entries/deepcode-agentsmd-scope.md)
+
+### node / filesystem
+
+- [node-symlink-isdirectory-false](entries/node-symlink-isdirectory-false.md)
+
+### mcp
+
+- [deepcode-mcp-http-unsupported](entries/deepcode-mcp-http-unsupported.md)

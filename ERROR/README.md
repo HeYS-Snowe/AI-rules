@@ -191,6 +191,6 @@ occurrences: 1
 
 ## 与旧系统的关系
 
-- `common/errors/` 和 `stacks/*/errors/` 为旧系统，**保留但冻结**
+- `archive/errors/` 和 `stacks/*/errors/` 为旧系统，**已归档冻结（NEVER 加载）**
 - 旧系统中的已有条目不迁移，遇到时按需迁移到 `ERROR/entries/`
 - 所有新错误统一存入 `ERROR/entries/`

@@ -243,12 +243,57 @@ tech:
 
 ---
 
-## 四、规则文件位置对照
+## 四、Deep Code 使用方式
+
+Deep Code CLI（`~/.deepcode`）已通过全局配置接入本规则体系，任意项目会话自动生效。
+
+### 方式 1：全局接入（已配置，推荐）
+
+`~/.deepcode/AGENTS.md` 已内嵌 `compact-core.md`（Tier 1 约束 + Tier 2 清单 + 触发机制入口），Deep Code 在每个**无项目级 AGENTS.md** 的会话中自动加载。
+
+- 无需额外操作；规则更新时按该文件 §6 核对 `main.md` 版本号
+- 若某项目有自己的 `AGENTS.md`，全局文件不再自动加载，须在项目文件中显式引用（见方式 2）
+
+### 方式 2：项目级接入
+
+在项目根创建 `AGENTS.md` 或 `.deepcode/AGENTS.md`：
+
+```markdown
+# 项目规则
+
+全局规则见 ~/.deepcode/AGENTS.md（必须遵守）
+项目特定约定写在这里...
+```
+
+### 方式 3：初始化
+
+在项目中运行 Deep Code 的 `/init` 命令，交互式生成项目 `AGENTS.md`。
+
+### 方式 4：直接对话引用
+
+```
+请按照 D:\Code\.Rules\main.md 规则体系进行开发。
+```
+
+### 已配置的关联能力
+
+| 能力 | 配置 |
+|------|------|
+| Skills（104 个） | `~/.deepcode/skills`（junction → `.cc-switch/skills`）自动扫描，`/skills` 查看 |
+| Skills（28 个 lark/univer） | `~/.agents/skills`（→ `.AI-TOOLS/.skills`）自动扫描，按名去重 |
+| Agents（13 个角色） | `D:\Code\.AI-TOOLS\.agent\*.md`，任务匹配时读取并扮演 |
+| MCP（7 个服务器） | `~/.deepcode/settings.json`：figma / ref / replicate-flux / zai-mcp / web-reader / web-search-prime / zread |
+
+---
+
+## 五、规则文件位置对照
 
 | 工具          | 规则文件位置                                  | 作用域  |
 | ----------- | --------------------------------------- | ---- |
 | Claude Code | `项目根目录/CLAUDE.md`                       | 当前项目 |
 | Claude Code | `~/.claude/CLAUDE.md`                   | 全局   |
+| Deep Code   | `项目根目录/AGENTS.md` 或 `项目根目录/.deepcode/AGENTS.md` | 当前项目 |
+| Deep Code   | `~/.deepcode/AGENTS.md`                  | 全局（无项目文件时生效） |
 | Cursor      | `项目目录/.cursor/rules/*.mdc`              | 当前项目 |
 | Cursor      | `~/.cursor/rules/*.mdc`                 | 全局   |
 | Trae        | `项目目录/.trae/rules/project_rules.md`     | 当前项目 |
@@ -256,7 +301,7 @@ tech:
 
 ---
 
-## 五、快速开始模板
+## 六、快速开始模板
 
 ### Flutter 项目
 
@@ -327,7 +372,7 @@ tech:
 
 ---
 
-## 六、规则优先级
+## 七、规则优先级
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -351,7 +396,7 @@ tech:
 
 ---
 
-## 七、常用指令
+## 八、常用指令
 
 ### 生成定制规则
 
@@ -375,7 +420,7 @@ tech:
 
 ---
 
-## 八、示例对话
+## 九、示例对话
 
 ### 示例 1：新项目初始化
 
@@ -407,7 +452,7 @@ AI: [根据规则实现功能]
 
 ---
 
-## 九、注意事项
+## 十、注意事项
 
 1. **规则文件编码**: 使用 UTF-8 编码
 2. **路径引用**: 使用绝对路径或相对于项目根目录的路径
