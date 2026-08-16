@@ -40,6 +40,7 @@
 - **所有外部输入不可信** — 必须验证、清理、转义
 - **密码必须加密存储** — bcrypt / argon2，NEVER 明文或可逆加密
 - **NEVER 在日志/错误信息中输出敏感数据** — 脱敏后记录
+- **NEVER 原样粘贴配置/日志/环境输出** — 凡 `KEY/TOKEN/SECRET/PASSWORD/APP_SECRET` 等字段，值一律先替换为 `<已脱敏>` 再贴（模板见 `.prompt\通用\配置脱敏模板-20260816`）。原因：实证事故——含 7 个 MCP key 的 settings.json 曾整体贴入对话并进入 agent 上下文，事后不可回收（第 14 条"发送内容即发布"的具体化）
 - **默认拒绝** — 访问控制默认拒绝，显式授权
 
 ---
@@ -148,11 +149,11 @@
 
 | 文件 | 最后更新 |
 |------|----------|
-| `common/core/workflow.md` | 2026-08-07 |
+| `common/core/workflow.md` | 2026-08-16 |
 | `common/core/skill-registry.md` | 2026-08-07 |
 | `common/core/trigger-mechanism.md` | 2026-08-03 |
-| `ERROR/README.md` | 2026-08-03 |
-| `compact-core.md`（本文件） | 2026-08-07 |
+| `ERROR/README.md` | 2026-08-13 |
+| `compact-core.md`（本文件） | 2026-08-16 |
 | `common/core/code-style.md` | 2026-05-11 |
 | `common/templates/custom-requirements.yaml` | 2026-05-07 |
 | `stacks/flutter/presets/flutter.yaml` | 2026-05-07 |
@@ -178,4 +179,4 @@
 
 ---
 
-*v3.5.0 · 精简核心版 · 更新于 2026-08-13 · 完整规则见 main.md*
+*v3.5.1 · 精简核心版 · 更新于 2026-08-16 · 完整规则见 main.md*
