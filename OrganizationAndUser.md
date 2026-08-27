@@ -144,4 +144,68 @@
 
 ---
 
+## 六、用户数字档案（项目地图与 AI 经历）
+
+> 本部分是用户"所有拥有的"的 SSOT——蒸馏规则（compact-core §〇）的会话前读取对象。
+> 维护约定：新项目、工具切换、AI 消费里程碑发生时，同步更新本节。
+
+### 6.1 项目地图（按来源分类）
+
+```yaml
+项目来源:
+  1_开源改造_自用:            # 开源项目按自身需求二次改造（自己要用）
+    - D:\Code\Project\deepcode-cli          # DeepGem 本体
+    - D:\Code\Project\VS-Code-Auto-Type-Code
+    - D:\Code\Project\AI Resource Hub       # 前身 CC Switch
+  2_个人生活需求_兴趣:
+    - D:\Code\Project\Qore
+    - D:\Code\Project\Loop
+    - D:\Code\Project\Lumina
+    - D:\Code\Project\Minecraft_Mod
+  3_学校比赛项目:
+    - D:\Code\Project\intelligent-laboratory-system
+    - D:\Code\Project\MindCare_AI
+    - D:\Code\Project\Campus_Sentinel
+    - D:\Code\Project\Intelligent-Agent
+  4_对AI的研究:
+    - D:\Code\Project\ABL-Agent-Benchmark-Lab      # 多智能体基准测试
+    - D:\Code\Project\Claude_Code-2.1.88           # CC 源码参考库
+    - D:\Code\Project\智能体记忆系统研究
+  5_使用AI过程中的产物:
+    - D:\Code\.AI-TOOLS         # Agents/Skills/Scripts 中心
+    - D:\Code\.prompt           # 提示词与解决方案库
+    - D:\Code\.Rules            # AI 编码规则体系（本库）
+    - D:\Code\AI资源管理        # 资源中转站（libs/批次目录）
+  其他:
+    - D:\Desktop\Claude临时对话                      # 与 CC 的对话记录
+    - D:\Code\Project\Snowe_Stack                    # 部署于腾讯轻量服务器（heys-snowe.tj.cn），个人栈/电子简历
+    - D:\Code\AI资源管理\Reaource\260827\AI开源闭源之争新媒体   # 与 DeepSeek 网页/手机 APP 的对话产物
+```
+
+### 6.2 个人 AI 经历（时间线）
+
+```yaml
+AI经历:
+  2025-09-01: 开启天津职业大学学生生活
+  2025-11-11 21:42:31: 经 B 站视频首次安装 Coding Agent——Claude Code（CC）
+  2025-11-11 21:42:31: 首次使用 CC + glm-4.5；购入 GLM Coding Lite（月订阅，20￥ 新人价）
+  2025-11-14 16:54:33: 升级 GLM Coding Pro（月）
+  2025-12-12 14:10:55: 购入 GLM Coding Pro（季，266.55￥）
+  2026-03-12 20:51:37: 购入 GLM Coding Pro（年，1251.6￥）
+  2026-07-28 13:51:53: 因技能大赛-国赛需求与 GLM 不够用，切换至 DeepSeek
+  DeepSeek 现状:
+    累计充值: 870￥
+    累计消费: 865.71￥
+    个人用途 key: 242.96￥ / 3,436,447,947 Tokens / 16,880 次 API 请求（与国赛 key 分离）
+    账户总消费: 865.71￥ / 7,533,845,950 Tokens
+```
+
+### 6.3 工具使用与切换
+
+- 常用 Agent：CC（Claude Code）、codex、opencode、deepcode（DeepGem 二次改造）——**随时可能切换**
+- 意义：对话分散在各工具/各项目，但规则与资源库（.Rules / .prompt / .AI-TOOLS）是共享的——这正是蒸馏规则（compact-core §〇）存在的理由
+- 消费偏好：性价比优先（GLM → DeepSeek 的切换原因）；个人与赛事 key 分离
+
+---
+
 *本文件由 HeYS-Snowe 维护*
