@@ -116,7 +116,7 @@
 | Java / Kotlin 包名 | `com.qore.<项目>.<模块>` | `com.qore.loop.data` |
 | Flutter / iOS bundleIdentifier | 反向域名，同上 | `com.qore.loop` |
 | npm scope（如适用） | `@qore/<pkg>` | `@qore/ui` |
-| GitHub 仓库命名空间 | `qore/<repo>` | `qore/loop` |
+| GitHub 仓库命名空间 | `Qore-Origins/<repo>`（GitHub 简称 Qore 已被占用，用全称命名空间） | `Qore-Origins/Trace` |
 | 版权署名 | Copyright (c) `<年份>` Qore | `Copyright (c) 2026 Qore` |
 
 ---

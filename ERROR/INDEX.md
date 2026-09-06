@@ -15,9 +15,12 @@
 
 ### dependency
 
+- [copied-venv-pip-target-source](entries/copied-venv-pip-target-source.md) — 复制 venv 后用 Scripts\pip.exe 安装包会落到原始 venv，用 python -m pip
+
 ### environment
 
 - [windows-git-spawn-overhead](entries/windows-git-spawn-overhead.md) — Windows 循环内逐文件 spawnSync git 阻塞事件循环数秒，批量合并单进程
+- [pygame-mixer-forces-stereo](entries/pygame-mixer-forces-stereo.md) — pygame mixer 强制 stereo，get_raw 需去交错才可当单声道（写 WAV/喂 ASR 前先实测 get_init）
 
 ### ai-behavior
 
