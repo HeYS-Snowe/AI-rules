@@ -9,6 +9,8 @@
 
 ### code
 
+- [inline-span-transform-ignored](entries/inline-span-transform-ignored.md) — 裸 span（非替换 inline）不可 transform，transform 计算值存在但被静默忽略，需 display:inline-block
+
 ### config
 
 - [deepcode-mcp-http-unsupported](entries/deepcode-mcp-http-unsupported.md) — Deep Code MCP 仅支持 stdio，HTTP MCP 需用 mcp-remote 包装
@@ -33,9 +35,11 @@
 ### knowledge
 
 - [node-symlink-isdirectory-false](entries/node-symlink-isdirectory-false.md) — Node 符号链接条目 isDirectory() 为 false，扫描需检查 isSymbolicLink()
+- [gitee-release-chinese-garbled](entries/gitee-release-chinese-garbled.md) — Gitee 发布四坑：令牌作 username、target_commitish、中文走 JSON 文件传输、附件 100MB 上限
 - [node-spawnsync-buffer-input](entries/node-spawnsync-buffer-input.md) — spawnSync encoding=buffer + 字符串 input 抛 ERR_UNKNOWN_ENCODING（被 catch 吞掉时静默失败）
 - [terminal-glyph-width-mismatch](entries/terminal-glyph-width-mismatch.md) — 终端字符宽度三方（Ink 测量/终端渲染/项目自算）不一致导致动画帧抖动，修复靠实测不靠猜测
 - [hidden-message-breaks-sequence-asserts](entries/hidden-message-breaks-sequence-asserts.md) — 新增隐藏消息打破角色序列断言，测试定位须 visibility 过滤
+- [migration-script-not-idempotent](entries/migration-script-not-idempotent.md) — 迁移脚本必须幂等——数据已被迁移后重跑会二次嵌套目录
 
 ---
 
@@ -65,3 +69,11 @@
 ### terminal / unicode
 
 - [terminal-glyph-width-mismatch](entries/terminal-glyph-width-mismatch.md)
+
+### css / transform
+
+- [inline-span-transform-ignored](entries/inline-span-transform-ignored.md)
+
+### gitee / release
+
+- [gitee-release-chinese-garbled](entries/gitee-release-chinese-garbled.md)
