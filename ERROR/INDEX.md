@@ -10,6 +10,7 @@
 ### code
 
 - [inline-span-transform-ignored](entries/inline-span-transform-ignored.md) — 裸 span（非替换 inline）不可 transform，transform 计算值存在但被静默忽略，需 display:inline-block
+- [catch-comment-claims-phantom-mechanism](entries/catch-comment-claims-phantom-mechanism.md) — 空 catch 注释声称"由别处弹出"但该机制不存在——采信注释前先验证机制真实存在
 
 ### config
 
