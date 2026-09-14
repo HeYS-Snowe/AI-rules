@@ -200,6 +200,14 @@ AI经历:
     账户总消费: 865.71￥ / 7,533,845,950 Tokens
 ```
 
+### 6.3 工具使用与切换
+
+- 常用 Agent：CC（Claude Code）、codex、opencode、deepcode（DeepGem 二次改造）——**随时可能切换**
+- 意义：对话分散在各工具/各项目，但规则与资源库（.Rules / .prompt / .AI-TOOLS）是共享的——这正是蒸馏规则（compact-core §〇）存在的理由
+- 消费偏好：性价比优先（GLM → DeepSeek 的切换原因）；个人与赛事 key 分离
+
+---
+
 ### 6.4 DeepSeek 对话资产（自我蒸馏数据源）
 
 ```yaml
@@ -221,12 +229,27 @@ DeepSeek对话资产:
 
 ---
 
-### 6.3 工具使用与切换
-
-- 常用 Agent：CC（Claude Code）、codex、opencode、deepcode（DeepGem 二次改造）——**随时可能切换**
-- 意义：对话分散在各工具/各项目，但规则与资源库（.Rules / .prompt / .AI-TOOLS）是共享的——这正是蒸馏规则（compact-core §〇）存在的理由
-- 消费偏好：性价比优先（GLM → DeepSeek 的切换原因）；个人与赛事 key 分离
-
 ---
+
+## 七、方法论与作品命名资产
+
+> 用户原创的方法论/模式/作品命名登记处——命名是身份体系的延伸，登记后各会话/各项目统一使用，NEVER 另造同义名。
+
+```yaml
+命名资产:
+  潮汐雁阵 Tidal Echelon:
+    类别: 多智能体协作模式与策略
+    构成:
+      模式名: 雁阵 Echelon        # 2~5 个 Agent 接力协作同一项目（对仗"蜂巢"集群）
+      策略名: 潮汐调度            # 按 API/coding plan 峰谷计费错峰使用
+      完整名: 潮汐雁阵 Tidal Echelon
+    释义: 雁阵取"少量编队、轮换领飞"之象；潮汐取"费用随时间涨落、避峰就谷"之象
+    首发实践: Trace 项目双智能体协作（Claude Code + Codex，2026-09-14）
+    规范: D:\Code\.Rules\common\core\multi-agent.md
+  溯源 Trace:
+    类别: 产品命名（桌面计划管理软件）
+    释义: 一层双意——产品层"计划有迹可循"、组织层"回到本心"（呼应 Qore Origins）
+    详见: D:\Code\Project\Qore\Trace\docs\trace-plan-app-naming.md
+```
 
 *本文件由 HeYS-Snowe 维护*
