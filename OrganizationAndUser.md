@@ -183,14 +183,14 @@
     - deepcode-cli-feishu / dsh-feishu-spike / Claude接入飞书   # deepcode 生态实验（2026-09 git 实测补充）
   2_个人生活需求_兴趣:
     - D:\Code\Project\Qore                  # 组织主目录（Trace / Jeenith）
-    - D:\Code\Project\Loop                  # remote: 1010523654（疑似用户小号，待确认）
-    - D:\Code\Project\Lumina                # remote: 1010523654
-    - D:\Code\Project\Minecraft_Mod         # remote: 1010523654
+    - D:\Code\Project\Loop                  # remote: 1010523654（已确认为用户小号，git author 邮箱实证）
+    - D:\Code\Project\Lumina                # remote: 1010523654（用户小号）
+    - D:\Code\Project\Minecraft_Mod         # remote: 1010523654（用户小号）
   3_学校比赛项目:
     - D:\Code\Project\intelligent-laboratory-system   # 自有 repo；伴生产品 workbench（D:\Code\.Model\YOLO\Scripts\workbench）
-    - D:\Code\Project\MindCare_AI           # remote: 1010523654；三端（MiniApp+admin+backend）
+    - D:\Code\Project\MindCare_AI           # remote: 1010523654（用户小号）；三端（MiniApp+admin+backend）
     - D:\Code\Project\Campus_Sentinel
-    - D:\Code\Project\Intelligent-Agent     # remote: 1010523654
+    - D:\Code\Project\Intelligent-Agent     # remote: 1010523654（用户小号）
     - D:\Code\Project\技能大赛-国赛          # git 实测补充
     - D:\Code\Project\数学建模
     - D:\Code\Project\麒麟OS-Agent比赛
