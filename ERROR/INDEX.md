@@ -88,3 +88,4 @@
 ### gitee / release
 
 - [gitee-release-chinese-garbled](entries/gitee-release-chinese-garbled.md)
+| [git-add-a-in-multi-agent-worktree](entries/git-add-a-in-multi-agent-worktree.md) | workflow | 雁阵共享仓库 git add -A 盲打打包并行删除（隐性错误） |
