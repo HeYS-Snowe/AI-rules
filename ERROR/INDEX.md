@@ -24,6 +24,8 @@
 
 - [windows-git-spawn-overhead](entries/windows-git-spawn-overhead.md) — Windows 循环内逐文件 spawnSync git 阻塞事件循环数秒，批量合并单进程
 - [pygame-mixer-forces-stereo](entries/pygame-mixer-forces-stereo.md) — pygame mixer 强制 stereo，get_raw 需去交错才可当单声道（写 WAV/喂 ASR 前先实测 get_init）
+- [flutter-gradle-init-repositories-conflict](entries/flutter-gradle-init-repositories-conflict.md) — 用户级 Gradle init 脚本全局注入仓库，与 Flutter included build 的 FAIL_ON_PROJECT_REPOS 冲突
+- [flutter-pub-cache-cross-drive-rename](entries/flutter-pub-cache-cross-drive-rename.md) — Windows 上 Pub 更新依赖缓存时临时包目录跨盘重命名失败，本地验证可在现有依赖可用时使用 `--no-pub`
 
 ### ai-behavior
 
@@ -66,6 +68,14 @@
 ### performance / git
 
 - [windows-git-spawn-overhead](entries/windows-git-spawn-overhead.md)
+
+### flutter / gradle
+
+- [flutter-gradle-init-repositories-conflict](entries/flutter-gradle-init-repositories-conflict.md)
+
+### flutter / windows
+
+- [flutter-pub-cache-cross-drive-rename](entries/flutter-pub-cache-cross-drive-rename.md)
 
 ### terminal / unicode
 

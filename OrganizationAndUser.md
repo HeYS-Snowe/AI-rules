@@ -144,42 +144,79 @@
 
 ---
 
-## 六、用户数字档案（项目地图与 AI 经历）
+## 六、用户数字档案（画像 / 项目 / 经历）
 
 > 本部分是用户"所有拥有的"的 SSOT——蒸馏规则（compact-core §〇）的会话前读取对象。
-> 维护约定：新项目、工具切换、AI 消费里程碑发生时，同步更新本节。
+> **持续蒸馏义务**：本节是活文档。任何会话中发现新的画像属性、项目、荣誉、偏好变化，**即时更新本节**（NEVER 等到收尾）；更新后画像即为最新权威版本，旧快照作废。
 
-### 6.1 项目地图（按来源分类）
+### 6.0 个人画像属性
+
+```yaml
+基本属性:
+  姓名: 王喆
+  出生日期: 阳历 2006-12-03（出生证明未精确到分钟；母亲述 9:15 出手术室、本人 9:00 左右出生）
+  出生时辰: 辰时（2026-09-27 用户确认）
+  星座: 射手座
+  八字相关标签: 十灵日 / 华盖 / 太极贵人（命理话题中讨论的要素，非事实断言）
+  MBTI: 未测 / 对话中未提及（待补）
+
+性格与自我认知（对话实证，溯源见 .prompt\通用\用户方法论蒸馏-20260906）:
+  独处偏好: "观呼吸，然后复盘……我挺喜欢独处的"（#751）
+  底层原理驱动: "我喜欢去找底层原理，去探索为什么"（#528）
+  自信轨迹: 早年自卑 → 获认可后转化（#218）
+  中庸取向: 不求满但求心安；过渡态思维（#288/440）
+  珍视随机性: "人最稀有的就是不确定性……蒸馏后随机性越来越小。而人也是自由的"（#751，对蒸馏自己的元认知）
+  心语状态: 不由自主进入的内心对话/顿悟状态，类 /compact（#682）
+
+家庭线索:
+  妹妹: 2026 年时 7 岁
+```
+
+### 6.1 项目地图（按来源分类；git remote 实测标注）
 
 ```yaml
 项目来源:
-  1_开源改造_自用:            # 开源项目按自身需求二次改造（自己要用）
-    - D:\Code\Project\deepcode-cli          # DeepGem 本体
+  1_开源改造_自用:
+    - D:\Code\Project\deepcode-cli          # DeepGem 本体（自有 repo）
     - D:\Code\Project\VS-Code-Auto-Type-Code
-    - D:\Code\Project\AI Resource Hub       # 前身 CC Switch
+    - D:\Code\Project\AI Resource Hub       # 前身 CC Switch（基于 farion1231/cc-switch MIT 改造）
+    - deepcode-cli-feishu / dsh-feishu-spike / Claude接入飞书   # deepcode 生态实验（2026-09 git 实测补充）
   2_个人生活需求_兴趣:
-    - D:\Code\Project\Qore
-    - D:\Code\Project\Loop
-    - D:\Code\Project\Lumina
-    - D:\Code\Project\Minecraft_Mod
+    - D:\Code\Project\Qore                  # 组织主目录（Trace / Jeenith）
+    - D:\Code\Project\Loop                  # remote: 1010523654（疑似用户小号，待确认）
+    - D:\Code\Project\Lumina                # remote: 1010523654
+    - D:\Code\Project\Minecraft_Mod         # remote: 1010523654
   3_学校比赛项目:
-    - D:\Code\Project\intelligent-laboratory-system
-    - D:\Code\Project\MindCare_AI
+    - D:\Code\Project\intelligent-laboratory-system   # 自有 repo；伴生产品 workbench（D:\Code\.Model\YOLO\Scripts\workbench）
+    - D:\Code\Project\MindCare_AI           # remote: 1010523654；三端（MiniApp+admin+backend）
     - D:\Code\Project\Campus_Sentinel
-    - D:\Code\Project\Intelligent-Agent
+    - D:\Code\Project\Intelligent-Agent     # remote: 1010523654
+    - D:\Code\Project\技能大赛-国赛          # git 实测补充
+    - D:\Code\Project\数学建模
+    - D:\Code\Project\麒麟OS-Agent比赛
+    - D:\Code\Project\创新创业小组作业
   4_对AI的研究:
     - D:\Code\Project\ABL-Agent-Benchmark-Lab      # 多智能体基准测试
     - D:\Code\Project\Claude_Code-2.1.88           # CC 源码参考库
     - D:\Code\Project\智能体记忆系统研究
   5_使用AI过程中的产物:
-    - D:\Code\.AI-TOOLS         # Agents/Skills/Scripts 中心
+    - D:\Code\.AI-TOOLS         # Agents/Skills/Scripts/manifest 中心
     - D:\Code\.prompt           # 提示词与解决方案库
     - D:\Code\.Rules            # AI 编码规则体系（本库）
-    - D:\Code\AI资源管理        # 资源中转站（libs/批次目录）
-  其他:
+    - D:\Code\AI资源管理        # 资源中转站
+  其他_自有:
     - D:\Desktop\Claude临时对话                      # 与 CC 的对话记录
-    - D:\Code\Project\Snowe_Stack                    # 部署于腾讯轻量服务器（heys-snowe.tj.cn），个人栈/电子简历
-    - D:\Code\AI资源管理\Reaource\260827\AI开源闭源之争新媒体   # 与 DeepSeek 网页/手机 APP 的对话产物
+    - D:\Code\Project\Snowe_Stack                  # 腾讯轻量服务器（heys-snowe.tj.cn），个人栈/电子简历
+    - D:\Code\Project\SnoweShop
+    - D:\Code\Project\MatiJiTrainer / Model_Deployment_Interface
+    - D:\Code\AI资源管理\Reaource\260827\AI开源闭源之争新媒体   # DeepSeek 对话产物
+  克隆_参考项目（非自研，勿计入作品）:
+    - marktext / marktext-develop     # 开源 Markdown 编辑器
+    - lottery                         # 抽奖
+    - Recruitment-Data-Visualization-Project
+    - competition_2026                # gitee 比赛模板
+    - OS-Agent-                       # sunhao33
+    - VSCode-win32-x64                # VS Code 官方构建产物
 ```
 
 ### 6.2 个人 AI 经历（时间线）
@@ -187,69 +224,49 @@
 ```yaml
 AI经历:
   2025-09-01: 开启天津职业大学学生生活
-  2025-11-11 21:42:31: 经 B 站视频首次安装 Coding Agent——Claude Code（CC）
-  2025-11-11 21:42:31: 首次使用 CC + glm-4.5；购入 GLM Coding Lite（月订阅，20￥ 新人价）
+  2025-11-11 21:42:31: 经 B 站视频首次安装 Coding Agent——Claude Code（CC）；首次 CC + glm-4.5；购入 GLM Coding Lite（月，20￥ 新人价）
   2025-11-14 16:54:33: 升级 GLM Coding Pro（月）
   2025-12-12 14:10:55: 购入 GLM Coding Pro（季，266.55￥）
   2026-03-12 20:51:37: 购入 GLM Coding Pro（年，1251.6￥）
-  2026-07-28 13:51:53: 因技能大赛-国赛需求与 GLM 不够用，切换至 DeepSeek
+  2026-07-28 13:51:53: 因技能大赛-国赛与 GLM 额度不足，切换 DeepSeek
   DeepSeek 现状:
-    累计充值: 870￥
-    累计消费: 865.71￥
-    个人用途 key: 242.96￥ / 3,436,447,947 Tokens / 16,880 次 API 请求（与国赛 key 分离）
-    账户总消费: 865.71￥ / 7,533,845,950 Tokens
+    累计充值: 870￥ / 累计消费: 865.71￥
+    个人 key: 242.96￥ / 3,436,447,947 Tokens / 16,880 次请求（与国赛 key 分离）
+    账户总计: 7,533,845,950 Tokens
 ```
 
-### 6.3 工具使用与切换
+### 6.3 工具与模型使用
 
-- 常用 Agent：CC（Claude Code）、codex、opencode、deepcode（DeepGem 二次改造）——**随时可能切换**
-- 意义：对话分散在各工具/各项目，但规则与资源库（.Rules / .prompt / .AI-TOOLS）是共享的——这正是蒸馏规则（compact-core §〇）存在的理由
-- 消费偏好：性价比优先（GLM → DeepSeek 的切换原因）；个人与赛事 key 分离
+- 常用：CC（2025-11 至今近 1 年，主力）、codex、opencode、deepcode（官方版+个人定制 DeepGem）、Trae IDE/Work、Cursor（曾购两次 20$ 订阅用 Opus 4.6/5）、VM 中 OpenClaw——**随时切换**
+- 模型轨迹：glm-4.5 → glm-5.3（flash 少用）、deepseek-v4 全系、Trae 支持模型
+- 意义：对话分散多工具，规则/资源库共享——蒸馏规则（§〇）存在的理由
+- 消费偏好：性价比优先；个人与赛事 key 分离
 
----
-
-### 6.4 DeepSeek 对话资产（自我蒸馏数据源）
+### 6.4 DeepSeek 对话资产
 
 ```yaml
-DeepSeek对话资产:
-  位置: D:\Desktop\Claude临时对话\DeepSeek-历史对话数据
-  规模: 751 个会话（2025-02 ~ 2026-09，网页/手机端导出）
-  结构:
-    原文: deepseek_data-2026-09-05\conversations.json
-    切分: split\markdown\{四位序号}-{标题}.md
-    分类: _分类清单.csv / _分类报告.md（12 类）
-  蒸馏产物: .prompt\通用\DeepSeek历史对话蒸馏-20260906\prompt.md
+位置: D:\Desktop\Claude临时对话\DeepSeek-历史对话数据（归档: Reaource\260927\）
+规模: 751 会话（2025-02 ~ 2026-09）
+蒸馏产物: .prompt\通用\DeepSeek历史对话蒸馏-20260906、用户方法论蒸馏-20260906、AI本质推演蒸馏-20260906
 ```
 
-**画像要点**（详值见蒸馏文档）：
-- 价值观取向：东方哲学/心学/道家（王阳明、中庸、合道、四季阴阳）+ 主体性/美好/内心安宁
-- 大学生活：天津职业大学（课表/双创/社团/事迹材料/PPT 配音）
-- 提示词习惯：评分-迭代循环（7.5 分 → 改进版 → 9.5 分），发布前先让 AI 复盘
-- 消费/技术取向：性价比优先（与 §6.3 互证）
+### 6.5 荣誉与竞赛（待补全）
+
+| 事项 | 状态 |
+|------|------|
+| 技能大赛-国赛 | 已参赛（2026）；**获奖等级待用户补充** |
+| 数学建模竞赛 | 已参赛（2026，MATLAB 方向，#277） |
+| 创新创业 | 小组作业/双创总结会参与 |
+| 麒麟OS-Agent比赛 | 有项目目录，详情待补 |
+
+> 荣誉获奖信息出现时**即时登记本表**（持续蒸馏义务）。
+
+### 6.6 待确认
+
+- `1010523654` GitHub 账号是否为用户小号（Loop/Lumina/Minecraft_Mod/Intelligent-Agent/MindCare_AI 的 remote 归属）
+- MBTI 测评结果（如已测）
+- 各竞赛获奖等级
 
 ---
-
----
-
-## 七、方法论与作品命名资产
-
-> 用户原创的方法论/模式/作品命名登记处——命名是身份体系的延伸，登记后各会话/各项目统一使用，NEVER 另造同义名。
-
-```yaml
-命名资产:
-  潮汐雁阵 Tidal Echelon:
-    类别: 多智能体协作模式与策略
-    构成:
-      模式名: 雁阵 Echelon        # 2~5 个 Agent 接力协作同一项目（对仗"蜂巢"集群）
-      策略名: 潮汐调度            # 按 API/coding plan 峰谷计费错峰使用
-      完整名: 潮汐雁阵 Tidal Echelon
-    释义: 雁阵取"少量编队、轮换领飞"之象；潮汐取"费用随时间涨落、避峰就谷"之象
-    首发实践: Trace 项目双智能体协作（Claude Code + Codex，2026-09-14）
-    规范: D:\Code\.Rules\common\core\multi-agent.md
-  溯源 Trace:
-    类别: 产品命名（桌面计划管理软件）
-    释义: 一层双意——产品层"计划有迹可循"、组织层"回到本心"（呼应 Qore Origins）
-    详见: D:\Code\Project\Qore\Trace\docs\trace-plan-app-naming.md
-```
 
 *本文件由 HeYS-Snowe 维护*
