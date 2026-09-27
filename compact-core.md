@@ -150,6 +150,7 @@
 | 版本管理、Changelog | `common/core/workflow.md` §8 | 版本管理 + 变更记录模板 |
 | 联网搜索/MCP 获取信息需持久化 | `common/core/workflow.md` §10 | 信息持久化规则 |
 | 生成改动文档 / 版本迭代总结 | `common/core/workflow.md` §12 | 改动文档格式（Bug 修复 + 功能更新模板） |
+| 多智能体协作（雁阵/潮汐调度，2~5 Agent 接力同一项目） | `common/core/multi-agent.md` | 潮汐雁阵 Tidal Echelon：状态源铁律、文件所有权、三态标注、交接三清单 |
 
 ### 错误与问题
 
