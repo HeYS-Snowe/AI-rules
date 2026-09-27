@@ -60,6 +60,9 @@
   username: HeYS-Snowe
   role: sole-developer          # 唯一开发者
   collaborators: []             # 暂无合作伙伴
+  accounts:
+    github: HeYS-Snowe          # GitHub 大号（唯一账号）；曾用名 1010523654
+    gitee: HeYS-Snowe           # Gitee 账号
   owns:
     - D:\Code\.Rules             # AI 编码规则体系
     - D:\Code\.prompt            # 提示词与解决方案库
@@ -77,6 +80,8 @@
 | ICP 备案 | 已备案 |
 | 公安联网备案 | 已备案 |
 | 个人域名 | heys-snowe.tj.cn |
+| GitHub | [github.com/HeYS-Snowe](https://github.com/HeYS-Snowe) | 唯一 GitHub 大号（曾用名 1010523654） |
+| Gitee | [gitee.com/HeYS-Snowe](https://gitee.com/HeYS-Snowe) | Gitee 账号 |
 
 ```yaml
 服务器与域名:
@@ -183,14 +188,14 @@
     - deepcode-cli-feishu / dsh-feishu-spike / Claude接入飞书   # deepcode 生态实验（2026-09 git 实测补充）
   2_个人生活需求_兴趣:
     - D:\Code\Project\Qore                  # 组织主目录（Trace / Jeenith）
-    - D:\Code\Project\Loop                  # remote: 1010523654（已确认为用户小号，git author 邮箱实证）
-    - D:\Code\Project\Lumina                # remote: 1010523654（用户小号）
-    - D:\Code\Project\Minecraft_Mod         # remote: 1010523654（用户小号）
+    - D:\Code\Project\Loop                  # remote: 1010523654（HeYS-Snowe 账号曾用名，改名前 URL 仍生效）
+    - D:\Code\Project\Lumina                # remote: 1010523654（曾用名 URL）
+    - D:\Code\Project\Minecraft_Mod         # remote: 1010523654（曾用名 URL）
   3_学校比赛项目:
     - D:\Code\Project\intelligent-laboratory-system   # 自有 repo；伴生产品 workbench（D:\Code\.Model\YOLO\Scripts\workbench）
-    - D:\Code\Project\MindCare_AI           # remote: 1010523654（用户小号）；三端（MiniApp+admin+backend）
+    - D:\Code\Project\MindCare_AI           # remote: 1010523654（曾用名 URL）；三端（MiniApp+admin+backend）
     - D:\Code\Project\Campus_Sentinel
-    - D:\Code\Project\Intelligent-Agent     # remote: 1010523654（用户小号）
+    - D:\Code\Project\Intelligent-Agent     # remote: 1010523654（曾用名 URL）
     - D:\Code\Project\技能大赛-国赛          # git 实测补充
     - D:\Code\Project\数学建模
     - D:\Code\Project\麒麟OS-Agent比赛
