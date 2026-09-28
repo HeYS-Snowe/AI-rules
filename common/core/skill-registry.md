@@ -7,7 +7,7 @@
 
 > **SSOT（2026-09-28 起）**：`D:\Code\.AI-TOOLS\.skills` —— 159 个有效 skill 实体（+58 散文件）。
 > 以下路径均为指向 SSOT 的 **symlink 视图**，内容实时一致，增删 skill 只操作 SSOT：
-> `.ai-resource-hub/skills` = `.cc-switch/skills`（=`~/.deepcode/skills`）= `.claude/skills` = `.codex/skills` → `D:\Code\.AI-TOOLS\.skills\{skill-name}`
+> `.agents/skills`（junction，AI Resource Hub 主副本）→ `D:\Code\.AI-TOOLS\.skills\{skill-name}`；`.ai-resource-hub/skills` = `.cc-switch/skills`（=`~/.deepcode/skills`）= `.claude/skills` = `.codex/skills`（应用软连接分发，同步方式已设为软连接）
 > 剔除/归档区：`D:\Code\.AI-TOOLS\_archived-skills\`（可恢复，zip 备份另在 Skill_zips）
 
 ---
