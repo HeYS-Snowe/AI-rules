@@ -5,16 +5,12 @@
 
 ## 〇、工具适配（本机实际环境）
 
-**Skill 单一真实存储**：`C:\Users\aaa\.cc-switch\skills`（158 个有效 skill，每目录一个；`~/.deepcode/skills` 是指向它的 symlink）。cc-switch 统一管理，以下工具均可调用：cc cli、cc desktop、codex、gemini、grok、opencode、hermes、deepcode、claude code。
+> **SSOT（2026-09-28 起）**：`D:\Code\.AI-TOOLS\.skills` —— 159 个有效 skill 实体（+58 散文件）。
+> 以下路径均为指向 SSOT 的 **symlink 视图**，内容实时一致，增删 skill 只操作 SSOT：
+> `.ai-resource-hub/skills` = `.cc-switch/skills`（=`~/.deepcode/skills`）= `.claude/skills` = `.codex/skills` → `D:\Code\.AI-TOOLS\.skills\{skill-name}`
+> 剔除/归档区：`D:\Code\.AI-TOOLS\_archived-skills\`（可恢复，zip 备份另在 Skill_zips）
 
-| 工具 | 用户级全局规则文件 | skills 接入 | agents 接入 |
-|------|-------------------|-------------|-------------|
-| deepcode | `~/.deepcode/AGENTS.md` | `~/.deepcode/skills`（symlink→cc-switch） | 无单独目录（skill 触发） |
-| claude code | `~/.claude/CLAUDE.md` | `~/.claude/skills`（可指向 cc-switch） | `~/.claude/agents`（junction→`.AI-TOOLS\.agent`） |
-| codex | `~/.codex/AGENTS.md` | `~/.codex/skills`（可指向 cc-switch） | `~/.codex/agents` |
-| gemini / grok / opencode / hermes / cc cli / cc desktop | 各自平台规则 | 由 cc-switch 分发 | 平台自有 |
-
-> 三级加载策略以本文件为唯一事实来源；各工具用户级规则文件只需引用本文件（见 §六），不必复制索引内容。
+---
 
 ## 一、三级加载策略（核心）
 
