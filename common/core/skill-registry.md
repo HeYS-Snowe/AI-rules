@@ -43,8 +43,8 @@ L3 按需索引    —— 其余全部：任务匹配本文件触发条件时，
 | Skill | 触发场景 |
 |-------|----------|
 | verification-before-completion | 宣称完成/修复/通过前，必须有验证证据 |
-| systematic-debugging / diagnose | 任何 bug、测试失败、意外行为 |
-| tdd / test-driven-development | 测试优先开发、red-green-refactor |
+| systematic-debugging / diagnosing-bugs | 任何 bug、测试失败、意外行为 |
+| tdd | 测试优先开发、red-green-refactor |
 | brainstorming | 任何新功能/组件/行为设计前的需求探索 |
 | using-superpowers / using-git-worktrees | 工作流引导、隔离工作区 |
 | create-skill / skill-digester / find-skills | skill 创建/优化/检索 |
@@ -80,7 +80,7 @@ L3 按需索引    —— 其余全部：任务匹配本文件触发条件时，
 | split-to-prs | 拆分工作为小 PR |
 | subagent-driven-development | 子代理驱动开发 |
 | writing-for-agents | 写面向代理的文档/规则 |
-| grill-me / grilling / wait-what / teach | 追问打磨、教学 |
+| grilling / wait-what / teach | 追问打磨、教学 |
 | setup-matt-pocock-skills | 配置 Matt Pocock 技能 |
 
 ### 3.3 前端 / 设计 / 动效
@@ -90,10 +90,10 @@ L3 按需索引    —— 其余全部：任务匹配本文件触发条件时，
 | gsap-core/timeline/scrolltrigger/plugins/utils/react/performance/frameworks | GSAP 动画（8 个） |
 | animate / animation-vocabulary / improve-animations / review-animations / find-animation-opportunities / pick-ui-library | 动画设计（emil 6 个） |
 | apple-design / emil-design-eng | 设计语言（emil） |
-| frontend-design / web-design-engineer / web-design-guidelines / high-end-visual-design / minimalist-ui / ui-ux-pro-max / design-taste-frontend | 前端/UI 设计 |
+| frontend-design / web-design-engineer / web-design-guidelines / minimalist-ui / ui-ux-pro-max / design-taste-frontend | 前端/UI 设计 |
 | industrial-brutalist-ui / theme-factory / stitch-design-taste / redesign-existing-projects | 风格/主题/重构 |
 | web-artifacts-builder / image-to-code / imagegen-frontend-web / imagegen-frontend-mobile / gpt-image-2 | 图片生成/代码还原 |
-| canvas / canvas-design / algorithmic-art / brandkit / brand-guidelines / gpt-taste | 视觉/品牌 |
+| canvas / canvas-design / algorithmic-art / brandkit / brand-guidelines | 视觉/品牌 |
 | website-to-design-md | 网页转 DESIGN.md 设计系统 |
 
 ### 3.4 WebGL / 3D / 动画实现
@@ -120,7 +120,7 @@ L3 按需索引    —— 其余全部：任务匹配本文件触发条件时，
 |-------|----------|
 | vercel-*（6 个：cli-with-tokens/optimize/react-best-practices/composition-patterns/react-native-skills/react-view-transitions） | Vercel 相关 |
 | deploy-to-vercel / vercel-cli-with-tokens | 部署 Vercel |
-| TRAE-code-review / TRAE-debugger / TRAE-security-review / TRAE-generate-mini-app | Trae 平台 |
+| TRAE-debugger / TRAE-security-review / TRAE-generate-mini-app | Trae 平台 |
 | claude-api / sdk / update-cli-config / update-cursor-settings / statusline | Claude/CLI 配置 |
 | migrate-to-skills / migrate-to-shoehorn / setup-pre-commit / scaffold-exercises / full-output-enforcement | 迁移/脚手架 |
 | handoff / loop-me（未装） | 交接/追问 |
