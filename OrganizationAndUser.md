@@ -248,7 +248,7 @@ AI经历:
 
 ### 6.3 工具与模型使用
 
-- 常用：CC（2025-11 至今近 1 年，主力）、codex、opencode、deepcode（官方版+个人定制 DeepGem）、Trae IDE/Work、Cursor（曾购两次 20$ 订阅用 Opus 4.6/5）、VM 中 OpenClaw——**随时切换**
+- 常用：CC（2025-11 至今近 1 年，主力）、**ChatGPT（Codex，2026-09 起新增——计费便宜）**、codex、opencode、deepcode（官方版+个人定制 DeepGem）、Trae IDE/Work、Cursor（曾购两次 20$ 订阅用 Opus 4.6/5）、VM 中 OpenClaw——**随时切换**
 - 模型轨迹：glm-4.5 → glm-5.3（flash 少用）、deepseek-v4 全系、Trae 支持模型
 - 意义：对话分散多工具，规则/资源库共享——蒸馏规则（§〇）存在的理由
 - 消费偏好：性价比优先；个人与赛事 key 分离
