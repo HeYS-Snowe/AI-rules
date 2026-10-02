@@ -185,6 +185,11 @@
 ### 6.1 项目地图（按来源分类；git remote 实测标注）
 
 ```yaml
+GitHub 仓库统计:
+  个人仓库总数: 18
+  真实活跃维护: 7
+  开源: 6
+  统计口径: 用户自述（2026-09-28，年度人物申请会话）
 项目来源:
   1_开源改造_自用:
     - D:\Code\Project\deepcode-cli          # DeepGem 本体（自有 repo）
@@ -197,7 +202,7 @@
     - D:\Code\Project\Lumina                # remote: 1010523654（曾用名 URL）
     - D:\Code\Project\Minecraft_Mod         # remote: 1010523654（曾用名 URL）
   3_学校比赛项目:
-    - D:\Code\Project\intelligent-laboratory-system   # 自有 repo；伴生产品 workbench（D:\Code\.Model\YOLO\Scripts\workbench）
+    - D:\Code\Project\intelligent-laboratory-system   # 团队比赛项目（2026-09-28 用户确认；个人申请材料中NEVER作为个人成果表述）；自有 repo；伴生产品 workbench（D:\Code\.Model\YOLO\Scripts\workbench）
     - D:\Code\Project\MindCare_AI           # remote: 1010523654（曾用名 URL）；三端（MiniApp+admin+backend）
     - D:\Code\Project\Campus_Sentinel
     - D:\Code\Project\Intelligent-Agent     # remote: 1010523654（曾用名 URL）
