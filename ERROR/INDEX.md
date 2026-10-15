@@ -9,6 +9,7 @@
 
 ### code
 
+- [vue-router-cached-bootstrap-failure](entries/vue-router-cached-bootstrap-failure.md) — 路由重定向后的重复守卫调用会重跑失败的 store 初始化；缓存错误终态直到显式重试
 - [inline-span-transform-ignored](entries/inline-span-transform-ignored.md) — 裸 span（非替换 inline）不可 transform，transform 计算值存在但被静默忽略，需 display:inline-block
 - [catch-comment-claims-phantom-mechanism](entries/catch-comment-claims-phantom-mechanism.md) — 空 catch 注释声称"由别处弹出"但该机制不存在——采信注释前先验证机制真实存在
 
@@ -84,6 +85,10 @@
 ### css / transform
 
 - [inline-span-transform-ignored](entries/inline-span-transform-ignored.md)
+
+### vue / vue-router
+
+- [vue-router-cached-bootstrap-failure](entries/vue-router-cached-bootstrap-failure.md)
 
 ### gitee / release
 
