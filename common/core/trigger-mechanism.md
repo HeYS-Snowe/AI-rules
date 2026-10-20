@@ -64,9 +64,10 @@ step 6  交互       无感行为静默结束；需确认行为在 step 0 前已
 | 项目 bug 记录 | 见 `workflow.md` §9.4 | `{项目根}/.issues/`（按 §三 解析） | §9.4 模板 | 无（README 维护统计） | 无感 |
 | AI 经验记录 | `workflow.md` §9.2（5 类场景） | `D:\Code\.Rules\ERROR\entries\` | `ERROR/README.md` 模板 | `ERROR/INDEX.md` | 无感 |
 | 改动文档 | `workflow.md` §12.1（5-10 次修改 / 版本迭代 / 用户要求） | `docs/changelog/`（无约定时） | §12.2-12.3 | 无 | **需确认**（先询问再生成） |
-| 提示词沉淀 | 会话后产生可复用高质量提示词 | `D:\Code\.prompt\{类型}\{标题}-{YYYYMMDD}\prompt.md` | `.prompt` 规范 | `.prompt\CLAUDE.md` 索引表 | 无感 |
-| 解决方案沉淀 | 解决了一个技术问题且方案可复用 | `D:\Code\.prompt\解决方案\{类型}\{问题标题}-{YYYYMMDD}\solution.md` | `.prompt` 规范 | `.prompt\CLAUDE.md` 索引表 | 无感 |
-| 项目审计待办 | 定期扫描发现项目健康问题（文档/git/版本） | `D:\Code\.Rules\docs\audit\{项目}\` | `docs/audit/README.md` 规范 | `docs/audit/README.md` 索引 | 无感（产出待办池） |
+| 提示词沉淀 | 会话中产出格式完整、可直接复制使用、不限于当前项目的提示词（判定：换个项目/会话还能直接用吗？能→记） | `D:\Code\.prompt\{类型}\{标题}-{YYYYMMDD}\prompt.md` | `.prompt` 规范 | `.prompt\CLAUDE.md` 索引表 | 无感 |
+| 解决方案沉淀 | 解决了含根因分析、同类环境再现仍会复现的技术问题（判定：同类问题再现时，这份记录是否省去重新排查？是→记；含失败尝试更要记） | `D:\Code\.prompt\解决方案\{类型}\{问题标题}-{YYYYMMDD}\solution.md` | `.prompt` 规范 | `.prompt\CLAUDE.md` 索引表 | 无感 |
+| 项目审计待办 | 会话内发现项目健康问题时（枚举：文档与代码脱节、git 异常状态、版本混乱、依赖失修） | `D:\Code\.Rules\docs\audit\{项目}\` | `docs/audit/README.md` 规范 | `docs/audit/README.md` 索引 | 无感（产出待办池） |
+| 意引引语映射 | 会话中出现意引补全或用户说出原句（识别信号见 compact-core §一.24：文白夹杂/对仗/异常凝练/经典母题/化用典故） | `D:\Code\.Rules\OrganizationAndUser.md` §6.7 | §6.7 表头 | 无 | 无感 |
 
 ## 五、注册新行为（扩展机制）
 
