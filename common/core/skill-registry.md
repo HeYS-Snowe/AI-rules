@@ -5,7 +5,7 @@
 
 ## 〇、工具适配（本机实际环境）
 
-> **SSOT（2026-09-28 起）**：`D:\Code\.AI-TOOLS\.skills` —— 159 个有效 skill 实体（+58 散文件）。
+> **SSOT（2026-09-28 起）**：`D:\Code\.AI-TOOLS\.skills` —— 203 个有效 skill 实体（+58 散文件）。
 > 以下路径均为指向 SSOT 的 **symlink 视图**，内容实时一致，增删 skill 只操作 SSOT：
 > `.agents/skills`（junction，AI Resource Hub 主副本）→ `D:\Code\.AI-TOOLS\.skills\{skill-name}`；`.ai-resource-hub/skills` = `.cc-switch/skills`（=`~/.deepcode/skills`）= `.claude/skills` = `.codex/skills`（应用软连接分发，同步方式已设为软连接）
 > 剔除/归档区：`D:\Code\.AI-TOOLS\_archived-skills\`（可恢复，zip 备份另在 Skill_zips）
@@ -84,10 +84,11 @@ L3 按需索引    —— 其余全部：任务匹配本文件触发条件时，
 | Skill | 触发条件 |
 |-------|----------|
 | gsap-core/timeline/scrolltrigger/plugins/utils/react/performance/frameworks | GSAP 动画（8 个） |
-| animate / animation-vocabulary / improve-animations / review-animations / find-animation-opportunities / pick-ui-library | 动画设计（emil 6 个） |
+| animate / animation-vocabulary / improve-animations / review-animations / find-animation-opportunities / pick-ui-library / animation-performance / mobile-native / break-ui / ask-sonner / animate-expo | 动画设计与动效工程（emil 11 个：曲线时长/词汇/审计/掉帧修复/移动端手感/极端数据测试/toast 指南/Expo 动效） |
 | apple-design / emil-design-eng | 设计语言（emil） |
 | frontend-design / web-design-engineer / web-design-guidelines / minimalist-ui / ui-ux-pro-max / design-taste-frontend | 前端/UI 设计 |
 | industrial-brutalist-ui / theme-factory / stitch-design-taste / redesign-existing-projects | 风格/主题/重构 |
+| landing-page-design | 落地页从零构建（intake 批量提问/页面结构/转化文案/视觉系统数值规则；redesign-existing-projects 的配套 skill，同作者 elayadesign——redesign 管改造、landing 管新建） |
 | web-artifacts-builder / image-to-code / imagegen-frontend-web / imagegen-frontend-mobile / gpt-image-2 | 图片生成/代码还原 |
 | canvas / canvas-design / algorithmic-art / brandkit / brand-guidelines | 视觉/品牌 |
 | website-to-design-md | 网页转 DESIGN.md 设计系统 |
@@ -99,6 +100,10 @@ L3 按需索引    —— 其余全部：任务匹配本文件触发条件时，
 | animate | 网页动画实现（emil） |
 | remotion-best-practices | Remotion 视频 |
 | web-video-presentation / slack-gif-creator | 视频/动图 |
+| threejs-webgl / react-three-fiber / babylonjs-engine / playcanvas-engine / pixijs-2d / aframe-webxr / spline-interactive / rive-interactive / lottie-animations / animejs / motion-framer / react-spring-physics / barba-js / locomotive-scroll / scroll-reveal-libraries / animated-component-libraries / lightweight-3d-effects / modern-web-design / web3d-integration-patterns / blender-web-pipeline / substance-3d-texturing | 3D/WebGL/动效库合集（claudedesignskills 21 个新增；gsap-scrolltrigger 为合集版覆盖 2026-08-04 旧版，带 assets/references） |
+| animated-chart / apple-launch-film / brand-intake / launch-video / loop-cover / milestone-reveal / model-showdown / motion-brief-writer / motion-effects / motion-prompt-writer / newsletter-promo / reel-export / reference-to-motion / title-sequence-3d / vox-explainer | Motion Graphics 代码生成视频（charlie947 15 个，"每一帧都是代码"，配 ffmpeg 导出 MP4） |
+| css-animation | CSS 动画功能演示（neonwatty） |
+| web-design-guidelines | Vercel 界面规范审查（vercel-labs/agent-skills，100+ 规则审 UI 可达性/性能/UX；2026-10-27 以官方新版覆盖） |
 | 拆解参考 | `libs\effects\`（流体/引力透镜/黑洞）+ `.prompt\前端\WebGL*` 提示词 |
 
 ### 3.5 文档 / 写作 / 办公
@@ -138,6 +143,7 @@ L3 按需索引    —— 其余全部：任务匹配本文件触发条件时，
 | beautiful-article / kb-retriever | 文章美化 / 知识库 |
 | prototype / template-skill / zoom-out | 原型 / 模板 / 全局视角 |
 | univer-cli | Univer 表格 |
+| write-swift | Swift/iOS 开发（随包附带，与前端设计无关，可删） |
 | 其他长尾 | 按 name 查 SKILL.md 的 description 判断 |
 
 ## 四、项目注册示例（L2）
