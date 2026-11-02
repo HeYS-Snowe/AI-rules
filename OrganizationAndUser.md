@@ -227,6 +227,8 @@ GitHub 仓库统计:
     - D:\Code\Project\麒麟OS-Agent比赛
     - D:\Code\Project\创新创业小组作业
     - D:\Code\Project\TerraScribe            # 慧勘智笔（TerraScribe）——2026 华北五省计算机应用大赛天津赛区，赛道一大模型与智能体应用；提交截止 2026-10-10，决赛 2026-11-14
+      # 2026-11-01 用户确认：企业真实需求项目；四人协作，用户为项目经理及 Gitee HeYS-Snowe/terra-scribe 仓库主人，同时负责智能体及 AI 相关设计，前端、后端各一人，第四人主要负责宣传相关内容、与代码关系不大；初赛已过，正准备国赛；初赛交付为 Demo，拟重设智能体与工作流，先逐个完成最小可用实例再组合。现阶段优先厘清协作规范和远端仓库整理方案。
+      # 2026-11-03 用户启用潮汐雁阵三 Agent 协作：用户直接管理 Codex（用户标识 GPT-6.1 Sol），Codex 指挥调度 DSH（DeepSeek Harness，用户标识 DeepSeek v4.1-Flash 1017）与 CC（Claude Code，用户标识 GLM-5.3-Flash）；默认由 Codex 写派遣单，用户截图/复制转交现有会话，保留需要时由本机 CLI 直接派遣并记录可查看过程的方式；执行方按 Codex 派遣回报，实际通道与模型运行状态另行核验。
   4_对AI的研究:
     - D:\Code\Project\ABL-Agent-Benchmark-Lab      # 多智能体基准测试
     - D:\Code\Project\Claude_Code-2.1.88           # CC 源码参考库
@@ -302,6 +304,8 @@ AI经历:
 
 - 常用：CC（2025-11 至今近 1 年，主力）、**ChatGPT（Codex，2026-09 起新增——计费便宜）**、codex、opencode、deepcode（官方版+个人定制 DeepGem）、**dsh（@deepseek-ai/dsh，2026-08 起实验——dsh-feishu-spike 插件即其生态；2026-10-19 全局规则 `~/.dsh/AGENTS.md` 建成，全局指令唯一入口，skills 经 `~/.agents/skills` symlink 直连 SSOT）**、Trae IDE/Work、Cursor（曾购两次 20$ 订阅用 Opus 4.6/5）、VM 中 OpenClaw——**随时切换**
 - 模型轨迹：glm-4.5 → glm-5.3（flash 少用）、deepseek-v4 全系、Trae 支持模型
+- 操作入口偏好：有 Desktop 先用 Desktop、无 Desktop 再用 CLI；唯一例外 CC 直接用 CLI（自认为 CC CLI 比 Desktop 好用，2026-11-03 自述、自称可能有偏见）
+- 协作编制（2026-11-03 定）：**Codex（GPT-6.1 Sol）= 编排者**——由用户直接管辖，负责指挥调度与派遣；**DSH（DeepSeek v4.1-Flash 1017）与 CC（Claude Code，GLM-5.3-Flash）= 执行者**，听从 Codex 派遣
 - 意义：对话分散多工具，规则/资源库共享——蒸馏规则（§〇）存在的理由
 - 消费偏好：性价比优先；个人与赛事 key 分离
 

@@ -9,9 +9,11 @@
 
 ### code
 
+- [check-then-write-race-atomic-create](entries/check-then-write-race-atomic-create.md) — 检查"不存在"与写入分离的并发覆盖：缺文件安装最终落盘必须用原子排他创建（硬链接 EEXIST），加检查不是修复
 - [vue-router-cached-bootstrap-failure](entries/vue-router-cached-bootstrap-failure.md) — 路由重定向后的重复守卫调用会重跑失败的 store 初始化；缓存错误终态直到显式重试
 - [inline-span-transform-ignored](entries/inline-span-transform-ignored.md) — 裸 span（非替换 inline）不可 transform，transform 计算值存在但被静默忽略，需 display:inline-block
 - [catch-comment-claims-phantom-mechanism](entries/catch-comment-claims-phantom-mechanism.md) — 空 catch 注释声称"由别处弹出"但该机制不存在——采信注释前先验证机制真实存在
+- [scroll-snap-container-mismatch](entries/scroll-snap-container-mismatch.md) — overflow 滚动容器与 JS 操纵的滚动器错位（scroll-snap 挂子容器而 JS 用 window.scrollTo），滚动静默失败
 
 ### config
 
@@ -23,10 +25,13 @@
 
 ### environment
 
+- [git-clone-schannel-proxy-not-routed](entries/git-clone-schannel-proxy-not-routed.md) — GitHub clone 中途 schannel 断连：本机代理在跑但 git 未配代理在裸连；先 netstat 探端口再对 github.com 域配 proxy
 - [windows-git-spawn-overhead](entries/windows-git-spawn-overhead.md) — Windows 循环内逐文件 spawnSync git 阻塞事件循环数秒，批量合并单进程
 - [pygame-mixer-forces-stereo](entries/pygame-mixer-forces-stereo.md) — pygame mixer 强制 stereo，get_raw 需去交错才可当单声道（写 WAV/喂 ASR 前先实测 get_init）
 - [flutter-gradle-init-repositories-conflict](entries/flutter-gradle-init-repositories-conflict.md) — 用户级 Gradle init 脚本全局注入仓库，与 Flutter included build 的 FAIL_ON_PROJECT_REPOS 冲突
 - [flutter-pub-cache-cross-drive-rename](entries/flutter-pub-cache-cross-drive-rename.md) — Windows 上 Pub 更新依赖缓存时临时包目录跨盘重命名失败，本地验证可在现有依赖可用时使用 `--no-pub`
+- [npm-ebusy-claude-exe-locked](entries/npm-ebusy-claude-exe-locked.md) — 运行中的 claude.exe 锁定文件导致 npm 全局更新报 EBUSY，先退出所有 Claude Code 会话再安装
+- [dsh-cli-credential-schema-generation-gap](entries/dsh-cli-credential-schema-generation-gap.md) — dsh CLI 与桌面版凭证 schema 代差（rc.6 只认平铺格式）；改共享凭证文件致桌面版崩溃——桌面版与 CLI 代码独立、数据共享，动前盘点所有读者
 
 ### ai-behavior
 
@@ -40,6 +45,7 @@
 
 - [node-symlink-isdirectory-false](entries/node-symlink-isdirectory-false.md) — Node 符号链接条目 isDirectory() 为 false，扫描需检查 isSymbolicLink()
 - [gitee-release-chinese-garbled](entries/gitee-release-chinese-garbled.md) — Gitee 发布四坑：令牌作 username、target_commitish、中文走 JSON 文件传输、附件 100MB 上限
+- [gsap3-className-plugin-removed](entries/gsap3-className-plugin-removed.md) — GSAP 3 移除 className 特殊属性，className 补间把 class 写成字面量 "+=on"（隐性错误，加类改用 classList + delayedCall）
 - [node-spawnsync-buffer-input](entries/node-spawnsync-buffer-input.md) — spawnSync encoding=buffer + 字符串 input 抛 ERR_UNKNOWN_ENCODING（被 catch 吞掉时静默失败）
 - [terminal-glyph-width-mismatch](entries/terminal-glyph-width-mismatch.md) — 终端字符宽度三方（Ink 测量/终端渲染/项目自算）不一致导致动画帧抖动，修复靠实测不靠猜测
 - [hidden-message-breaks-sequence-asserts](entries/hidden-message-breaks-sequence-asserts.md) — 新增隐藏消息打破角色序列断言，测试定位须 visibility 过滤
@@ -77,6 +83,10 @@
 ### flutter / windows
 
 - [flutter-pub-cache-cross-drive-rename](entries/flutter-pub-cache-cross-drive-rename.md)
+
+### npm / windows
+
+- [npm-ebusy-claude-exe-locked](entries/npm-ebusy-claude-exe-locked.md)
 
 ### terminal / unicode
 

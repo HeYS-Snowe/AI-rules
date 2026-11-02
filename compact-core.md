@@ -157,7 +157,7 @@
 | 版本管理、Changelog | `common/core/workflow.md` §8 | 版本管理 + 变更记录模板 |
 | 联网搜索/MCP 获取信息需持久化 | `common/core/workflow.md` §10 | 信息持久化规则 |
 | 生成改动文档 / 版本迭代总结 | `common/core/workflow.md` §12 | 改动文档格式（Bug 修复 + 功能更新模板） |
-| 多智能体协作（雁阵/潮汐调度，2~5 Agent 接力同一项目） | `common/core/multi-agent.md` | 潮汐雁阵 Tidal Echelon：状态源铁律、文件所有权、三态标注、交接三清单 |
+| 多智能体协作（雁阵/潮汐调度/主从编排，2~5 Agent 同一项目） | `common/core/multi-agent.md` | 潮汐雁阵 Tidal Echelon：状态源铁律、文件所有权、三态标注、交接三清单、主从编排派遣记录 |
 
 ### 错误与问题
 
@@ -204,7 +204,8 @@
 | `common/core/skill-registry.md` | 2026-10-27 |
 | `common/core/trigger-mechanism.md` | 2026-10-20 |
 | `ERROR/README.md` | 2026-08-13 |
-| `compact-core.md`（本文件） | 2026-11-01 |
+| `compact-core.md`（本文件） | 2026-11-03 |
+| `common/core/multi-agent.md` | 2026-11-03 |
 | `common/core/code-style.md` | 2026-05-11 |
 | `common/templates/custom-requirements.yaml` | 2026-05-07 |
 | `stacks/flutter/presets/flutter.yaml` | 2026-05-07 |
@@ -230,4 +231,4 @@
 
 ---
 
-*v3.9.6 · 精简核心版 · 更新于 2026-11-01 · 完整规则见 main.md*
+*v3.9.7 · 精简核心版 · 更新于 2026-11-01 · 完整规则见 main.md*
