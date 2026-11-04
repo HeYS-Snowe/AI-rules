@@ -89,6 +89,7 @@ L3 按需索引    —— 其余全部：任务匹配本文件触发条件时，
 | frontend-design / web-design-engineer / web-design-guidelines / minimalist-ui / ui-ux-pro-max / design-taste-frontend | 前端/UI 设计 |
 | industrial-brutalist-ui / theme-factory / stitch-design-taste / redesign-existing-projects | 风格/主题/重构 |
 | landing-page-design | 落地页从零构建（intake 批量提问/页面结构/转化文案/视觉系统数值规则；redesign-existing-projects 的配套 skill，同作者 elayadesign——redesign 管改造、landing 管新建） |
+| figma-designer | Figma 内设计（真变量/命名文本样式/auto layout 全绑定/组件全状态/Foundations 画板随 token 自更新）；**依赖官方 figma skills（figma-use 等，未装）与 Figma MCP（本机 Figma AI Bridge 已配置）**——依赖补齐前部分生效（2026-11-04 装，elayadesign） |
 | web-artifacts-builder / image-to-code / imagegen-frontend-web / imagegen-frontend-mobile / gpt-image-2 | 图片生成/代码还原 |
 | canvas / canvas-design / algorithmic-art / brandkit / brand-guidelines | 视觉/品牌 |
 | website-to-design-md | 网页转 DESIGN.md 设计系统 |
